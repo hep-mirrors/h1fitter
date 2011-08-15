@@ -101,14 +101,13 @@ DX_XML_FEATURE(OFF)
 DX_PDF_FEATURE(OFF)
 DX_PS_FEATURE(OFF)
 
-DX_INIT_DOXYGEN([$PACKAGE_NAME],[doxygen.cfg])
+#DX_INIT_DOXYGEN([$PACKAGE_NAME],[doxygen.cfg])
 
 # Output
 AC_CONFIG_FILES([src/Makefile
                  tools/H1FitterDrawResults/Makefile
                  tools/MakeLHAPDF/Makefile
                  FastNLO/src/Makefile
-                 doc/tex/Makefile
                  Makefile])
 AC_CONFIG_SUBDIRS([minuit DY RT HS])
 AC_OUTPUT
