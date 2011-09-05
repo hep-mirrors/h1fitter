@@ -22,7 +22,7 @@ e-Print: arXiv:0904.3513 [hep-ex]
 
 QCDNUM  ( evolution code )
 -------
-"Fast QCD Evolution and Convolution",
+"Fast QCD Evolution and Convolution", M. Botje,
 NIKHEF-10-002, May 2010. 74pp. 
 Published in Comput.Phys.Commun.182:490-532,2011. 
 e-Print: arXiv:1005.1481 [hep-ph]
@@ -52,6 +52,11 @@ Published in Eur.Phys.J.C30:1-32,2003.
 e-Print: hep-ex/0304003
 
 'HERAPDF': 
+"An NLO QCD analysis of inclusive cross-section and jet-production data from the zeus experiment"
+By ZEUS Collaboration (S. Chekanov et al.). DESY-05-050, Mar 2005. 37pp. 
+Published in Eur.Phys.J.C42:1-16,2005. 
+e-Print: hep-ph/0503274
+
 "Measurement of the Inclusive ep Scattering Cross Section at Low Q^2 and x at HERA"
 F.D. Aaron et al. DESY-08-171, 2009. 90pp. 
 Published in Eur.Phys.J.C63:625-678,2009. 
@@ -94,7 +99,7 @@ Frank Siegert, Pavel Starovoitov,  Mark Sutton. 2010. 33pp.
 Published in Eur.Phys.J.C66:503-524,2010. 
 e-Print: arXiv:0911.2985 [hep-ph]
 
-FastNLO (if FastNLO tables or reader are used)
+6) FastNLO (if FastNLO tables or reader are used)
 ---------------------------------------------
 "FastNLO: Fast pQCD calculations for PDF fits"
 T. Kluge, K. Rabbertz, M. Wobisch. DESY-06-186, FERMILAB-CONF-06-352-E, Sep 2006. 8pp. 
