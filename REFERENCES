@@ -57,12 +57,6 @@ By ZEUS Collaboration (S. Chekanov et al.). DESY-05-050, Mar 2005. 37pp.
 Published in Eur.Phys.J.C42:1-16,2005. 
 e-Print: hep-ph/0503274
 
-"Measurement of the Inclusive ep Scattering Cross Section at Low Q^2 and x at HERA"
-F.D. Aaron et al. DESY-08-171, 2009. 90pp. 
-Published in Eur.Phys.J.C63:625-678,2009. 
-e-Print: arXiv:0904.0929 [hep-ex]
-
-
 3) PDFStyle  (PDFStyle = 'XXXX')
 ----------------------------------
 'CHEB':
@@ -76,6 +70,14 @@ e-Print: arXiv:1009.6170 [hep-ph]
 By H1 Collaboration (C. Adloff et al.). DESY-03-038, Apr 2003. 54pp. 
 Published in Eur.Phys.J.C30:1-32,2003. 
 e-Print: hep-ex/0304003
+
+'HERAPDF':
+"Measurement of the Inclusive ep Scattering Cross Section at Low Q^2 and x at HERA"
+F.D. Aaron et al. DESY-08-171, 2009. 90pp. 
+Published in Eur.Phys.J.C63:625-678,2009. 
+e-Print: arXiv:0904.0929 [hep-ex]
+
+
 
 4) PDF Uncertainties ( Bands = True )
 -------------------------------------------------------------
