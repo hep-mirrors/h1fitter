@@ -485,13 +485,6 @@ c AS applgrid example
                   error = dsqrt(errorsta**2+errorunc**2)
                   
                   
-c                    if ((h1iset.eq.101).or.(h1iset.eq.102)
-c     $                    .or.(h1iset.eq.103).or.(h1iset.eq.104)) then
-c                        error = alpha(ipoint)
-c                     endif
-
-
-
                else if (ICHI2.eq.21) then
 ***   linear scaling
                   error = error*(abs(t/d))
@@ -569,13 +562,6 @@ c                     endif
                   errorunc = errorunc*(abs(t/d))
                endif
                error = dsqrt(errorsta**2+errorunc**2)
-
-               if ((h1iset.eq.101).or.(h1iset.eq.102)
-     $              .or.(h1iset.eq.103).or.(h1iset.eq.104)) then
-                  error = alpha(ipoint)
-               endif
-
-
 
             else if (ICHI2.eq.21) then
 ***   linear scaling
