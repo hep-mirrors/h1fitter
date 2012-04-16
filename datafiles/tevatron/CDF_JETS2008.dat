@@ -47,14 +47,14 @@
 ! Test of the data using HERAFitter: 85.00/72 (13p HERAPDF, RT FAST)
 !
 ! Support: please use the following e-mail
-!  h1fitter-help@desy.de
+!  herafitter-help@desy.de
 !
 !  November 2011
 !
 ! ==========================
 !
 &Data
-   Name = 'D0 ppbar jets'
+   Name = 'CDF inclusive jets'
    Reaction  = 'pp jets APPLGRID'
 ! please use exactly pp in the reaction although the process is ppbar
 
