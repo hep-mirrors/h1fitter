@@ -23,7 +23,7 @@ C Init evolution code:
 
          call Init_heavy_flavours
 
-         if (ewfit.gt.0) call eprc_init(.true.)
+c         if (ewfit.gt.0) call eprc_init(.true.)
       elseif(itheory.eq.1) then       
 c          here goes a call to non-DGLAP 
       endif
@@ -576,7 +576,7 @@ C---------------------------------------------------------
       end
 
       subroutine InitIntegratedNCXsectionDataset(IDataSet)
-      call eprc_init(.true.)    ! needed for running of alphaem
+c      call eprc_init(.true.)    ! needed for running of alphaem
       end
 
       subroutine InitReducedNCXsectionDataset(IDataSet)

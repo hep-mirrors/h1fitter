@@ -146,35 +146,6 @@ fi
 
 AM_CONDITIONAL([HAVE_ROOT],test $root_ok)
 
-#AC_F77_LIBRARY_LDFLAGS
-
-# Check for presence of pdfLaTeX
-AC_CHECK_PROG(PDFLATEX, pdflatex, pdflatex)
-if test -z "$PDFLATEX"; then
-  AC_MSG_WARN([Unable to create PDF version of the user manual.])
-fi
-
-# Check for presence of pdfLaTeX
-AC_CHECK_PROG(BIBTEX, bibtex, bibtex)
-if test -z "$BIBTEX"; then
-  AC_MSG_WARN([Unable to create PDF version of the user manual.])
-fi
-
-AM_CONDITIONAL([HAVE_PDFLATEX], test -n "$PDFLATEX")
-AM_CONDITIONAL([HAVE_BIBTEX], test -n "$BIBTEX")
-
-# DOXYGEN SUPPORT
-
-DX_HTML_FEATURE(ON)
-DX_CHM_FEATURE(OFF)
-DX_CHI_FEATURE(OFF)
-DX_MAN_FEATURE(OFF)
-DX_RTF_FEATURE(OFF)
-DX_XML_FEATURE(OFF)
-DX_PDF_FEATURE(OFF)
-DX_PS_FEATURE(OFF)
-
-DX_INIT_DOXYGEN([$PACKAGE_NAME],[doxygen.cfg])
 
 # Output
 AC_CONFIG_FILES([src/Makefile
@@ -183,16 +154,14 @@ AC_CONFIG_FILES([src/Makefile
                  tools/MakeLHAPDF/Makefile
                  FastNLO/src/Makefile
                  minuit/src/Makefile
-                 HS/src/Makefile
                  RT/src/Makefile
 		 DiffDIS/src/Makefile
 		 DIPOLE/src/Makefile
                  DY/src/Makefile
                  Hathor/src/Makefile
                  ACOT/src/Makefile
-                 ABKM/src/Makefile
+                 ABM/src/Makefile
                  NNPDF/src/Makefile
-                 doc/tex/Makefile
                  Makefile])
 # AC_CONFIG_SUBDIRS([])
 AC_OUTPUT

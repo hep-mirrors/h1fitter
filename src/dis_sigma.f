@@ -536,44 +536,28 @@ C     d-type (d + s + b) contributions
 c     for NC needs to combine F2p with F2m etc.        
 
       if(XSecType.eq.'NCDIS'.or.XSecType.eq.'CHARMDIS') then
-         if(EWFIT.eq.0) then
+
 C
 C EW couplings of the electron
 C
-            ve = -0.5d0 + 2.*sin2thw
-            ae = -0.5d0         
+         ve = -0.5d0 + 2.*sin2thw
+         ae = -0.5d0         
 
 C
 C and quarks
 C         
          
-            au = 0.5d0
-            ad = -0.5d0
+         au = 0.5d0
+         ad = -0.5d0
                   
-            vu = au - (4.d0/3.d0)*sin2thw
-            vd = ad + (2.d0/3.d0)*sin2thw
-         else
-            call wrap_ew(q2,sweff,deltar,cau,cad,cvu,cvd,polarity,charge)
-            sin2thw2 = 1.d0 - MW**2/MZ**2
-            sin2th_eff = 0.23134d0
-            xkappa = sin2th_eff/sin2thw
-            epsilon = xkappa -1.0
-            ve = -0.5d0 + 2.*sin2th_eff
-            ae = -0.5d0
-               
-            vu = cvu - (4.d0/3.d0)*epsilon*sin2thw2
-            vd = cvd + (2.d0/3.d0)*epsilon*sin2thw2
-            au = cau
-            ad = cad
-         endif
+         vu = au - (4.d0/3.d0)*sin2thw
+         vd = ad + (2.d0/3.d0)*sin2thw
          
          do i=1,npts
             
 C     Propagator factor PZ
             PZ = 4.d0 * sin2thw * cos2thw * (1.+Mz**2/Q2(i))
                
-C     modify propagator for EW corrections -- only for EW fit
-            if (EWfit.ne.0) PZ = PZ * (1.d0 - Deltar)
                
             PZ = 1./Pz
 C     EW couplings of u-type and d-type quarks at the scale Q2
