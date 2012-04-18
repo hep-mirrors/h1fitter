@@ -14,7 +14,7 @@
   CInfo    = 'sqrt(S)'
   IndexDataset = 22 
   Reaction  = 'pp jets APPLGRID'
-  TheoryInfoFile = 'datafiles/atlas/gridsNew/incljets_rapidity_08_12_R04_P2.root'
+  TheoryInfoFile = 'theoryfiles/atlas/Jets2010/R04/eta3.root'
   TheoryType     = 'applgrid' 
   Percent   = 50*True
 &END
