@@ -276,8 +276,14 @@ For support information, please visit  http://herafitter.hepforge.org/
   FastNLO table format can be still accessed with the help of APPLGRID (this is not
   tested in the HERAFitter enviroment though). The reader supports both flexible
   and non-flexible scales tables. For flexible tables, scales can be defined
-  through the CInfo mechanism in the data file. Below more details on different
-  data file variables are given.
+  through the CInfo mechanism in the data file. 
+
+  Two examples of jet data calculated by fastnlo are provided: 
+   - jet cross sections (datafiles/hera/oldfiles/H1_InclJets_HighQ2_99-00.dat)
+   - jet cross sections normalised to DIS cross sections 
+                             (datafiles/hera/H1_NormInclJets_HighQ2_99-07.dat)
+
+  Below more details on different data file variables are given.
 
       Reaction - for the fastnlo jet cross sections this should be 'FastNLO ep jets'
   or 'FastNLO ep jets normalised'. The latter refers to jet cross sections normalised
