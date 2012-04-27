@@ -20,6 +20,7 @@ M. Botje. Parts of the code were contributed by:
 -- DY LO+k-factor calculation from A. Sapronov
 -- PDF error estimation from J. Pumplin
 -- NNPDF reweighting tool from A. Guffanti (NNPDF)
+-- DIPOLE models (GBW, IIM)
 
 If the results obtained with the program are to be included in a scientific 
 publication, please use the citations as suggested by the REFERENCES file. 
@@ -34,7 +35,6 @@ For support information, please visit  http://herafitter.hepforge.org/
 0) Pre-requirements.
 ====================
 
--- GNU automake tools. Currently tested with autoreconf version 2.59 and newer
 
 -- QCDNUM version at least qcdnum-17-00/04, can be found at 
   http://mbotje.web.cern.ch/mbotje/qcdnum/Site/QCDNUM17.html
@@ -44,7 +44,7 @@ For support information, please visit  http://herafitter.hepforge.org/
 
 -- Optional: link to recent Root libraries (e.g. version 5.26)
 
--- Optional: APPLGRID
+-- Optional: APPLGRID, HATHOR, LHAPDF, NNPDFreweighting tool
 
 -- HERAFitter has been tested on various platforms: 
    SL4, SL5 (32 and 64 bit),  Ubuntu 10.10.
@@ -68,7 +68,15 @@ For support information, please visit  http://herafitter.hepforge.org/
 
     bin/FitPDF 
 
-1B) INSTALLATION (with APPLGRID)
+  d) Storing of the outputs: output/
+	- minuit.out.txt  			(minuit output)
+	- Results.txt 				(chiquare and the systematic shifts)
+	- lhapdf.block.txt			(ready to use LHAPDF style grids, run tools/tolhapdf.cmd)
+	- fittedresults.txt			(theore predictions for each fitted data point)
+	- pulls.first/last.txt			(pulls at the start and end of the fit)
+	- pdfs_q2val_0i.txt, i=1, user defined  (PDF sets atpredefined Q2 values, as set in the steering.txt)	
+
+1B) INSTALLATION with APPLGRID
 =================================
 
   a) Specify CERN_ROOT and QCDNUM_ROOT variables such that 
@@ -89,18 +97,51 @@ For support information, please visit  http://herafitter.hepforge.org/
 
     bin/FitPDF 
 
-1C) INSTALLATION (with Hathor)
+1C) INSTALLATION with Hathor
 =================================
 
   a) Download Hathor from http://www-zeuthen.desy.de/~moch/hathor/
      and install it according to the instructions given there
-     (requires LHAPDF library)
+      (requires LHAPDF library -- create a symbolic link to lhapdf: 
+	ln -s your_lhapdf_path  lhapdf)
 
   b) Define a variable HATHOR_ROOT such that $HATHOR_ROOT points to the
      directory of your Hathor installation
 
   c) Install the HERAFitter as described above but configuring it
      with the option "--enable-hathor" before building it
+
+
+1D) INSTALLATION with LHAPDF 
+============================================
+  a) include lhapdf-config in your PATH variable
+	(e.g. export PATH=/your/path/to/lhapdf/bin)
+  b) include libLHAPDF.so library in your LD_LIBRARY_PATH variable
+	(e.g. export LD_LIBRARY_PATH=/your/path/to/lhapdf/lib)
+  c) enable the lhapdf in the configure: ./configure --enable-lhapdf
+
+The lhapdf will be used if you change  PDFStyle = 'LHAPDF' in the steering card.
+
+
+1E) INSTALLATION with NNPDF reweighting tool
+============================================
+	- needs linking to LHAPDF 
+	README located in ./NNPDF directory
+
+
+
+1F) Modules such as 
+
+ - DIPOLE
+ - DiffDIS (Diffractive DIS)  
+ - DY (LO)
+ - heavy flavour schemes RT, ACOT, ABM 
+
+can be ran with simple INSTALLATION procedure as described above.
+Their activation is possible through the input steerings in the 
+steering.txt (use appropriate cards for that!)
+
+
 
 
 2) MINI DESCRIPTION
@@ -130,10 +171,10 @@ For support information, please visit  http://herafitter.hepforge.org/
 
 &InFiles
     NInputFiles = 4
-    InputFileNames(1) = 'datafiles/H1ZEUS_NC_e-p_HERA1.0.dat'
-    InputFileNames(2) = 'datafiles/H1ZEUS_NC_e+p_HERA1.0.dat'
-    InputFileNames(3) = 'datafiles/H1ZEUS_CC_e-p_HERA1.0.dat'
-    InputFileNames(4) = 'datafiles/H1ZEUS_CC_e+p_HERA1.0.dat'
+    InputFileNames(1) = 'datafiles/hera/H1ZEUS_NC_e-p_HERA1.0.dat'
+    InputFileNames(2) = 'datafiles/hera/H1ZEUS_NC_e+p_HERA1.0.dat'
+    InputFileNames(3) = 'datafiles/hera/H1ZEUS_CC_e-p_HERA1.0.dat'
+    InputFileNames(4) = 'datafiles/hera/H1ZEUS_CC_e+p_HERA1.0.dat'
 &End
 
     To include more files:
@@ -153,7 +194,7 @@ For support information, please visit  http://herafitter.hepforge.org/
    For example, a header for HERA-I combined H1-ZEUS data for e+p neutral 
    current scattering cross section is given in the file
 
-       datafiles/H1ZEUS_NC_e-p_HERA1.0.dat
+       datafiles/hera/H1ZEUS_NC_e-p_HERA1.0.dat
 
    The format of the file follows standard "namelist" conventions. Comments 
    start with exclamation mark.  Pre-defined variables are:
@@ -347,6 +388,8 @@ For support information, please visit  http://herafitter.hepforge.org/
       TheoryType -  Should be set to 'FastNLO'
 
 
+
+
   d) Minuit cards
 --------------------------
 
@@ -378,6 +421,9 @@ For support information, please visit  http://herafitter.hepforge.org/
  !  '10p H12000'  -- H12000-like (D,U,Dbar,Ubar+g)
  !  'CTEQ'        -- CTEQ-like parameterisation
  !  'CHEB'        -- CHEBYSHEV parameterisation based on glu,sea, uval,dval evolved pdfs
+ !  'LHAPDFQ0'    -- use lhapdf library to define pdfs at starting scale and evolve with local qcdnum parameters
+ !  'LHAPDF'      -- use lhapdf library to define pdfs at all scales
+ !  'DDIS'        -- use Diffractive DIS 
 
 IMPORTANT:
    Make sure that choosen minuit.in.txt corresponds to your selection in the steering.txt
@@ -437,9 +483,9 @@ hesse	     -> hessian estimate of the MINUIT parameters (more reliable than MINU
 - The output of the fit is stored in the output/ directory: minuit.out.txt
 
   Statements to watch in minuit.out.txt:
-  FCN=   588.64     -> this is total chisquare
+  FCN=   575.16     -> this is total chisquare
   FROM MIGRAD   STATUS=CONVERGED  -> this is desirable for a fit that converged
-  FCN=   588.64     FROM HESSE     STATUS=OK  --> this is desirable for a fit that converged 
+  FCN=   575.16     FROM HESSE     STATUS=OK  --> this is desirable for a fit that converged 
  						  and errors estimated with HESSE method
   EDM=  0.12E-04    STRATEGY= 1      ERROR MATRIX ACCURATE 
 
@@ -466,7 +512,7 @@ hesse	     -> hessian estimate of the MINUIT parameters (more reliable than MINU
   Several schemes are available for heavy quarks:
 
   -VFNS (Variable Flavour Number Schemes):
-     RT-VFS                                 [from Robert Thorne]
+     RT-VFS, Standard and Optimal           [from Robert Thorne]
      ZMVFNS                                 [qcdnum]   
      ACOT (ACOT-Full, ACOT-ZM, S-ACOT-Chi)  [from Fred Olness]
 
@@ -495,8 +541,17 @@ hesse	     -> hessian estimate of the MINUIT parameters (more reliable than MINU
   The quality of the fit can be judged based on total chi2 per degrees of freedom.
   It is printed for each iteration as 
                       Iteration   Chi2   NDF       Chi2/NDF
-   FitPDF f,ndf,f/ndf      3      588.64 579        1.02
+                           3      588.64 579        1.02
   
+  together with the PDFs:
+uv:    3.7171    0.6656    4.6522    0.0000    9.6938    0.0000    0.0000    0.0000    0.0000    0.0000
+dv:    2.1893    0.6656    4.2914    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+Ub:    0.1122   -0.1651    2.5820    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+Db:    0.1626   -0.1651    2.4048    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+GL:    6.7729    0.2138    9.0138    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+ST:    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+
+
   The resulting chi2 is reported for each data set and for correlated 
   systematic uncertainties separately. This information is printed and written
   to the output/Results.txt file. The Results.txt file contains additional 
