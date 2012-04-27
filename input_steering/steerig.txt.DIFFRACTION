@@ -7,8 +7,8 @@
  
   ! Input files:
 
-    InputFileNames(1) = 'datafiles/ZEUS-LRG_2009.dat'
-    InputFileNames(2) = 'datafiles/ZEUS-LPS_2009.dat'    
+    InputFileNames(1) = 'datafiles/hera/ZEUS_LRG_98-00.dat'
+    InputFileNames(2) = 'datafiles/hera/ZEUS_LPS_98-00.dat'    
   
 &End
 
@@ -24,11 +24,15 @@
 
  ! --- Scheme for heavy flavors :
  ! ---  HF_SCHEME = 'ZMVFNS'    : ZM-VFNS (massless),
- ! ---  HF_SCHEME = 'RT'        : Thorne-Roberts VFNS (massive)
+ ! ---  HF_SCHEME = 'RT'        :  Thorne-Roberts VFNS (massive)
  ! ---  HF_SCHEME = 'RT FAST'   : Fast approximate TR VFNS scheme, usign k-factor
+ ! ---  HF_SCHEME = 'RT OPT'        :  Thorne-Roberts VFNS (massive)
+ ! ---  HF_SCHEME = 'RT OPT FAST'   : Fast approximate TR VFNS scheme, usign k-factor
  ! ---  HF_SCHEME = 'ACOT Full' : ACOT - F.Olness Version (massive), using k-factors  
+ ! ---  HF_SCHEME = 'ACOT Chi' : ACOT - F.Olness Version (massive), using k-factors  
  ! ---  HF_SCHEME = 'ACOT ZM'   : ACOT - F.Olness Version (massless), using k-factors  
- ! ---  HF_SCHEME = 'FF' : Fixed Flavour Number Scheme from qcdnum
+ ! ---  HF_SCHEME = 'FF'        : Fixed Flavour Number Scheme (qcdnum)
+ ! ---  HF_SCHEME = 'FF ABM'    : Fixed Flavour Number Scheme (ABM)
 
   HF_SCHEME = 'RT'
 
@@ -54,7 +58,7 @@
   CHI2Style = 'Offset'
 
  ! Debug flag
-  LDEBUG     = True
+  LDEBUG     = False
 &End
 
 
@@ -77,7 +81,7 @@
   DoBands = False     
 
   ! -- Q2 values at which the pdfs & errors are done (up to 20)
-  Q2VAL = 1.9, 4., 10., 100., 6464, 8317 
+  Q2VAL = 1.9, 4., 10., 100., 6464, 8317, 120000 
 
   ! How many x points to write (standard = 101)
   OUTNX = 101
