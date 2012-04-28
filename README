@@ -10,9 +10,9 @@ precision QCD analyses of the combined HERA data sets.
 The current package includes code to fit DIS inclusive cross section 
 data, Drell-Yan, jet and ttbar processes (using APPLGRID, FastNLO and Hathor
 interfaces). The program is distributed under the GPL v3 license, see
-LICENCE file for more details. The program was developed initially by the H1 and ZEUS
-collaboration and extended since. It uses the QCD evolution package QCDNUM developed by
-M. Botje. Parts of the code were contributed by: 
+LICENCE file for more details. The program was developed initially by the
+H1 and ZEUS collaboration and extended since. It uses the QCD evolution 
+package QCDNUM developed by M. Botje. Parts of the code were contributed by: 
 
 -- VFNS from R. Thorne, G. Watt (MSTW)
 -- VFNS from F. Olness (ACOT)
@@ -42,12 +42,20 @@ For support information, please visit  http://herafitter.hepforge.org/
 -- CERNLIB. Note that for CERNLIB one can use /afs/ installation from CERN:
   /afs/cern.ch/sw/lcg/external/cernlib/
 
+   For debian-based linux (e.g. Ubuntu) CERNLIB can be installed using
+
+   sudo apt-get install cernlib
+
+   command.
+
 -- Optional: link to recent Root libraries (e.g. version 5.26)
 
 -- Optional: APPLGRID, HATHOR, LHAPDF, NNPDFreweighting tool
 
+   APPLGRID and NNPDF reweighting tool require Root to be installed
+
 -- HERAFitter has been tested on various platforms: 
-   SL4, SL5 (32 and 64 bit),  Ubuntu 10.10.
+   SL4, SL5 (32 and 64 bit),  Ubuntu 10.10, 11.10.
 
 1) INSTALLATION (without APPLGRID)
 ====================================
@@ -72,7 +80,7 @@ For support information, please visit  http://herafitter.hepforge.org/
 	- minuit.out.txt  			(minuit output)
 	- Results.txt 				(chiquare and the systematic shifts)
 	- lhapdf.block.txt			(ready to use LHAPDF style grids, run tools/tolhapdf.cmd)
-	- fittedresults.txt			(theore predictions for each fitted data point)
+	- fittedresults.txt			(theory predictions for each fitted data point)
 	- pulls.first/last.txt			(pulls at the start and end of the fit)
 	- pdfs_q2val_0i.txt, i=1, user defined  (PDF sets atpredefined Q2 values, as set in the steering.txt)	
 
@@ -151,10 +159,9 @@ steering.txt (use appropriate cards for that!)
     The software behaviour is controlled by two files with steering commands.
     These files have predefined names:
 
-      steering.txt   --  controls main "stable" (un-modified during 
-                         minimisation) parameters. The file also contains
-                         names of data files to be fitted to, definition 
-                         of kinematic cuts                        
+      steering.txt   --  controls main non-PDF parameters, program options. 
+                         The file also contains names of data files to be 
+                         fitted to, definition of kinematic cuts                        
                         
       minuit.in.txt  --  controls minimisation parameters and minimisation 
                          strategy. Standard Minuit commands can be provided
@@ -180,8 +187,12 @@ steering.txt (use appropriate cards for that!)
     To include more files:
        -- Increase NInputFiles
        -- Specify  InputFileNames()
+   
+   See also
 
+        input_steering/steerig.txt.ALLdata
 
+   for a list of all files included in the distribution
 
   c) Data files format 
 --------------------------
@@ -314,10 +325,13 @@ steering.txt (use appropriate cards for that!)
 
   In this subsection we describe data format specific for FastNLO implementation.
   The program included FastNLOReader for the new format tables (v. 2.0+). The old
-  FastNLO table format can be still accessed with the help of APPLGRID (this is not
-  tested in the HERAFitter enviroment though). The reader supports both flexible
-  and non-flexible scales tables. For flexible tables, scales can be defined
-  through the CInfo mechanism in the data file. 
+  FastNLO table format can be still accessed with the help of APPLGRID, see
+           datafiles/tevatron/D0_JETS.dat
+           datafiles/tevatron/CDF_JETS2008.dat
+  as  examples for an APPLGRID reader of a FastNLO table in the old format. 
+
+  The FastNLOReader supports both flexible  and non-flexible scales tables. 
+  For flexible tables, scales can be defined through the CInfo mechanism in the data file. 
 
   Two examples of jet data calculated by fastnlo are provided: 
    - jet cross sections (datafiles/hera/oldfiles/H1_InclJets_HighQ2_99-00.dat)
@@ -409,7 +423,7 @@ steering.txt (use appropriate cards for that!)
  Other options for minuit cards are stored in the input_steering/: 
 	- CTEQ minuit card
 	- CHEBYSHEV minuit card: uval, dval, Sea(=Ubar+Dbar), gluon
-	- H1PDF200 : U,D,Ubar,Dbar
+	- H1PDF200 : U,D,Ubar,Dbar        
 
   The following options can be selected from the steering.ttx  with a predefined string:
 	
@@ -425,7 +439,7 @@ steering.txt (use appropriate cards for that!)
  !  'LHAPDF'      -- use lhapdf library to define pdfs at all scales
  !  'DDIS'        -- use Diffractive DIS 
 
-IMPORTANT:
+XXXXXXXXXXXXXXXX   IMPORTANT:  XXXXXXXXXXXXXXXXXXXX
    Make sure that choosen minuit.in.txt corresponds to your selection in the steering.txt
 
 
