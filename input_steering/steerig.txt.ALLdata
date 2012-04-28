@@ -4,16 +4,24 @@
 &InFiles
   ! Number of intput files
 
- NInputFiles = 23
+ NInputFiles = 26
 
    InputFileNames =
+ !
+ ! H1 and ZEUS combined:
+ ! 
           'datafiles/hera/H1ZEUS_NC_e-p_HERA1.0.dat',
           'datafiles/hera/H1ZEUS_NC_e+p_HERA1.0.dat',
           'datafiles/hera/H1ZEUS_CC_e-p_HERA1.0.dat',
           'datafiles/hera/H1ZEUS_CC_e+p_HERA1.0.dat',
-          'datafiles/lhc/atlas/WZ2010/WP_applgrid_nnlo.dat'
-          'datafiles/lhc/atlas/WZ2010/WM_applgrid_nnlo.dat'
-          'datafiles/lhc/atlas/WZ2010/Z0_applgrid_nnlo.dat'
+
+ ! H1 jets:
+ !
+          'datafiles/hera/H1_NormInclJets_HighQ2_99-07.dat',
+ !
+ ! H1 low Ep inclusive:
+ !
+          'datafiles/hera/H1_LowEp_460_575.dat',
  !
  ! BCDMS:
  !
@@ -22,31 +30,20 @@
           'datafiles/bcdms/BCDMS_F2p.200gev.dat',
           'datafiles/bcdms/BCDMS_F2p.280gev.dat',
  !
- ! H1 jets:
- !
-          'datafiles/hera/oldfiles/H1_InclJets_HighQ2_99-00.dat',
-!          'datafiles/hera/oldfiles/H1_InclJets_LowQ2_99-00.dat',
-!          'datafiles/hera/H1_NormInclJets_HighQ2_99-00.dat',
-          'datafiles/hera/H1_NormInclJets_HighQ2_99-07.dat',
-! ZEUS jets:
-!          'datafiles/hera/ZEUS_InclJets_HighQ2_96-97.dat',
-!          'datafiles/hera/ZEUS_InclJets_HighQ2_98-00.dat',
- !
- ! H1 low Ep inclusive:
- !
-          'datafiles/hera/H1_LowEp_460_575.dat',
- !
  ! Tevatron:
  !
- !!         'datafiles/tevatron/D0_Z_Boson_Rapidity.dat',
+          'datafiles/tevatron/D0_Z_Boson_Rapidity.dat',
           'datafiles/tevatron/CDF_JETS2008.dat',
- !!         'datafiles/tevatron/CDF-TOP-CONF-NOTE-9913_prelim.dat',
+          'datafiles/tevatron/CDF-TOP-CONF-NOTE-9913_prelim.dat',
           'datafiles/tevatron/D0_JETS.dat',
  !
  ! LHC
  !
- !!         'datafiles/lhc/cms/CMS-TOP-11-024_prelim.dat',
- !!         'datafiles/lhc/cms/CMS_Z_boson_Rapidity.dat',
+          'datafiles/lhc/cms/CMS-TOP-11-024_prelim.dat',
+          'datafiles/lhc/cms/CMS_Z_boson_Rapidity.dat',
+ !
+ ! For atals jets, use R06 or R04 data, but never both at the same time !
+ !
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_00_03.dat'
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_03_08.dat'
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_08_12.dat'
@@ -54,7 +51,12 @@
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_21_28.dat'
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_28_36.dat'
           'datafiles/lhc/atlas/Jets2010/inclusivejets_R06_36_44.dat'
-
+ !
+ !  W/Z cross sections are given at NNLO !
+ !
+          'datafiles/lhc/atlas/WZ2010/WP_applgrid_nnlo.dat'
+          'datafiles/lhc/atlas/WZ2010/WM_applgrid_nnlo.dat'
+          'datafiles/lhc/atlas/WZ2010/Z0_applgrid_nnlo.dat'
 
 &End
 
@@ -90,7 +92,7 @@
  ! ---  HF_SCHEME = 'FF'        : Fixed Flavour Number Scheme (qcdnum)
  ! ---  HF_SCHEME = 'FF ABM'    : Fixed Flavour Number Scheme (ABM)
 
-  HF_SCHEME = 'RT'
+  HF_SCHEME = 'RT FAST'
 
 
  ! PDF parameterisation style. Possible styles are currently available:
@@ -115,6 +117,9 @@
 
  ! Debug flag
   LDEBUG     = False
+
+ ! PDF caching
+  CachePDFs = True
 &End
 
 
