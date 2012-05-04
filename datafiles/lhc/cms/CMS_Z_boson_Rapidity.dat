@@ -26,6 +26,8 @@
    TheoryType     = 'kfactor'
    NKFactor       = 1
    KFactorNames = 'Z0'
+
+   Percent   = False, False    ! absolute errors
 !y1   y2    Combined Normalized CS    d(Combined Normalized CS)
 &End
 0.0   0.1   0.337   0.010
