@@ -180,6 +180,14 @@ c               alm_mz = 1.d0 / 128.9d0
 c               alphaem_run = alm_mz/(1. - alm_mz * 2/(3.*pi)*log(q2(j)/mz**2))
 !               alphaem_run = aemrun(q2(j))
                alphaem_run=alphaem ! not a running alpha_em!
+
+
+               if (DATASETREACTION(IDataSet)
+     $              .eq.'FastNLO ep jets normalised') then
+                  alphaem_run = aemrun(q2(j))
+               endif
+               
+
                factor=2*pi*alphaem_run**2/(x(j)*q2(j)**2)*convfac
             else
                print *, 'GetIntegratedDisXsection, XSecType',XSecType,

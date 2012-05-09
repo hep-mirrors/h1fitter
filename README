@@ -19,6 +19,7 @@ package QCDNUM developed by M. Botje. Parts of the code were contributed by:
 -- FFNS from S. Alekhin (ABM)
 -- DY LO+k-factor calculation from A. Sapronov
 -- PDF error estimation from J. Pumplin
+-- alpha_QED running from H. Spiesberger
 -- NNPDF reweighting tool from A. Guffanti (NNPDF)
 -- DIPOLE models (GBW, IIM)
 

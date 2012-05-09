@@ -556,6 +556,9 @@ C
      $           .eq.'FastNLO ep jets normalised') then
             Call InitIntegratedNCXsectionDataset(IDataSet)
             Call InitJetsFastNLODataSet(IDataSet)
+
+            call eprc_init(.true.)
+
          elseif (DATASETREACTION(IDataSet).eq.'ttbar') then
             Call InitHathorDataSet(IDataSet)
          elseif (DATASETREACTION(IDataSet).eq.'DDIS') then

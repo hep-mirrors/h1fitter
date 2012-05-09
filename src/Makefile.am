@@ -65,6 +65,7 @@ LDADD+=  ../DY/src/libmydy.a\
  ../FastNLO/src/libFastNLO.a \
  ../DIPOLE/src/libmydipole.a \
  ../DiffDIS/src/libDiffDIS.a\
+ ../HS/src/libmyhs.a\
  ../interfaces/src/libinterfaces.a\
  ../minuit/src/libmyminuit.a $(CERNLIBS) @FLIBS@ \
   -lstdc++ 

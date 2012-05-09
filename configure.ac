@@ -162,6 +162,7 @@ AC_CONFIG_FILES([src/Makefile
                  ACOT/src/Makefile
                  ABM/src/Makefile
                  NNPDF/src/Makefile
+                 HS/src/Makefile
                  Makefile])
 # AC_CONFIG_SUBDIRS([])
 AC_OUTPUT
