@@ -782,7 +782,7 @@ C
      $        f2cRT,f2bRT,flRT,flcRT,flbRT
            ! Input:
      $          ,iFlagFCN,idx    ! fcn flag, data point index
-     $          ,F2Gamma,FLGamma
+     $          ,F2Gamma(i),FLGamma(i)
      $          ,UseKFactors
      $          )
 
