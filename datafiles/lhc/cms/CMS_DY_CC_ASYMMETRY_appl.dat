@@ -25,7 +25,6 @@
 
    Reaction  = 'CC pp'
    NKfactor = 0
-   NTheoryFiles = 2
    TheoryType  = 'applgrid', 'applgrid'   
    TheoryInfoFile = 'theoryfiles/cms/EWK-11-005/Wplus_eta4_muon.root',
                     'theoryfiles/cms/EWK-11-005/Wminus_eta3_muon.root'

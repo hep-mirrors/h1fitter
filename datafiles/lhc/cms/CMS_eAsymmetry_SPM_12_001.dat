@@ -26,7 +26,6 @@
 
    Reaction = 'CC pp'
    NKfactor = 0
-   NTheoryFiles = 2
    TheoryType  = 'applgrid', 'applgrid'   
    TheoryInfoFile = 'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wplus_eta4.root',
                     'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wminus_eta3.root'
