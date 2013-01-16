@@ -15,7 +15,7 @@
    NDATA = 28
    NColumn = 7 
    ColumnType = 2*'Bin','Sigma',4*'Error',
-   ColumnName = 'y1','y2','section','stat','sys','ignore','ignore'
+   ColumnName = 'y1','y2','section','stat','D0_yZ_2007_SystCorr','ignore','ignore'
 
 
    NInfo   = 6
