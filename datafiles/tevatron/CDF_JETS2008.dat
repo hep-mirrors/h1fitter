@@ -62,8 +62,8 @@
    NColumn = 30
 
    ColumnType = 4*'Bin','Sigma',2*'Error',2*'Bin',21*'Error'
-   ColumnName = 'EtaBinNumber','ignore','pt1','pt2','Sigma','stat','ignore','NPCorr','ignore', 'ignore','cdfsys1','cdfsys2','cdfsys3','cdfsys4','cdfsys5','cdfsys6','cdfsys7','cdfsys8','cdfsys9','cdfsys10',
-'cdfsys11','cdfsys12','cdfsys13','cdfsys14','cdfsys15','cdfsys16','cdfsys17','cdfsys18','cdfsys19','cdfsys20'
+   ColumnName = 'EtaBinNumber','ignore','pt1','pt2','Sigma','stat','ignore','NPCorr','ignore', 'ignore','CDF_Jets2008_sys1','CDF_Jets2008_sys2','CDF_Jets2008_sys3','CDF_Jets2008_sys4','CDF_Jets2008_sys5','CDF_Jets2008_sys6','CDF_Jets2008_sys7','CDF_Jets2008_sys8','CDF_Jets2008_sys9','CDF_Jets2008_sys10',
+'CDF_Jets2008_sys11','CDF_Jets2008_sys12','CDF_Jets2008_sys13','CDF_Jets2008_sys14','CDF_Jets2008_sys15','CDF_Jets2008_sys16','CDF_Jets2008_sys17','CDF_Jets2008_sys18','CDF_Jets2008_sys19','CDF_Jets2008_sys20'
 
    NInfo   = 1
    DataInfo = 1960.,  

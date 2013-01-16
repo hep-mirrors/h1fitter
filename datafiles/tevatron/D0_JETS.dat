@@ -19,7 +19,7 @@
    NDATA = 110
    NColumn = 32
    ColumnType ='Bin', 'Bin', 'Bin', 'Sigma', 'Error','Bin','Bin','Bin',24*'Error'
-   ColumnName = 'EtaBinNumber','pt1', 'pt2', 'Sigma Inclusive', 'stat', 'ignore', 'ignore','NPCorr','d0 uncor','d0 sys1','d0 sys2','d0 sys3','d0 sys4','d0 sys5','d0sys6','d0 sys7','d0 sys8','d0 sys9','d0 sys10','d0 sys11','d0 sys12','d0 sys13','d0 sys14','d0 sys15','d0 sys16','d0 sys17','d0 sys18','d0 sys19','d0 sys20','d0 sys21','d0 sys22','d0 sys23'
+   ColumnName = 'EtaBinNumber','pt1', 'pt2', 'Sigma Inclusive', 'stat', 'ignore', 'ignore','NPCorr','D0_Jets_uncor','D0_Jets_sys1','D0_Jets_sys2','D0_Jets_sys3','D0_Jets_sys4','D0_Jets_sys5','d0sys6','D0_Jets_sys7','D0_Jets_sys8','D0_Jets_sys9','D0_Jets_sys10','D0_Jets_sys11','D0_Jets_sys12','D0_Jets_sys13','D0_Jets_sys14','D0_Jets_sys15','D0_Jets_sys16','D0_Jets_sys17','D0_Jets_sys18','D0_Jets_sys19','D0_Jets_sys20','D0_Jets_sys21','D0_Jets_sys22','D0_Jets_sys23'
    NInfo   = 1
    DataInfo = 1960.,  
    CInfo    = 'sqrt(S)'
