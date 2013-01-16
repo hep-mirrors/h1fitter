@@ -4,11 +4,19 @@
   NColumn = 28
   ColumnType = 4*'Bin','Sigma','Error',22*'Error'
   ColumnName = 'pt1','pt2','YBinSize','NPCorr','Sigma','stat', 
-		'JES1_RelSys_3' , 'JES2_RelSys_9' , 'JES3_RelSys_15' , 'JES4_RelSys_21' , 'JES5_RelSys_27' , 'JES6_RelSys_31' , 
-         'JES7_RelSys_34' , 'JES8_RelSys_40' , 'JES9_RelSys_46' , 'JES10_RelSys_52' , 'JES11_RelSys_58' , 
-         'JES12_RelSys_64' , 'JES13_RelSys_70' , 'UnfClosureRelSys_74' , 'MatchingRelSys_75' , 'JERRelSys_78' , 
-         'YResoRelSys_82' , 'RecoEffRelSys_83' , 'atlas_lumi2010' , 'JESPileUp_RelSys_uncorr' , 'TriggerEffRelSys_uncorr' , 
-         'CleaningEffRelSys_uncorr'
+		'ATL_Jet2010_JES1_3' , 'ATL_Jet2010_JES2_9' , 
+	'ATL_Jet2010_JES3_15' , 'ATL_Jet2010_JES4_21' ,
+	 'ATL_Jet2010_JES5_27' , 'ATL_Jet2010_JES6_31' , 
+         'ATL_Jet2010_JES7_34' , 'ATL_Jet2010_JES8_40' , 
+	'ATL_Jet2010_JES9_46' , 'ATL_Jet2010_JES10_52' , 
+	'ATL_Jet2010_JES11_58' , 
+         'ATL_Jet2010_JES12_64' , 'ATL_Jet2010_JES13_70' , 
+	'ATL_Jet2010_UnfClo_74' , 'ATL_Jet2010_Match_75' , 
+	'ATL_Jet2010_JER_78' , 
+         'ATL_Jet2010_YReso_82' , 'ATL_Jet2010_RecoEff_83' ,
+	 'ATLAS_lumi2010' , 'ATL_Jet2010_uncor_JESPile' , 
+	'ATL_Jet2010_uncor_TEff' , 
+         'ATL_Jet2010_uncor_CleEff'
   NInfo   = 1
   DataInfo = 7000.
   CInfo    = 'sqrt(S)'
