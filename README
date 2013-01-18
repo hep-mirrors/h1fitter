@@ -61,7 +61,6 @@ For support information, please visit https://herafitter.org/HERAFitter
 
   b) Run:
 
-    autoreconf --install
     ./configure
     make 
     make install
@@ -92,7 +91,6 @@ For support information, please visit https://herafitter.org/HERAFitter
 
   b) Run:
 
-    autoreconf --install
     ./configure --enable-applgrid
     make 
     make install
