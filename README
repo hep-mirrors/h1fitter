@@ -37,8 +37,6 @@ For support information, please visit https://herafitter.org/HERAFitter
 0) Pre-requirements.
 ====================
 
--- GNU automake tools. Currently tested with autoreconf version 2.59 and newer
-
 -- QCDNUM version at least qcdnum-17-00/04, can be found at 
   http://mbotje.web.cern.ch/mbotje/qcdnum/Site/QCDNUM17.html
 
@@ -47,7 +45,7 @@ For support information, please visit https://herafitter.org/HERAFitter
 
 -- Link to recent Root libraries (e.g. version 5.26)
 
--- Optional: APPLGRID
+-- Optional: APPLGRID, LHAPDF, HATHOR
 
 -- HERAfitter has been tested on various platforms: 
    SL4, SL5 (32 and 64 bit),  Ubuntu 10.10, MacOXS
@@ -59,6 +57,14 @@ For support information, please visit https://herafitter.org/HERAFitter
      $CERN_ROOT/lib  and $QCDNUM_ROOT/lib point to the corresponding libraries
      ( e.g. export CERN_ROOT=/afs/cern.ch/sw/lcg/external/cernlib/2006a/x86_64-slc5-gcc43-opt)
 
+
+	*Installation for Mac Users it is easy if "fink" is installed:
+
+    export CERN_ROOT=/sw/
+
+
+* to compile qcdnum, add the follwoing in all makelibs, include: 
+ar -s ../lib/.....
   b) Run:
 
     ./configure
@@ -132,8 +138,14 @@ The lhapdf will be used if you change  PDFStyle = 'LHAPDF' in the steering card.
 	README located in ./NNPDF directory
 
 
+1F) INSTALLATION with CASCADE:
+	(contact Hannes Jung for guidance with CASCADE package)
 
-1F) Modules such as 
+	export CASCADE_ROOT=/Users/jung/jung/cvs/cascade2
+	export PYTHIA_ROOT=/Volumes/genser-light/MCGenerators/pythia6/425
+
+
+1G) Modules such as 
  - DIPOLE
  - DiffDIS (Diffractive DIS)  
  - DY (LO)
