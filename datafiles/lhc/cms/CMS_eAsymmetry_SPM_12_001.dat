@@ -14,10 +14,10 @@
    NColumn = 8
    
    ColumnType = 2*'Bin','Sigma',5*'Error'
-!  ColumnName = 'eta1','eta2','Asymmetry','stat',4*'uncor'
+   ColumnName = 'eta1','eta2','Asymmetry','stat',4*'uncor'
 !  ColumnName = 'eta1','eta2','Asymmetry','ignore',4*'uncor'
 !  ColumnName = 'eta1','eta2','Asymmetry','stat',4*'ignore'
-   ColumnName = 'eta1','eta2','Asymmetry','stat','corSY','corEn','corCh','corEff'
+!  ColumnName = 'eta1','eta2','Asymmetry','stat','corSY','corEn','corCh','corEff'
 
    NInfo   = 5
    DataInfo = 7000., 1, 35., 0., 100000.
