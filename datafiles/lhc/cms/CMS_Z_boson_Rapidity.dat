@@ -22,10 +22,14 @@
    
    IndexDataset = 32
 
-   TheoryInfoFile = 'theoryfiles/CMS_20111022_KFACTORSv1.dat'
-   TheoryType     = 'kfactor'
-   NKFactor       = 1
-   KFactorNames = 'Z0'
+ !  TheoryInfoFile = 'theoryfiles/CMS_20111022_KFACTORSv1.dat'
+ !  TheoryType     = 'kfactor'
+ !  NKFactor       = 1
+ !  KFactorNames = 'Z0'
+
+   NKfactor = 0
+   TheoryType  = 'applgrid'
+   TheoryInfoFile = 'theoryfiles/cms/CMS-EWK-10-010/grid-30-Z0_eta3.root'
 
    Percent   = False, False    ! absolute errors
 !y1   y2    Combined Normalized CS    d(Combined Normalized CS)
