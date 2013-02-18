@@ -70,6 +70,7 @@
  !  'LHAPDFQ0'    -- use lhapdf library to define pdfs at starting scale and evolve with local qcdnum parameters
  !  'LHAPDF'      -- use lhapdf library to define pdfs at all scales
  !  'DDIS'        -- use Diffractive DIS 
+ !  'BiLog'        -- bi-lognormal parametrisation 
 
   PDFStyle = '10p HERAPDF'
 
