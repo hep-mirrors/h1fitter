@@ -61,8 +61,20 @@ The best fit  results in a total of 10 free parameters when performing fits to s
 %%%%
 Flexible style is the extension of the ``HERAPDF style'' by allowing  extra $2$ free parameters for every PDF distribution, namely the $D$ and $E$ parameters for the medium $x$ region. It can be used to study the data sensitivity to PDFs. The total number of free parameters is therefore $22$.
 
+\subsection{Log-Normal Functional Form}
 
-\subsection{Chebyshev Polynomial}
+A log-normal distribution is proposed by \cite{AndreSchoenig} to parameterise the x-dependence of the parton density function of the proton.
+This new parameterisation
+is motivated by arguments of multi-particle statistics. 
+This function can be regarded as a generalisation of parameterisation commonly used by global fit groups.
+The following parameterisation as general ansatz is proposed:
+\begin{equation}
+xf(x)=x^{p-b\log(x)}(1-x)^{q-\log(1-x)}.
+\label{eq:AS}
+\end{equation}
+In order to satisfy the QCD sum rules this parametric form requires numerical integration.
+
+\subsection{Chebyshev Polynomial Functional Form}
 
 A flexible Chebyshev polynomials based parameterisation is used for the gluon and sea densities. The polynomials
 use $\log x$ as an argument to emphasise the low $x$ behaviour. 
@@ -80,7 +92,7 @@ sum rule can be evaluated analytically and  already for $N \ge 5$ the fit qualit
 is similar to a standard Regge-inspired parameterisation with a similar number of parameters.
 
 %==========================================
-\subsection {Diffractive parametrization}
+\subsection {Diffractive parametrization Functional Form}
 
 \subsubsection{Pomeron parametrisation}
 The Pomeron is parametrized at the initial
