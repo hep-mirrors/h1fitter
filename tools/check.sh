@@ -6,13 +6,13 @@
 rm -rf temp
 mkdir temp
 
-echo "----------------------------------------------------------"
+echo "========================================"
 echo "Running checks"
-echo "----------------------------------------------------------"
+echo "========================================"
 echo "validation test: "
 echo "PASS if code runs properly DIS code and produces HERAPDF1.0"
 echo "FAIL if code fails to reproduce HERAPDF1.0"
-echo "----------------------------------------------------------"
+echo "========================================"
 
 
 cp input_steering/minuit.in.txt.10pHERAPDF minuit.in.txt
@@ -28,13 +28,16 @@ diff temp/out.txt temp/def.txt
 exitcode=$?
 
 if [ $exitcode = 0 ]; then
+echo "========================================"
 echo "Check is fine"
+echo "========================================"
 else
+echo "========================================"
 echo -e "Failed validation with default steering"
-
+echo "========================================"
 exit 1
 fi 
-echo "----------------------------------------------------------"
+echo "========================================"
 
 rm -rf temp
 
