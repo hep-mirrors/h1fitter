@@ -694,87 +694,92 @@ which is expected to be the experimentally measured quantity.
 
 
 \subsubsection {Cross-section}
+\newcommand{\asotp}{\ensuremath{\frac{\alpha_{\rm s}}{2\pi}}}
+\newcommand{\Sgl}[1]{\ensuremath{\tilde f_{#1+}}}
+\newcommand{\Pom}{{I\!P}}
+\newcommand{\Reg}{{I\!R}}
 
-\beq
-  \frac{d\sigma}{d\beta\,dQ^2\,d\xP\,dt}
+
+\begin{equation}
+  \frac{d\sigma}{d\beta\,dQ^2,d\xi\,dt}
 =
   \frac{2\pi\alpha^2}{\beta Q^4}\,
-    \left( 1 +  (1-y)^2 \right) \sigRed^{D(4)}(\beta,Q^2,\xP,t)
+    \left( 1 +  (1-y)^2 \right) \ensuremath{\overline\sigma}^{D(4)}(\beta,Q^2,\xi,t)
 \label{Dxs}
-\eeq
-where the `reduced cross-section', \sigRed, is defined as
-\beq
-\label{eq:sigred}
-\sigRed
- = F_2 - \frac{y^2}{1 +  (1-y)^2}\, \FL
- = \FT + \frac{2(1-y)}{1 +  (1-y)^2}\, \FL
-\eeq
-Nb. $\xi$ is denoted by $x_\Pom$ in the H1 and ZEUS papers.
+\end{equation}
 
-The dimension of 
-\(
-F_k^{D(4)}(\beta,Q^2,\xP,t)\)
-is $\GeV^{-2}$
-and
-thus the quantities integrated over $t$
-\beq
-F_k^{D(3)}(\beta,Q^2,\xP)
+%\eeq
+where the ``reduced cross-section'' , $\overline\sigma$, is defined as
+
+\begin{equation}
+\overline\sigma^{D(4)}
+ = F_2^{D(4)} - \frac{y^2}{1 +  (1-y)^2}\, F_L^{D(4)}
+ = F_T^{D(4)} + \frac{2(1-y)}{1 +  (1-y)^2}\, F_L^{D(4)}
+\label{eq:sigred}
+\end{equation}
+
+The dimension of $F_k^{D(4)}(\beta,Q^2,\xi,t)$
+is $GeV^{-2}$ and thus the quantities integrated over $t$
+
+\begin{equation}
+F_k^{D(3)}(\beta,Q^2,\xi)
 \equiv
 \int_{t_{\rm min}}^{t_{\rm max}} dt
-F_k^{D(4)}(\beta,Q^2,\xP,t)
-\eeq
+F_k^{D(4)}(\beta,Q^2,\xi,t)
+\end{equation}
+
 are dimensionless.
 
 Maximum kinematically allowed value of $t$ reads
 \begin{equation}
 t_{\rm MAX} 
 =
--\frac{\xP^2 m_p^2 + p_\perp^2}{1-\xP}
+-\frac{\xi^2 m_p^2 + p_\perp^2}{1-\xi}
 \approx 
--\frac{\xP^2}{1-\xP} m_p^2
+-\frac{\xi^2}{1-\xi} m_p^2
 \end{equation}
 where $m_p$ is the proton mass.
 
-As $x = \xP\beta$ we can normalize to the standard DIS formula
+As $x = \xi\beta$ we can normalize to the standard DIS formula
 \begin{equation}
-\frac{d\sigma}{d\beta\,dQ^2\,d\xP\,dt} =
+\frac{d\sigma}{d\beta\,dQ^2\,d\xi\,dt} =
   \frac{2\pi\alpha^2}{x\, Q^4}\,
-    \left( 1 +  (1-y)^2 \right) \xP\sigRed^{D(4)}(\beta,Q^2,\xP,t)
+    \left( 1 +  (1-y)^2 \right) \xi\ensuremath{\overline\sigma}^{D(4)}(\beta,Q^2,\xi,t)
 \end{equation}
 which upon integration over $t$ reads
 \begin{equation}
 \label{Dxs3}
-  \frac{d\sigma}{d\beta\,dQ^2\,d\xP}
+  \frac{d\sigma}{d\beta\,dQ^2\,d\xi}
 =  
   \frac{2\pi\alpha^2}{x Q^4}\,
-    \left( 1 +  (1-y)^2 \right) \,\xi\sigRed^{D(3)}(\beta,Q^2,\xP)
+    \left( 1 +  (1-y)^2 \right) \,\xi\ensuremath{\overline\sigma}^{D(3)}(\beta,Q^2,\xi)
 \end{equation}
 
 
-The H1 and ZEUS data files typically contain $\xP\sigRed^{D(3)}$.
+The H1 and ZEUS data files typically contain $\xi\ensuremath{\overline\sigma}^{D(3)}$.
 
 %==========================================
 \subsubsection {Regge factorization}
-
 For better data description we include a contribution from a secondary Reggeon, $\Reg$,
-\beq
-F_k^{D(4)}(\beta,Q^2,\xP,t) = 
+\begin{equation}
+F_k^{D(4)}(\beta,Q^2,\xi,t) = 
 \sum_{\mathcal{X} =\Pom,\Reg}
-\phi_\mathcal{X}(\xP,t)\, F^\mathcal{X}_k(\beta,Q^2)
-\eeq
+\phi_\mathcal{X}(\xi,t)\, F^\mathcal{X}_k(\beta,Q^2)
+\end{equation}
+
 
 or
-\beq
+\begin{equation}
 \label{eq:FD3}
-F_k^{D(3)}(\beta,Q^2,\xP) = 
+F_k^{D(3)}(\beta,Q^2,\xi) = 
 \sum_{\mathcal{X} =\Pom,\Reg}
-\Phi_\mathcal{X}(\xP)\, F^\mathcal{X}_k(\beta,Q^2)
-\eeq
+\Phi_\mathcal{X}(\xi)\, F^\mathcal{X}_k(\beta,Q^2)
+\end{equation}
 where
 \begin{equation}
 \label{eq:intFlux}
-\Phi_{\mathcal{X}}(\xP) =
-\int\limits_{t_{\rm min}}^{t_{\rm max}} dt\, \phi_\mathcal{X}(\xP,t)
+\Phi_{\mathcal{X}}(\xi) =
+\int\limits_{t_{\rm min}}^{t_{\rm max}} dt\, \phi_\mathcal{X}(\xi,t)
 \,.
 \end{equation}
 
@@ -782,8 +787,8 @@ Parametrization of the fluxes
 \begin{subequations}
 \label{eq:flux}
 \begin{equation}
-\phi_\mathcal{X}(\xP,t) = 
-\frac {A_\mathcal{X}\, e^{b_\mathcal{X} t}} {\xP^{2\alpha_\mathcal{X}(t) -1}}
+\phi_\mathcal{X}(\xi,t) = 
+\frac {A_\mathcal{X}\, e^{b_\mathcal{X} t}} {\xi^{2\alpha_\mathcal{X}(t) -1}}
 \end{equation}
 where
 \begin{equation}
@@ -793,7 +798,7 @@ where
 \end{subequations}
 
 $F^\Reg_k(\beta,Q^2)$ are taken as those of the pion.
-%  with the normalization factor being absorbed in $\phi_\Reg(\xP,t)$.
+%  with the normalization factor being absorbed in $\phi_\Reg(\xi,t)$.
 
 %\input{./dpdfs.tex}        
 

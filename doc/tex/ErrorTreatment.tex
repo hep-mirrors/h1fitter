@@ -6,10 +6,10 @@
 
 \newcommand{\rs}{s}
 \newcommand{\ce}{b}
-\DeclareRobustCommand\Vstat{\ensuremath{V^{\mathrm{(unc)}}}\ssp}
-\DeclareRobustCommand\Vsys{\ensuremath{V^{\mathrm{(cor)}}}\ssp}
-\DeclareRobustCommand\mb[1]{\ensuremath{\mbox{\mathversion{bold}{$#1$}}}\ssp}
-\DeclareRobustCommand\mbs[1]{\ensuremath{\mbox{\mathversion{bold}{\scriptsize $#1$}}}\ssp}
+\DeclareRobustCommand\Vstat{\ensuremath{V^{\mathrm{(unc)}}}}
+\DeclareRobustCommand\Vsys{\ensuremath{V^{\mathrm{(cor)}}}}
+\DeclareRobustCommand\mb[1]{\ensuremath{\mbox{\mathversion{bold}{$#1$}}}}
+\DeclareRobustCommand\mbs[1]{\ensuremath{\mbox{\mathversion{bold}{\scriptsize $#1$}}}}
 
 \subsection {Correlated errors and \texorpdfstring{$\chi^2$}{chi2}}
 \label{sec:cor-chi2}
@@ -17,8 +17,7 @@
 % \cite{Chekanov:2002pv,Pascaud:1995qs}
 % A typical formula for $\chi^2$ depending on the correlated systematic errors' fluctuations reads
 Results of a measurement can be modelled as
-% (see \eg \cite{Stump:2001gu,Pascaud:1995qs})
-(see \eg \cite{Stump:2001gu,Botje:2001fx})
+(see eg.~\cite{Stump:2001gu,Botje:2001fx})
 \begin{equation}
 m_n = t_n(a) + r_n \sigma_n + \sum_{\mu=1}^K \rs_\mu \ce_{n\mu}
 \;,\quad n=1,\dots,N
@@ -92,7 +91,7 @@ with
 \,.
 \end{equation}
 
-This quadratic form in $\mb s$ allows for analytical integration of \Eq{eq:p_ms}
+This quadratic form in $\mb s$ allows for analytical integration of Eq~\ref{eq:p_ms}
 resulting in
 
 \begin{equation}
@@ -106,16 +105,16 @@ where
 \end{equation}
 % with constant $\mb A$ determined by $\mb\beta$ and $\mb\sigma$
 with $\mb A$ depending on $\mb\beta$ only
-(see \eg \cite{Stump:2001gu} Appendix B).
+(see eg. \cite{Stump:2001gu} Appendix B).
 
 % If we assume that $\rs_\mu$ are random variables with normal distribution, we have
 % \begin{equation}
 % \tilde\chi^2(\rs) = \sum_{\mu=1}^K \rs_\mu^2
 % \end{equation}
 % and we can integrate them out analytically.
-This is \eg the CTEQ approach described in \cite{Stump:2001gu}.
-It is worth noting that the solution \Eq{eq:chi_int} for $\chi^2$
-can be obtained by minimizing $\chi_{\mathrm c}^2(\mb\rs)$ of \Eq{eq:chi_c} wrt. $\mb\rs$.
+This is e.g. the CTEQ approach described in \cite{Stump:2001gu}.
+It is worth noting that the solution Eq.~\ref{eq:chi_int} for $\chi^2$
+can be obtained by minimizing $\chi_{\mathrm c}^2(\mb\rs)$ of Eq.~\ref{eq:chi_c} wrt. $\mb\rs$.
 
 % -----------------------------------
 \subsection{The Offset method}
@@ -128,7 +127,7 @@ of $\mb\rs$. %, $\mb a = \mb a(\mb\rs)$.
 We do not impose any particular statistical properties on $\mb\rs$ 
 and we take $\mb a(\mb\rs=0)$ as the ultimate fit result for the theory parameters. 
 The dependence on $\mb\rs$ is, however, used to determine
-the full error matrix of $\mb a$ (\cf \cite{Pascaud:1995qs}).
+the full error matrix of $\mb a$ (cf. \cite{Pascaud:1995qs}).
 
 The full covariance matrix $V$ reads
 \begin{equation}
@@ -164,14 +163,14 @@ and we calculate the derivatives as
 with $\mb a(\rs_\mu=\epsilon)$ resulting from
 fits to the data shifted by $\epsilon\ce_{n\mu}$.
 
-In the code we use $\epsilon=1$, \ie one standard deviation of
+In the code we use $\epsilon=1$, i.e. one standard deviation of
 the correlated error source which, in the ideal statistical limit, corresponds to 
 $\Delta\chi_1^2 = 1$.
 On the other hand, within the leading approximation, the value of $\epsilon$ is irrelevant.
 % in accordance to the standard Minuit normalization of $\Vstat$.
 
 If another error definition, $\Delta\chi_1^2 = \lambda$, 
-is adopted\footnote{E.g. Jon Pumplin uses $\lambda=5$, \cf \texttt{minuit/iterate.F}} then
+is adopted\footnote{E.g. Jon Pumplin uses $\lambda=5$, cf. \texttt{minuit/iterate.F}} then
 the full covariance matrix, $V$, must be scaled by $\lambda$. 
 
 
