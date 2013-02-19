@@ -1,4 +1,8 @@
+
 \label{sec:theory}
+\def\kt{\ensuremath{k_t}}
+\newcommand{\Pmax}{p}
+\newcommand{\CCFM}{CCFMa,CCFMb,Catani:1989sg,CCFMd}
 
 The main features of the QCD theory are the confinement
 (at short ranges the quarks are strongly bound inside protons)
@@ -31,8 +35,8 @@ The proton PDFs are extracted from the QCD fits by a measure of
 agreement between data and theory models.
 The fit procedure is common to all the processes and it consists first 
 in parametrising PDFs at a starting scale  $Q^2_0$, chosen to be below the charm mass threshold. 
-The PDFs are then evolved in the \fitter\ using 
-DGLAP~\cite{Gribov:1972ri,Gribov:1972rt,Lipatov:1974qm,
+The PDFs are then evolved in the \fitter\ using coupled, integro-differential
+Dokshitzer-Gribov-Lipatov-Altarelli-Parisi (DGLAP)~\cite{Gribov:1972ri,Gribov:1972rt,Lipatov:1974qm,
 Dokshitzer:1977sg,Altarelli:1977zs} evolution equations 
 as implemented in the QCDNUM~\cite{qcdnum} program, 
 at NLO~\cite{Curci:1980uw,Furmanski:1980cm} in the 
@@ -363,6 +367,11 @@ The pole mass scheme is typically employed for $m_t$ but HATHOR also supports ca
 the $\overline{\text{MS}}$ scheme.
 \subsection{Jets}
 \label{sec:theory:jets}
+In this subsection, the use of the factorisation formalism is fully exploited for the 
+calculations of the inclusive jets and dijet cross sections.
+This sections presents various fast tool techniques based on this concept.
+
+
 The calculation of higher order jet cross sections is very demanding
 in means of computing power. The reasons are the large number of contributing
 Feynman diagrams and also the large number of infrared divergencies.
@@ -401,8 +410,8 @@ the fastNLO table have to be specified. These tables include all
 necessary informations of the perturbative coefficients and the
 calculated process for all bins of a certain dataset. 
 Tables for almost all published jet measurements
-are available through the project website {\tt http://fastnlo.hepforge.org},
-or have otherwise to be calculated by using the full fastNLO package.
+are available through the project website {\tt http://fastnlo.hepforge.org}.
+%or have otherwise to be calculated by using the full fastNLO package.
 
 Features of the fastNLO concept are the very quick convolution of the
 perturbative coefficients with the PDFs of
@@ -422,9 +431,9 @@ QCDNUM evolution code.
 
 \subsubsection{APPLGRID}
 The APPLGRID~\cite{Carli:2010rw} package allows to compute a fast estimate
-of NLO cross section for particular processes for arbitrary set of 
+of NLO cross sections for particular processes for arbitrary set of 
 proton parton density functions. The package implements
-calculation of cross section of electroweak boson (\(Z,W\))
+calculations of Drell Yan cross sections of electroweak boson (\(Z,W\))
 production as well as jet production in proton-(anti)proton
 collisions and DIS processes. 
 
@@ -439,20 +448,21 @@ calculations.
 The look-up tables (grids) can be generated with modified versions of
 of MCFM~\cite{Campbell:1999ah,Campbell:2010ff} or 
 NLOjet++~\cite{Nagy:2001fj} software distributed
-with the full version of APPLGRID package. NLO calculations
-for the current analysis are performed with the help of APPLGRID
-generated grids based on MCFM calculations. 
+with the full version of APPLGRID package.
+% NLO calculations
+%for the current analysis are performed with the help of APPLGRID
+%generated grids based on MCFM calculations. 
 
-Run parameters
-and electroweak parameters are set in MCFM in a standard way
-via the input file and user's part of the code. 
-Binning and definitions of the observables for which the
+APPLGRID supports the interface to the MCFM parton level generators,
+hence the model input parameters such as electroweak parameters
+are in fact pre-set following the MCFM input steering card, while
+binning and definitions of the observables for which the
 differential cross sections are needed are set in the 
 APPLGRID code. 
 The grid parameters \(x_1, x_2\) and \(Q^2\) binning
 and interpolation orders are also defined in the code.
 
-APPLGRID performs construction of the look-up tables in two 
+APPLGRID performs construction of the grid tables in two 
 steps: {\it (i)} exploration of the phase space in order
 to optimize the memory storage and {\it (ii)} actual grid
 construction in the phase space corresponding to the 
@@ -474,44 +484,44 @@ if stated.
 %cross section, three of which are implemented in the fitter\. These are
 %the original model version (GBW)~\cite{Golec-Biernat:1998js}, a model based on the colour glass condensate approach
 %to the high parton density regime (IIM)~\cite{Iancu:2003ge}, and a modified GBW model by adding effects of the 
-Dipole picture provides an attractive approach to the virtual photon-proton scattering in the low $x$ region because it allows to describe inclusive and diffractive processes together. In this approach the virtual photon fluctuates into a $q\bar q$ (or $q\bar q g$ ....)  dipole which interacts with the proton~\cite{NNZ:91}.  The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long life time $\propto 1/m_p x\;$ and a size which is not changed by scattering. 
+The dipole picture provides an attractive approach to the virtual photon-proton scattering in the low $x$ region because it allows to describe inclusive and diffractive processes together. In this approach the virtual photon fluctuates into a $q\bar q$ (or $q\bar q g$)  dipole which interacts with the proton~\cite{NNZ:91}.  The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long life time $\propto 1/m_p x\;$ and a size which is not changed by scattering. 
 
-Several dipole models have been developed to describe various DIS reactions. They vary due to different assumption made about the behavior of the dipole cross sections.   In the \fitter\  three representative models  are implemented.
+Several dipole models have been developed to describe various DIS reactions. They vary due to different assumption made about the behavior of the dipole cross sections.   In the \fitter\  three representative models  are implemented:
 \begin{itemize}
-\item
-the original (GBW)~\cite{Golec-Biernat:1998js} dipole saturation model,
-\item
-  the colour glass condensate approach
-to the high parton density regime (IIM)~\cite{Iancu:2003ge},
-\item
-  a modified GBW model which takes into account the effects of  
-DGLAP evolution (BGK)~\cite{Bartels:2002cj}.
+\item the original Golec-Biernat-W\"usthoff (GBW)~\cite{Golec-Biernat:1998js} 
+dipole saturation model,
+\item the colour glass condensate approach to the high parton density 
+regime Iancu-Itakura-Munier (IIM) model~\cite{Iancu:2003ge},
+\item a modified GBW model which takes into account the effects of  
+DGLAP evolution Bartels-Golec-Kowalski(BGK)~\cite{Bartels:2002cj}.
 \end{itemize}
 %%%%
 \subsubsection{GBW model}
+
 In the GBW model the dipole-proton cross section $\sigma_{\text{dip}}$ is given by
 \begin{equation}
 \label{eGBW}
    \sigma_{\text{dip}}(x,r^{2}) = \sigma_{0} \left(1 - \exp \left[-\frac{r^{2}}{4R_{0}^{2}(x)} \right]\right),
 \end{equation}
-where $r$ corresponds to the transverse separation between the quark and the antiquark, and $R_{0}^{2}$ is 
+where $r$ corresponds to the transverse separation between the quark and the antiquark, and $R_{0}^{2}$
+ is 
 %an $x$ dependent scale parameter, having the form $R_{0}^{2}(x)=\left(x/x_{0}\right)^{\lambda}$.
 an $x$ dependent scale parameter which has a meaning of saturation radius,  $R_{0}^{2}(x)=\left(x/x_{0}\right)^{\lambda}$.
 The free fitted parameters are the cross-section normalisation $\sigma_{0}$ as well as $x_{0}$ and $\lambda$.
 %%%%
 \subsubsection{IIM model}
-The IIM model assumes an improved expression for dipole cross section which is based on the 
+The IIM model assumes an improved expression for the dipole cross section which is based on the 
 Balitsky-Kovchegov equation~\cite{Balitsky:1995ub}. The explicit formula for $\sigma_{\text{dip}}$ 
 can be find in~\cite{Iancu:2003ge}. The free fitted parameters are the alternative scale parameter $\tilde{R}$, $x_{0}$ and $\lambda$.
 %%%%
 \subsubsection{BGK model}
-%The BGK model modifies the equation (\ref{eGBW}) by incorporating the LO and NLO DGLAP evolution
-%of the gluon distribution. This leads to the expression for the dipole cross section
 The BGK model modifies the GBW model by taking into account the  DGLAP evolution
-of the gluon density. The dipole cross section is given by
+of the gluon density. 
+The dipole cross section is given by
 \begin{equation*}
 \label{eBGK}
-   \sigma_{\text{dip}}(x,r^{2}) = \sigma_{0} \left(1 - \exp \left[-\frac{\pi^{2} r^{2} \alpha_{s}(\mu^{2}) xg(x,\mu^{2})}{3 \sigma_{0}} \right]\right).
+   \sigma_{\text{dip}}(x,r^{2}) = \sigma_{0} 
+\left(1 - \exp \left[-\frac{\pi^{2} r^{2} \alpha_{s}(\mu^{2}) xg(x,\mu^{2})}{3 \sigma_{0}} \right]\right).
 \end{equation*}
 The factorization scale $\mu^{2}$ has the form $\mu^{2} = C_{bgk}/r^{2}+\mu^{2}_{0}$.
 %This model uses the following gluon density at the starting scale $Q_{0}^{2}=1\mbox{ GeV}^{2}$
@@ -521,60 +531,71 @@ In this model the gluon density, which  is parametrized  at some starting scale 
    xg(x,Q^{2}_{0}) = A_{g} x^{-\lambda_{g}}(1-x)^{C_{g}}.
 \end{equation*}
 is evolved to larger $Q^2$'s using LO and NLO DGLAP evolution.
-The free fitted parameters for this model are $\sigma_{0}$, $\mu^{2}_{0}$ and 3 parameters for gluon $A_{g}$, $\lambda_{g}$, $C_{g}$. The parameter $C_{bgk}$ is kept fixed: $C_{bgk} = 4.0$. 
+The free fitted parameters for this model are $\sigma_{0}$, $\mu^{2}_{0}$ and three parameters for the gluon density: $A_{g}$, $\lambda_{g}$, $C_{g}$. The parameter $C_{bgk}$ is kept fixed: $C_{bgk} = 4.0$. 
 %%%%
 %\newpage
 %\subsubsection{Mixed with DGLAP model}
 \subsubsection{BGK model with valence quarks}
-The dipole models are valid in the low-$x$ region only, where the valence quark contribution is small, of the order of 5\%. The new HERA $F_2$ data have a precision which better than 2 \%. Therefore in the \fitter\ the contribution of the valence quarks is taken from the pdf fits and added to the original 
- BGK model. The quality of the fits of the BGK dipole model with valence quarks and without valence quarks are the same.
-The default  initial parameters for the fit without valence quark are : 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|} 
-\hline 
-$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$\\
-\hline
-37.490 & 3.3446 & 0.0298 & 2.6302 & 4.0 & 15.362 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\\
-For the BGK dipole model fits with valence quarks the initial parameters and the obtained $\chi^2$ are:
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|c||c|} 
-\hline 
-No& 
-$Q^2$&&
-$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$& $Np$& $\chi^2$& $\chi^2/Np$\\
-\hline
-1 &
-$Q^2 \ge 3.5$ & NLO & 35.980 & 1.964 &-0.147& 3.068& 4.0 & 15.171 & 196& 245.74& 1.254 \\
-\hline
-2 &
-$Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92&  0.821 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+
+The dipole models are valid in the low-$x$ region only, where the valence quark contribution is small, of the order of 5\%. The new HERA $F_2$ data have a precision which is  better than 2 \%. Therefore in the \fitter\ the contribution of the valence quarks is taken from the PDF fits and added to the original 
+ BGK model, this is uniquely possible within the \fitter\ framework.
+ The quality of the fits of the BGK dipole model with valence quarks and without 
+valence quarks are the same. The sample input steering and output fits are discussed in the user example section.
+
+
+%The default  initial parameters for the fit without valence quarks are : 
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|} 
+%\hline 
+%$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$\\
+%\hline
+%37.490 & 3.3446 & 0.0298 & 2.6302 & 4.0 & 15.362 \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+%\\
+%For the BGK dipole model fits with valence quarks the initial parameters and the obtained $\chi^2$ are:
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|c||c|} 
+%\hline 
+%No& 
+%$Q^2$&&
+%$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$& $Np$& $\chi^2$& $\chi^2/Np$\\
+%\hline
+%1 &
+%$Q^2 \ge 3.5$ & NLO & 35.980 & 1.964 &-0.147& 3.068& 4.0 & 15.171 & 196& 245.74& 1.254 \\
+%\hline
+%2 &
+%$Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92&  0.821 \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table}
 %%%%%%%%%%%
 %\subsection{Unintegrated PDFs using CASCADE}
 \subsection{Transverse Momentum Dependent (unintegrated PDF) with CCFM}
 \label{TMD}
-\def\kt{\ensuremath{k_t}}
-\newcommand{\Pmax}{p}
-\newcommand{\CCFM}{CCFMa,CCFMb,Catani:1989sg,CCFMd}
-
-In high energy factorization \cite{Catani:1990eg} the cross section is written as a convolution of the partonic cross section $\hat{\sigma}(É \kt)$ which depends on the transverse momentum $\kt$ of the incoming parton with the $\kt$-dependent parton density function ${\cal \tilde A}\left(x,\kt,\Pmax\right)$ (transverse momentum dependent (TMD) or unintegrated uPDF):
+In this subsection another alternative approach to the collinear DGLAP evolution is presented.
+In high energy factorization \cite{Catani:1990eg} generally the measured cross section is written
+ as a convolution of the partonic cross section $\hat{\sigma}(É \kt)$ which depends on the transverse 
+momentum $\kt$ of the incoming parton with the $\kt$-dependent parton density function 
+${\cal \tilde A}\left(x,\kt,\Pmax\right)$ (transverse momentum dependent (TMD) or unintegrated uPDF):
 \begin{equation}
  \sigma  = \int 
-\frac{dz}{z} d^2k_t \hat{\sigma}(\frac{x}{z},k_t)  {\cal \tilde A}\left(x,\kt,\Pmax\right)\label{kt-factorisation}
+\frac{dz}{z} d^2k_t \hat{\sigma}(\frac{x}{z},k_t)  {\cal \tilde A}\left(x,\kt,\Pmax\right)
+\label{kt-factorisation}
 \end{equation}
 The evolution of ${\cal \tilde A}\left(x,\kt,\Pmax\right)$ 
-can proceed via the BFKL, DGLAP or via the CCFM evolution equations. Here, an extension of the CCFM \cite{\CCFM} evolution is applied. Since the evolution cannot be easily obtianed in  a closed form, 
- first a kernel $ {\cal \tilde A}\left(x'',\kt,\Pmax\right) $ is determined from the MC solution of the CCFM evolution equation, and then is folded with the non-perturbative starting distribution ${\cal A}_0 (x)$ \cite{Jung:2012hy}:
+can proceed via the BFKL, DGLAP or via the CCFM evolution equations.
+ Here, an extension of the CCFM \cite{\CCFM} evolution is applied. 
+Since the evolution cannot be easily obtained in  a closed form, 
+ first a kernel $ {\cal \tilde A}\left(x'',\kt,\Pmax\right) $ 
+is determined from the MC solution of the CCFM evolution equation, 
+and then is then folded with the non-perturbative starting distribution 
+${\cal A}_0 (x)$ \cite{Jung:2012hy}:
 \begin{eqnarray}
 x {\cal A}(x,\kt,\Pmax) &= &x\int dx' \int dx'' {\cal A}_0 (x) {\cal \tilde A}\left(x'',\kt,\Pmax\right)  \delta(x' \cdot x'' - x) \\
 &= &\int dx' \int dx'' {\cal A}_0 (x) {\cal \tilde A}\left(x'',\kt,\Pmax\right) \frac{x}{x'} \delta(x'' - \frac{x}{x'}) \\
@@ -586,26 +607,38 @@ x {\cal A}(x,\kt,\Pmax) &= &x\int dx' \int dx'' {\cal A}_0 (x) {\cal \tilde A}\l
 %{\cal \tilde A} & = & {\cal \tilde A'} \cdot f(k_{t\;0}) = {\cal \tilde A'} \cdot  \exp\left[ 
 %-\frac{(\mu-k_{t\;0})^2}{\sigma^2}\right]
 %\end{eqnarray}
-The kernel  ${\cal \tilde A}$ includes all the dynamics of the evolution, Sudakov form factors and splitting functions and is determined in a grid of $50\otimes50\otimes50$ bins in $x,\kt,\Pmax$.  
+The kernel  ${\cal \tilde A}$ includes all the dynamics of the evolution,
+ Sudakov form factors and splitting functions and is determined in 
+a grid of $50\otimes50\otimes50$ bins in $x,\kt,\Pmax$.  
 
-The calculation of the cross section according to eq.(\ref{kt-factorisation}) involves a multidimensional Monte Carlo integration which is time consuming and suffers from numerical fluctuations, and cannot be used directly in a fit procedure involving the calculation of numerical derivates in the search for the minimum. Instead the following procedure is applied:
+The calculation of the cross section according to Eq.(\ref{kt-factorisation})
+ involves a multidimensional Monte Carlo integration which is time consuming
+ and suffers from numerical fluctuations, and cannot be used directly in a fit
+ procedure involving the calculation of numerical derivates in the search for the minimum. 
+Instead the following procedure is applied:
 \begin{eqnarray}
 \sigma_r(x,Q^2) & = & \int_x^1 d x_g {\cal A}(x_g,\kt,\Pmax) \hat{ \sigma}(x,x_g,Q^2) \\
   & = & \int_x^1 dx' {\cal A}_0 (x') \cdot \tilde{ \sigma}(x/x',Q^2) \label{final-convolution}
  \end{eqnarray}
 
-The kernel ${\cal \tilde A}$ has to be provided separately and is not calculable within this program. The starting distribution  ${\cal A}_0$  at the starting scale $Q_0$ of the following form is used:
+The kernel ${\cal \tilde A}$ has to be provided separately and is not
+ calculable within this program. The starting distribution  ${\cal A}_0$ 
+ at the starting scale $Q_0$ of the following form is used:
 \begin{eqnarray}
 x{\cal A}_0(x,\kt) &=& N x^{-B_g} \cdot (1 -x)^{C_g}\left( 1 -D_g x\right) 
 \label{a0}
 \end{eqnarray}
 with free parameters $N,\, B_g,\, C_g,\, D_g$. 
+In the present version, only the transverse momentum dependent gluon distribution 
+can be obtained from the fit. 
 
-In the present version, only the transverse momentum dependent gluon distribution can be obtained from the fit. 
-
-The calculation of the $ep$ cross section follows eq.(\ref{kt-factorisation}), with the off-shell matrix element including quarks masses taken from \cite{Catani:1990eg} in its implementation in {\tt CASCADE} \cite{Jung:2010si} .In addition to the boson gluon fusion process, also valence quark initiated $\gamma q\to q$ processes are included, with the valence quarks taken from~\cite{Deak:2010gk}.
-
-Please note that in the present version only DIS $ep$ processes can be used to determine the transverse momentum dependent (uPDF) gluon density distribution.
+The calculation of the $ep$ cross section follows eq.(\ref{kt-factorisation}), 
+with the off-shell matrix element including quarks masses taken from \cite{Catani:1990eg} 
+in its implementation in {\tt CASCADE} \cite{Jung:2010si}.
+In addition to the boson gluon fusion process, also valence quark initiated 
+$\gamma q\to q$ processes are included, with the valence quarks taken from~\cite{Deak:2010gk}.
+Please note that in the present version only DIS $ep$ processes can be used
+ to determine the transverse momentum dependent (uPDF) gluon density distribution.
 
 %%%%%%%%%%%
 \subsection{Diffractive PDFs}
