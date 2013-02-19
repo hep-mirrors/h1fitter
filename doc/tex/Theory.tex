@@ -1,60 +1,128 @@
 \label{sec:theory}
-The \fitter\ program uses currently as standard the DGLAP~\cite{Gribov:1972ri,Gribov:1972rt,Lipatov:1974qm,Dokshitzer:1977sg,Altarelli:1977zs}
- evolution equations as implemented in the QCDNUM~\cite{qcdnum} program. The fit 
-procedure begins with parameterising the input PDFs at the starting 
-scale $Q^2_0$ which should be chosen to be below the charm mass threshold
-$m_C^2$.
-The PDFs are then evolved using the DGLAP evolution equations  
-at NLO~\cite{Curci:1980uw,Furmanski:1980cm} in the $\overline{\text{MS}}$ scheme.
+
+The main features of the QCD theory are the confinement
+(at short ranges the quarks are strongly bound inside protons)
+and asymptotic freedom (at large scales the coupling constant 
+of strong force decreases and quarks become quasi-free partons).
+Therefore, factorisation theorem exploits these features by 
+separating the short and long distances processes, so that 
+structure functions can be written as a convolution product 
+between calculable parts (hard scattering coefficients) and 
+non-calculable parts, which are therefore parametrised (PDFs) 
+and determined from data.
+
+Factorisation is most rigorously established for deep inelastic 
+lepton-hadron scattering. For hadronic processes 
+in which a colorless electroweak final state is produced (i.e. Higgs,
+ a real or virtual $W$, $Z$ or $\gamma$) factorisation is also well established
+and currently available up to NNLO in perturbation theory at the 
+differential level.
+
+Factorisation is also proving to work for
+sufficiently inclusive colored final
+states, such as the one-jet and dijet cross section.
+In this case no fully rigorous all-order argument is really
+available, but no counterexample to factorisation has ever been found either.
+
+Even for the diffractive case, two factorisations are used here, one is the Regge factorisation
+and one the collinear factorisation for the hard scattering. 
+
+The proton PDFs are extracted from the QCD fits by a measure of 
+agreement between data and theory models.
+The fit procedure is common to all the processes and it consists first 
+in parametrising PDFs at a starting scale  $Q^2_0$, chosen to be below the charm mass threshold. 
+The PDFs are then evolved in the \fitter\ using 
+DGLAP~\cite{Gribov:1972ri,Gribov:1972rt,Lipatov:1974qm,
+Dokshitzer:1977sg,Altarelli:1977zs} evolution equations 
+as implemented in the QCDNUM~\cite{qcdnum} program, 
+at NLO~\cite{Curci:1980uw,Furmanski:1980cm} in the 
+$\overline{\text{MS}}$ scheme.
 %The renormalisation and factorisation scales are set to $Q^2$. 
-The LO and NNLO evolutions are also provided by the QCDNUM and can be 
+The LO and NNLO evolutions are also provided by the QCDNUM and can also be 
 selecteed via the steering parameters in \fitter\ . 
-
-The cross-section predictions are obtain by convoluting the PDFs with the 
-hard scattering coefficient functions. For the DIS processes, those are calculated 
-using the Fixed-Flavour number (FFN)~\cite{Laenen:1992,Laenen:1993,Riem:1995} or 
-the general mass Variable-Flavour number (VFN) schemes. 
-The program implements the zero mass variable flavour number (ZMVFN) scheme from QCDNUM.
-
-%The various treatments for the heavy quark thresholds are implemented as provided by the MSTW group
-The VFN schemes with various treatments for the heavy quark thresholds are implemented in \fitter\ 
-as provided by the MSTW group
-- the RT scheme with its variants at NLO and NNLO ~\cite{Thorne:1997ga,Thorne:2006qt}, 
-as provided by the CTEQ group - the ACOT scheme with its variants at LO and NLO, 
-as provided by the ABM group - the BMSN scheme at NLO and NNLO~\footnote{The BMSN scheme as provided by ABM group 
-currently is not yet fully implemented in \fitter\ .}. The fixed-flavour number scheme
-is available via the QCDNUM implementation and via the {\tt OPENQCDRAD~\cite{openqcdrad:page} } interface.
-Each of these schemes is briefly discussed in further details.
-
-The jet cross sections
-are calculated using APPLGRID or FastNLO. The program has two implementations
-for $pp$  Drell Yan processes: The first implementation uses
-calculations at LO which can be extended to NLO using k-factors,
-the second uses the APPLGRID interface.
-For thorough details of the theoretical modules we direct the user to read the provided references of these packages.
-
+In the following sections, the theoretical input for various processes is described,
+such as $ep$ DIS process in section \ref{dis}, $pp$ Drell-Yan process in section \ref{DY}. 
+For the jet cross sections calculations, \fitter\ uses  APPLGRID or FastNLO such as in section \ref{sec:theory:jets}.And in section \ref{ttbar} the $t\bar{t}$ cross sections are calculated based on the HATHOR package.
+Alternative approaches to collinear factorisation
+are also discussed, see sections \ref{dipole} for Dipole models and 
+\ref{TMD} for unintegrated PDFs.
+The diffractive PDFs are discussed as well in section \ref{diff}, i.e. PDFs
+in the context of the resolved Pomeron model to predict
+such processes as seminclusive diffractive scattering in DIS.
 
 %%%%%%%%%%%
-\subsection{DIS and Schemes}
+\subsection{Deep inelasticI Scattering Formalism and Schemes}
 %There are different approaches to the treatment of the heavy quark production. 
 %These include the fixed-flavour (FFN) and variable flavour number (VFN) schemes.
 %%%%
-\subsubsection{ZMVFNS}
+\label{dis}
+
+Main information on the structure function comes from
+the Deep Inelastic Scattering (DIS) 
+experiments which provide the cleanest approach 
+of probing the proton. 
+In the DIS process a lepton is scattered off the constituents of 
+the proton by a virtual exchange of neutral (NC) or charged (CC)
+ boson producing a hadronic shower and a scattered lepton in the
+final state. The DIS experiments are carried either on fixed targets 
+or at the collider facilities using electrons, muons or neutrinos 
+to probe the proton. The kinematic variables of a DIS process are the
+ negative squared four-momentum of the exchange boson, $Q^2$, the 
+scaling variable $x$, which can be related in the parton model to 
+the fraction of momentum carried by the struck quark, and the 
+inelasticity parameter $y$, which is the fraction of the energy 
+transferred to the hadronic vertex. 
+
+The cross-section predictions are obtain by convoluting the PDFs with the 
+hard scattering coefficient functions. 
+There are various approaches of dividing the structure functions 
+into calculable processes and PDFs.
+For the DIS processes, those are calculated using the Fixed-Flavour number 
+(FFN)~\cite{Laenen:1992,Laenen:1993,Riem:1995} or the general mass 
+Variable-Flavour number (GMVFN)~\cite{RobertThorne} schemes. 
+%\fitter\ implements the zero mass variable flavour number (ZMVFN) scheme
+% from QCDNUM and are discussed in the following subsections.
+In The FFN scheme, heavy quark contributions are explicitly included in the hard cross sections. 
+In the VFN scheme, PDFs for heavy quarks are introduced and the number of active flavors changes by one unit when a heavy quark threshold is crossed.
+
+
+%The various treatments for the heavy quark thresholds are implemented as provided by the MSTW group
 The evolution program QCDNUM~\cite{qcdnum} used in \fitter\ provides 
 the calculation of the deep inelastic structure functions in the zero-mass, 
 generalised mass and the fixed flavour number schemes. 
+The VFN schemes with various treatments for the heavy 
+quark  thresholds are implemented in\\ \fitter\ 
+as provided by the MSTW group
+- the Thorne Roberts (TR) scheme with its variants at NLO and 
+NNLO~\cite{Thorne:1997ga,Thorne:2006qt}, 
+as provided by the CTEQ group - the ACOT scheme
+ with its variants at LO and NLO, 
+as provided by the ABM group - the BMSN scheme at 
+NLO and NNLO~\footnote{The BMSN scheme as provided by ABM group 
+currently is not yet fully implemented in \fitter\ .}. 
+The fixed-flavour number scheme
+is available via the QCDNUM implementation and via the 
+{\tt OPENQCDRAD~\cite{openqcdrad:page} } interface.
+Each of these schemes is briefly discussed in further details.
+
+
+\subsubsection{Zero-Mass Variable Flavour Scheme}
+
 In the zero-mass variable flavour number scheme (ZM-VFNS) heavy quark densities are
-included into proton above quark masses but they are treated as massless in both,
+included in the proton for$Q^2>>m_h^2$ but they are treated as massless in both,
 the initial and final states.
 This scheme is accurate in the region where $Q^2$ is so much greater than $m_h^2$
-but becomes unreliable for $Q^2 \sim m_h^2$. \\
-The un-polarised DIS structure functions in ZM-VFN scheme are computed as a 
-convolution of the parton densities with zero-mass coefficient functions and 
-in \fitter\ are activated via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt}.
-%%%%
-\subsubsection{Thorne-Roberts scheme}
+but becomes unreliable for $Q^2 \sim m_h^2$. 
 
-The Thorne-Roberts (TR) scheme is a general-mass variable flavour number scheme (GM-VFNS) used as default for the MTSW PDF sets. GM-VFNS smoothly connect the two regions: scale below the heavy quark threshold and the scale above the heavy quark threshold. However, the definition is not unique.
+%The un-polarised DIS structure functions in ZM-VFN scheme are computed as a 
+%convolution of the parton densities with zero-mass coefficient functions and 
+%in \fitter\ are activated via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt}.
+%%%%
+\subsubsection{General Mass Variable Flavour Scheme: Thorne-Roberts scheme}
+
+The Thorne-Roberts (TR) scheme is a general-mass variable flavour number scheme (GM-VFNS)
+ used as default for the MTSW PDF sets. GM-VFNS smoothly connects the two regions: 
+scales below the heavy quark threshold and scales much above the heavy quark threshold. However, the definition is not unique.
 A GM-VFNS can be defined by demanding equivalence of the nf = n (FFNS) and nf = n+1 flavour (ZM-VFNS) descriptions above the transition point for the new parton distributions
 (they are by definition identical below this point), at all orders.
 
@@ -63,9 +131,14 @@ The calculations are available to NLO, NNLO order. However, a fast version of th
 
  
 %%%%
-\subsubsection{ACOT scheme}
+\subsubsection{General Mass Variable Flavour Scheme: ACOT scheme}
 
-The Aivazis-Collins-Olness-Tung scheme  belongs to the group of VFN factorization schemes that uses the renormalization method of Collins-Wilczek-Zee (CWZ).This scheme involves a mixture of the $\overline{\text{MS}}$ scheme for light partons (and for heavy partons if the factorisation scale is larger than the heavy mass)and the zero-momentum subtraction renormalization scheme for graphs with heavy quark lines (if factorisation scale is smaller than the mass of the heavy quark threshold).The DGLAP kernels and PDF evolution are pure MS-Bar. Definition of Subtractions is analogous to MS-Bar. Therefore, the ACOT scheme is considered to be a minimal extension of MS-Bar scheme.
+The Aivazis-Collins-Olness-Tung scheme  belongs to the group of VFN 
+factorisation schemes that uses the renormalization method of 
+Collins-Wilczek-Zee (CWZ) \cite{CWZ}.
+This scheme involves a mixture of the $\overline{\text{MS}}$ scheme 
+for light partons (and for heavy partons if the factorisation scale 
+is larger than the heavy mass)and the zero-momentum subtraction renormalization scheme for graphs with heavy quark lines (if factorisation scale is smaller than the mass of the heavy quark threshold).The DGLAP kernels and PDF evolution are pure MS-Bar. Definition of Subtractions is analogous to MS-Bar. Therefore, the ACOT scheme is considered to be a minimal extension of MS-Bar scheme.
 
 There are different variants of this scheme which are all incorporated in the \fitter\  framework and can be selected 
 via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt}.
@@ -153,7 +226,6 @@ as basic parameters together with the top and Higgs masses, besides the fine str
 The code provides the running of $\alpha$ using the most recent parametrisation
 of the hadronic contribution to $\Delta_\alpha$ \cite{Jegerlehner}, as well as an older 
 one from Burkhard.
-
 For the Drell Yan process there are independent treatments (such as SANC, FEWZ).
 
  
@@ -161,10 +233,17 @@ For the Drell Yan process there are independent treatments (such as SANC, FEWZ).
 
 \subsection{Drell Yan process}
 %%%%
+\label{DY}
 
 The calculatiosn of the Drell Yan processes are known for many observables up to  the NNLO order. For example, there are packages such as FEWZ, DYNNLO for NNLO, or MCFM for NLO calculations. However, due to the complicated nature of these calculation involving an increased number of diagrams with additional higher order, these calculations are too slow to be used iteratively in a fit.
 There are various methods to overcome this shortage: using the $k-factors$ approximation from lower to higher order,  or using the grid technique when available.
   
+ \fitter\ provides two implementations
+for $pp$  Drell Yan processes.
+ The first implementation uses calculations at LO which can be extended to NLO using k-factors,
+the second uses the APPLGRID interface.
+For thorough details of the theoretical modules we direct the user to read the provided references of these packages.
+
 
 The leading order Drell-Yan~\cite{Drell:1970wh,Yamada:1981mw} cross section 
 for the neutral current, triple differential in
@@ -241,6 +320,7 @@ These method are described in more details in sections \ref{sec:theory:jets}
 
 %%%%%%%%%%%
 \subsection{\texorpdfstring{$t\bar{t}$}{t-tbar} Cross Sections via {\tt HATHOR}}
+\label{ttbar}
 Top-quark pairs ($t\bar{t}$) are mainly produced via $gg$ fusion and
 $q \bar q$ annihilation. Furthermore, there are the $q q'$ and
 $q g$ production modes.
@@ -253,7 +333,8 @@ soft-gluon resummation \cite{Moch:2012mk}.
 The default choice for renormalization and factorization scale in $t \bar t$ production is the top-quark mass, $m_t$.
 The pole mass scheme is typically employed for $m_t$ but HATHOR also supports calculations in
 the $\overline{\text{MS}}$ scheme.
-\subsection{Jets}\label{sec:theory:jets}
+\subsection{Jets}
+\label{sec:theory:jets}
 The calculation of higher order jet cross sections is very demanding
 in means of computing power. The reasons are the large number of contributing
 Feynman diagrams and also the large number of infrared divergencies.
@@ -356,7 +437,7 @@ if stated.
 
 %%%%%%%%%%%
 \subsection{DIPOLE models}
-
+\label{dipole}
 %At low $x$ and low $Q^{2}$, virtual photon-proton scattering is described using the colour
 %dipole model formalism~\cite{NNZ:91}. Within this formalism, the scattering process is calculated as a fluctuation of the
 %photon into a quark-antiquark pair (dipole), with a lifetime $\propto\enskip 1/x$, which interacts with the proton.
@@ -452,7 +533,8 @@ $Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92& 
 \end{table}
 %%%%%%%%%%%
 %\subsection{Unintegrated PDFs using CASCADE}
-\subsection{TMD (unintegrated PDF) with CCFM}
+\subsection{Transverse Momentum Dependent (unintegrated PDF) with CCFM}
+\label{TMD}
 \def\kt{\ensuremath{k_t}}
 \newcommand{\Pmax}{p}
 \newcommand{\CCFM}{CCFMa,CCFMb,Catani:1989sg,CCFMd}
@@ -499,6 +581,7 @@ Please note that in the present version only DIS $ep$ processes can be used to d
 
 %%%%%%%%%%%
 \subsection{Diffractive PDFs}
+\label{diff}
 Diffractive DIS data are fitted within the 'proton vertex factorisation' approach where 
 the diffractive DIS is mediated by the exchange of hard Pomeron and a secondary Reggeon.
 The model supplied by the DiffDIS package provides values of the 'reduced cross section',
