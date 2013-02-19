@@ -78,8 +78,8 @@ hard scattering coefficient functions.
 There are various approaches of dividing the structure functions 
 into calculable processes and PDFs.
 For the DIS processes, those are calculated using the Fixed-Flavour number 
-(FFN)~\cite{Laenen:1992,Laenen:1993,Riem:1995} or the general mass 
-Variable-Flavour number (GMVFN)~\cite{RobertThorne} schemes. 
+(FFN)~\cite{Laenen:1992, Laenen:1993, Riem:1995} or the general mass 
+Variable-Flavour number (GMVFN)~\cite{VFN} schemes. 
 %\fitter\ implements the zero mass variable flavour number (ZMVFN) scheme
 % from QCDNUM and are discussed in the following subsections.
 In The FFN scheme, heavy quark contributions are explicitly included in the hard cross sections. 
@@ -120,14 +120,15 @@ but becomes unreliable for $Q^2 \sim m_h^2$.
 %%%%
 \subsubsection{General Mass Variable Flavour Scheme: Thorne-Roberts scheme}
 
-The Thorne-Roberts (TR) scheme is a general-mass variable flavour number scheme (GM-VFNS)
+The Thorne-Roberts (TR) scheme, (refered to it in the \fitter\ as RT scheme)
+is a general-mass variable flavour number scheme (GM-VFNS)
  used as default for the MTSW PDF sets. GM-VFNS smoothly connects the two regions: 
-scales below the heavy quark threshold and scales much above the heavy quark threshold. However, the definition is not unique.
-A GM-VFNS can be defined by demanding equivalence of the nf = n (FFNS) and nf = n+1 flavour (ZM-VFNS) descriptions above the transition point for the new parton distributions
+scales below the heavy quark mass scale ($Q^2<m_h^2$) and scales much above the heavy quark scale threshold ($Q^2>>m_h^2$). However, the definition is not unique.
+A GM-VFNS can be defined by demanding equivalence of the $n_f = n$ (FFNS) and $n_f = n+1$ flavour (ZM-VFNS) descriptions above the transition point for the new parton distributions
 (they are by definition identical below this point), at all orders.
 
-The TR scheme comes in different variants depending on the treatment across the threshold of heavy quarks: TR standard (as used in MSTW PDF sets) and TR optimal, with a smoother transition across the heavy quark region. Both of these variants are accessible within the HERAFitter package.
-The calculations are available to NLO, NNLO order. However, a fast version of the scheme is available (i.e. RT FAST) by using the $k-factor$ technique. The $k-factors$ are applied at the first iteration of the minimisation process enabling the code to run fast, as the $k-factors$ are defined as ratio between massless and massive scheme, while massless scheme accessed via QCDNUM is very fast.
+The TR scheme comes in different variants depending on the treatment across the threshold of heavy quarks: TR standard (as used in MSTW PDF sets) and TR optimal, with a smoother transition across the heavy quark mass scales. Both of these variants are accessible within the \fitter\ package.
+The calculations are available to NLO, NNLO order. However, a fast version of the scheme is available (i.e. RT FAST) by using the $k-factor$ technique. The $k-factors$ are applied at the first iteration of the minimisation process enabling the code to run fast, as the $k-factors$ are defined as the ratio between massless and massive scheme, while the massless scheme accessed via QCDNUM is very fast.
 
  
 %%%%
@@ -138,24 +139,40 @@ factorisation schemes that uses the renormalization method of
 Collins-Wilczek-Zee (CWZ) \cite{CWZ}.
 This scheme involves a mixture of the $\overline{\text{MS}}$ scheme 
 for light partons (and for heavy partons if the factorisation scale 
-is larger than the heavy mass)and the zero-momentum subtraction renormalization scheme for graphs with heavy quark lines (if factorisation scale is smaller than the mass of the heavy quark threshold).The DGLAP kernels and PDF evolution are pure MS-Bar. Definition of Subtractions is analogous to MS-Bar. Therefore, the ACOT scheme is considered to be a minimal extension of MS-Bar scheme.
-
-There are different variants of this scheme which are all incorporated in the \fitter\  framework and can be selected 
-via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt}.
-
-
-Within ACOT package, different variants of the ACOT scheme are available:ACOT Full, ACOT-S, ACOT
-Chi,  $\overline{\text{MS}}$  at LO and NLO. For the longitudinal structure function higher order calculationas are also available. Each of these schemes have advantages and disadvantages, for example the ACOT Full though it fully takes intp account the quark masses and it reduces
-to  $\overline{\text{MS}}$  in the limit of masses going to zero, it has the disadvantage of being quite slow.
-Therefore the $k-factor$ technique has been addopted within the HERAfitter machinery to be able to perform QCD fits. The $k-factor$ where can be defined in two different ways. On one hand the ratio between same order calculations but massless vs massive (i.e. NLO (ZMVFNS)/NLO (ACOT). On the other hand one could speed up the calculations by defining the $k-factors$ as the ratio between LO (massless)/NLO (massive).
-Both options are available in the \fitter\ package and give similar results. For convergens of the $k-factors$ usually 2-3 iterations of complete fits are needed.
+is larger than the heavy mass)and the zero-momentum subtraction 
+renormalisation scheme for graphs with heavy quark lines 
+(if factorisation scale is smaller than the mass of the heavy quark threshold). 
+The DGLAP kernels and PDF evolution are pure  $\overline{\text{MS}}$.
+ Definition of subtractions is analogous to  $\overline{\text{MS}}$. 
+Therefore, the ACOT scheme is considered to be a minimal extension of $\overline{\text{MS}}$ scheme.
 
 
-The differences between TR scheme types and ACOT scheme types are nicely summarised in the figure \ref{fig:schemes}.
- The equivalency of swapping the $O(m_{H}^2/Q^2)$ 
-terms without violating the definition of a GM-VFNS is what mainly distinguish the ACOT from TR schemes. 
+Within the ACOT package, different variants of the ACOT scheme are available:
+ACOT Full, ACOT-S, ACOT
+Chi,  $\overline{\text{MS}}$  at LO and NLO. 
+For the longitudinal structure function higher order
+ calculations are also available. Each of these schemes have advantages and disadvantages, 
+for example the ACOT Full though it fully takes into account the quark masses and it reduces
+to  $\overline{\text{MS}}$  in the limit of masses going to zero, it has the disadvantage 
+of being quite slow.
+Therefore the $k-factor$ technique has been addopted within the \fitter\  
+machinery to be able to perform QCD fits. The $k-factor$ where can be defined in two different ways:
+on one hand as the ratio between same order calculations but massless vs massive 
+(i.e. NLO (ZMVFNS)/NLO (ACOT), on the other hand one could speed up the calculations by 
+defining the $k-factors$ as the ratio between LO (massless)/NLO (massive).
+Both options are available in the \fitter\ package and give similar results. 
+For convergence of the $k-factors$ usually $2-3$ iterations of complete fits are needed.
+These different variants of this scheme are all integrated in the \fitter\  framework and can be 
+selected via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt} (ACOT ZM, ACOT FULL, ACOT CHI, ACOT-S).
+
+
+
+The differences between TR and ACOT scheme types are nicely summarised in the figure \ref{fig:schemes}.
 One major issue in a complete GM-VFNS, is that of the ordering of the
 perturbative expansion.
+ The equivalency of swapping the $O(m_{H}^2/Q^2)$ 
+terms without violating the definition of a GM-VFNS is what mainly distinguish the ACOT from TR schemes. 
+
 \begin{figure}
 \begin{center}
 \caption{Schematic Summary of ACOT  and TR  Schemes}
@@ -170,20 +187,20 @@ perturbative expansion.
 
 The fixed-flavour number scheme for DIS structure functions in \fitter\ can be selected via {\tt HF$\_$SCHEME}
 using QCDNUM or ABM~\cite{openqcdrad:page} implementation.
-In the FFN scheme only gluon and the light quarks are considered
+As mentioned before, in the FFN scheme only gluon and the light quarks are considered
 as partons within the proton, massive quarks are produced perturbatively in the final state.
-\\
+
 In addition, the recent variant of the fixed-flavour number scheme in which the running mass definition 
 is used in the $\overline{\text{MS}}$ scheme~\cite{Alekhin:runm} can be selected
-in \fitter\ . This variant is realised via the interface to the open-source code 
+in \fitter\ .This variant is realised via the interface to the open-source code 
 OPENQCDRAD~\cite{openqcdrad:page}.
 This scheme has the advantage of reducing the sensitivity of the DIS cross sections to
 higher order corrections, and improving the theoretical precision of the mass definition. 
 \\           
-In the QCDNUM, the calculation of the heavy quark contributions to DIS structure functions
-are avalable at NLO and only electromagnetic exchange contributions are taken into account.
+In QCDNUM, the calculation of the heavy quark contributions to DIS structure functions
+are available at NLO and only electromagnetic exchange contributions are taken into account.
 In the ABM implementation, the QCD corrections to the massive Wilson coefficients 
-up to the NNLO for the neutral-current (NC) heavy-quark production~\cite{} and up to NLO
+up to the NNLO for the neutral-current (NC) heavy-quark production~\cite{SMoch} and up to NLO
 for the charged-current (CC) case are available.
 %
 %The fixed-flavour number scheme for  in \fitter\ can be also accessed via interface to
@@ -216,26 +233,33 @@ for the charged-current (CC) case are available.
 To properly compare the experimental data with theoretical predictions, 
 QED corrections are necessary. In the \fitter\, the electroweak corrections 
 for the DIS process are based on the EPRC package provided by Hubert Spiesberger \cite{HS}.
-The measured cross sections as presented by HERA are not corrected for the weak corrections
-in order to retain sensitivity to higher order EW effects.
+%The measured cross sections as presented by HERA are not corrected for the weak corrections
+%in order to retain sensitivity to higher order EW effects.
 
 The calculations of higher-order electroweak corrections to DIS scattering at HERA are performed
 in the on-shell scheme where the gauge bosons masses $M_W$ abd $M_Z$ are treated symmetrically
-as basic parameters together with the top and Higgs masses, besides the fine structure constant $\alpha$ and other fermion masses.
+as basic parameters together with the top and Higgs masses, besides the fine structure constant 
+$\alpha$ and other fermion masses.
 
 The code provides the running of $\alpha$ using the most recent parametrisation
 of the hadronic contribution to $\Delta_\alpha$ \cite{Jegerlehner}, as well as an older 
-one from Burkhard.
-For the Drell Yan process there are independent treatments (such as SANC, FEWZ).
+one from Burkhard \cite{Burkhard}.
+For the Drell Yan processes there are independent treatments applied as $k-factors$ (such as 
+from SANC, FEWZ packages).
 
  
 
 
-\subsection{Drell Yan process}
+\subsection{Drell Yan processes}
 %%%%
 \label{DY}
 
-The calculatiosn of the Drell Yan processes are known for many observables up to  the NNLO order. For example, there are packages such as FEWZ, DYNNLO for NNLO, or MCFM for NLO calculations. However, due to the complicated nature of these calculation involving an increased number of diagrams with additional higher order, these calculations are too slow to be used iteratively in a fit.
+This section presents calculations of Drell Yan processes that can be used to 
+predict lepton pair production at the LHC or Tevatron.
+The calculations of the Drell Yan processes are known for many observables up to  the NNLO order.
+ For example, there are packages such as FEWZ~\cite{FEWZ}, DYNNLO~\cite{DYNNLO} for NNLO,
+ or MCFM~\cite{MCFM} for NLO calculations. However, due to the complicated nature of these
+ calculation involving an increased number of diagrams with additional higher order, these calculations are too slow to be used iteratively in a fit.
 There are various methods to overcome this shortage: using the $k-factors$ approximation from lower to higher order,  or using the grid technique when available.
   
  \fitter\ provides two implementations
@@ -254,7 +278,7 @@ lepton scattering angle \(\cos\theta\), can be written as
   \frac{\pi\alpha^2}{3MS}\sum_{q}P_q
   \left[F_q(x_1,Q^2)F_{\bar{q}}(x_2,Q^2) + (q\leftrightarrow\bar{q})\right],
 \end{align}
-where \(S\) is a squared CMS beam energy, \(x_{1,2} = \frac{M}{\sqrt{S}}\exp(\pm y)\) and 
+where \(S\) is the squared CMS beam energy, \(x_{1,2} = \frac{M}{\sqrt{S}}\exp(\pm y)\), $F_q(x_1,Q^2)$ parton distribution functions, and 
 \begin{align}
   P_q &=  e_l^2e_q^2(1+\cos^2\theta) \nonumber \\
       &+  e_le_q\frac{2M^2(M^2-M_Z^2)}{\sin^2\theta_W\cos^2\theta_W
@@ -275,7 +299,7 @@ width, and
  e_l & = -1, e_u = \frac{2}{3}, e_d = -\frac{1}{3}.
 \end{align}
 
-The expression for charged current has simpler form:
+The expression for charged current has a simpler form:
 \begin{align}
 \frac{\mathrm{d}^3\sigma}{\mathrm{d}M\mathrm{d}y\mathrm{d}\cos\theta} &=
  \frac{\pi\alpha^2}{48S\sin^4\theta_W}
@@ -290,25 +314,26 @@ cross sections without utilization of Monte-Carlo techniques.
 This is particularly useful for PDF fitting purposes because
 the statistical fluctuations are avoided in this case. In both 
 neutral and charge current expressions the parton density functions
-factorize as a function dependent only on boson rapidity \(y\) and
+factorise as a function dependent only on boson rapidity \(y\) and
 invariant mass \(M\) leaving \(\cos\theta\) dependence aside.
 The integral in \(\cos\theta\) can be computed analytically and
-integrations in \(y\) and \(M\) can be performed with Simpson
+integrations in \(y\) and \(M\) can be performed with the Simpson
 method. The \(\cos\theta\) parts are kept in the equation 
 explicitly because their integration is asymmetric for
 data in lepton \(\eta\) bins and also is being performed when applying 
 the lepton \(p_{\perp}\) cuts.
 
-The fact that PDF functions factorize with the rest part of 
-expression allows to significantly boost calculations when 
+The fact that PDF functions factorise,
+it allows to significantly boost calculations when 
 performing parameter fits over lepton rapidity data. In this case
-the factorized part of expression independent on PDFs can be
-calculated only once for all minimization iterations.
+the factorised part of the expression which is independent on PDFs can be
+calculated only once for all minimisation iterations.
 The leading order code in \fitter\ package implements this 
-optimization and uses fast convolution routines provided by
-QCDNUM. Currently the full width LO calculations are optimized 
-for lepton pseudorapidity and boson rapidity distributions with
-possibility to apply lepton \(p_{\perp}\) cuts.
+optimisation and uses fast convolution routines provided by
+QCDNUM. Currently the full width LO calculations are optimised 
+for lepton pseudorapidity and boson rapidity distributions with the
+possibility to apply lepton \(p_{\perp}\) cuts, making this procedure
+flexible to describe data.
 
 The calculated leading order cross sections are multiplied by
 NLO or NNLO $k-factors$ provided for corresponding data distributions.
@@ -321,12 +346,15 @@ These method are described in more details in sections \ref{sec:theory:jets}
 %%%%%%%%%%%
 \subsection{\texorpdfstring{$t\bar{t}$}{t-tbar} Cross Sections via {\tt HATHOR}}
 \label{ttbar}
-Top-quark pairs ($t\bar{t}$) are mainly produced via $gg$ fusion and
+This section presents the calculation tool available 
+in \fitter\ for top-guark pair prouction in $p\bar{p)$ and $pp$ collisions.
+
+Top-quark pairs ($t\bar{t}$) are mainly produced at hadron colliders via $gg$ fusion and
 $q \bar q$ annihilation. Furthermore, there are the $q q'$ and
 $q g$ production modes.
 The program HATHOR~\cite{Aliev:2010zk} allows calculating
-the expected total $t \bar t$ cross section at hadron colliders
-($p \bar p$ and $p p$) up to approximate NNLO accuracy.
+the expected total $t \bar t$ cross section at 
+$p \bar p$ and $p p$ colliders up to approximate NNLO accuracy.
 Version 1.3 of HATHOR includes the exact NNLO for $q \bar q \to t \bar t$ \cite{Baernreuther:2012ws}
 as well as a new high-energy constraint on the approximate NNLO obtained from
 soft-gluon resummation \cite{Moch:2012mk}.
