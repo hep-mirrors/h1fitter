@@ -484,7 +484,24 @@ if stated.
 %cross section, three of which are implemented in the fitter\. These are
 %the original model version (GBW)~\cite{Golec-Biernat:1998js}, a model based on the colour glass condensate approach
 %to the high parton density regime (IIM)~\cite{Iancu:2003ge}, and a modified GBW model by adding effects of the 
-The dipole picture provides an attractive approach to the virtual photon-proton scattering in the low $x$ region because it allows to describe inclusive and diffractive processes together. In this approach the virtual photon fluctuates into a $q\bar q$ (or $q\bar q g$)  dipole which interacts with the proton~\cite{NNZ:91}.  The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long life time $\propto 1/m_p x\;$ and a size which is not changed by scattering. 
+The dipole picture provides an attractive approach to the virtual photon-proton
+ scattering in the low $x$ region because it allows to describe inclusive and 
+diffractive processes together.
+ In this approach the virtual photon fluctuates into a $q\bar q$ (or $q\bar q g$) 
+ dipole which interacts with the proton~\cite{NNZ:91}.  
+The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long 
+life time $\propto 1/m_p x\;$ and a size which is not changed by scattering.
+ A schematic view of dipole factorisation at small x in DIS is illustrated in Figure~\ref{fig:dipole}
+The virtual photon fluctuates into a quark-antiquark pair and subsequently interacts with the target, 
+and the dynamics of the interaction are embeded in the dipole scattering amplitude.
+
+\begin{figure}
+\begin{center}
+\caption{Schematic diagram of dipole factorisation for the inclusive cross section in DIS.}
+\includegraphics[width=0.5\linewidth]{figures/dipole.pdf}
+\end{center}
+\label{fig:dipole}
+\end{figure}
 
 Several dipole models have been developed to describe various DIS reactions. They vary due to different assumption made about the behavior of the dipole cross sections.   In the \fitter\  three representative models  are implemented:
 \begin{itemize}
@@ -643,11 +660,140 @@ Please note that in the present version only DIS $ep$ processes can be used
 %%%%%%%%%%%
 \subsection{Diffractive PDFs}
 \label{diff}
-Diffractive DIS data are fitted within the 'proton vertex factorisation' approach where 
+It was observed at HERA that about 10\%
+of deep inelastic interactions are diffractive
+events i.e. events in which the interacting proton stays intact ($ep\to eXp$), 
+despite the inelasticity of the interaction.
+In the diffractive process the proton appears well separated from the 
+rest of the hadronic final state by a large rapidity gap.
+The events otherwise look similar to normal deep inelastic events.
+This process is usually  interpreted as the diffractive dissociation 
+of the exchanged virtual photon to produce any hadronic final state
+ system $X$ with mass much smaller than $W$ and the same net quantum numbers as the exchanged photon
+Figure~\cite{fig:diff} illustrates the kinematic variables used to describe
+ the inclusive diffractive DIS process.
+
+\begin{figure}
+\begin{center}
+\caption{Schematic diagram of the kinematic variables used to
+ describe the inclusive diffractive DIS process.}
+\includegraphics[width=0.5\linewidth]{figures/diffraction.pdf}
+\end{center}
+\label{fig:diff}
+\end{figure}
+
+ In addition to $x$, $Q^2$ and the squared four-momentum transfer $t$, 
+the mass $M_X$ of the diffractively produced final state provides
+ a further degree of freedom. In practice, the variable $M_X$ is often replaced by $beta$.
+
+Diffractive DIS data are fitted within the \it{proton vertex factorisation}\rm approach where 
 the diffractive DIS is mediated by the exchange of hard Pomeron and a secondary Reggeon.
-The model supplied by the DiffDIS package provides values of the 'reduced cross section',
-$\sigma_r = F_2 - y^2/(1+(1-y)^2) F_L$
+The model supplied by the DiffDIS package provides values of the \it{reduced cross section}\rm,
+$\sigma_r^D = F_2^D - y^2/(1+(1-y)^2) F_L^D$
 which is expected to be the experimentally measured quantity.
 
-\input{./dpdfs.tex}        
+
+\subsubsection {Cross-section}
+
+\beq
+  \frac{d\sigma}{d\beta\,dQ^2\,d\xP\,dt}
+=
+  \frac{2\pi\alpha^2}{\beta Q^4}\,
+    \left( 1 +  (1-y)^2 \right) \sigRed^{D(4)}(\beta,Q^2,\xP,t)
+\label{Dxs}
+\eeq
+where the `reduced cross-section', \sigRed, is defined as
+\beq
+\label{eq:sigred}
+\sigRed
+ = F_2 - \frac{y^2}{1 +  (1-y)^2}\, \FL
+ = \FT + \frac{2(1-y)}{1 +  (1-y)^2}\, \FL
+\eeq
+Nb. $\xi$ is denoted by $x_\Pom$ in the H1 and ZEUS papers.
+
+The dimension of 
+\(
+F_k^{D(4)}(\beta,Q^2,\xP,t)\)
+is $\GeV^{-2}$
+and
+thus the quantities integrated over $t$
+\beq
+F_k^{D(3)}(\beta,Q^2,\xP)
+\equiv
+\int_{t_{\rm min}}^{t_{\rm max}} dt
+F_k^{D(4)}(\beta,Q^2,\xP,t)
+\eeq
+are dimensionless.
+
+Maximum kinematically allowed value of $t$ reads
+\begin{equation}
+t_{\rm MAX} 
+=
+-\frac{\xP^2 m_p^2 + p_\perp^2}{1-\xP}
+\approx 
+-\frac{\xP^2}{1-\xP} m_p^2
+\end{equation}
+where $m_p$ is the proton mass.
+
+As $x = \xP\beta$ we can normalize to the standard DIS formula
+\begin{equation}
+\frac{d\sigma}{d\beta\,dQ^2\,d\xP\,dt} =
+  \frac{2\pi\alpha^2}{x\, Q^4}\,
+    \left( 1 +  (1-y)^2 \right) \xP\sigRed^{D(4)}(\beta,Q^2,\xP,t)
+\end{equation}
+which upon integration over $t$ reads
+\begin{equation}
+\label{Dxs3}
+  \frac{d\sigma}{d\beta\,dQ^2\,d\xP}
+=  
+  \frac{2\pi\alpha^2}{x Q^4}\,
+    \left( 1 +  (1-y)^2 \right) \,\xi\sigRed^{D(3)}(\beta,Q^2,\xP)
+\end{equation}
+
+
+The H1 and ZEUS data files typically contain $\xP\sigRed^{D(3)}$.
+
+%==========================================
+\subsubsection {Regge factorization}
+
+For better data description we include a contribution from a secondary Reggeon, $\Reg$,
+\beq
+F_k^{D(4)}(\beta,Q^2,\xP,t) = 
+\sum_{\mathcal{X} =\Pom,\Reg}
+\phi_\mathcal{X}(\xP,t)\, F^\mathcal{X}_k(\beta,Q^2)
+\eeq
+
+or
+\beq
+\label{eq:FD3}
+F_k^{D(3)}(\beta,Q^2,\xP) = 
+\sum_{\mathcal{X} =\Pom,\Reg}
+\Phi_\mathcal{X}(\xP)\, F^\mathcal{X}_k(\beta,Q^2)
+\eeq
+where
+\begin{equation}
+\label{eq:intFlux}
+\Phi_{\mathcal{X}}(\xP) =
+\int\limits_{t_{\rm min}}^{t_{\rm max}} dt\, \phi_\mathcal{X}(\xP,t)
+\,.
+\end{equation}
+
+Parametrization of the fluxes
+\begin{subequations}
+\label{eq:flux}
+\begin{equation}
+\phi_\mathcal{X}(\xP,t) = 
+\frac {A_\mathcal{X}\, e^{b_\mathcal{X} t}} {\xP^{2\alpha_\mathcal{X}(t) -1}}
+\end{equation}
+where
+\begin{equation}
+\alpha_\mathcal{X}(t) = \alpha_\mathcal{X}(0) + \alpha_\mathcal{X}' t
+\,.
+\end{equation}
+\end{subequations}
+
+$F^\Reg_k(\beta,Q^2)$ are taken as those of the pion.
+%  with the normalization factor being absorbed in $\phi_\Reg(\xP,t)$.
+
+%\input{./dpdfs.tex}        
 
