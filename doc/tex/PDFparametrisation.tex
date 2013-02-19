@@ -95,15 +95,17 @@ is similar to a standard Regge-inspired parameterisation with a similar number o
 \subsection {Diffractive parametrization Functional Form}
 
 \subsubsection{Pomeron parametrisation}
+\newcommand\AP {{\cal P}}
+
 The Pomeron is parametrized at the initial
 $Q_0^2$ in terms of two singlet distributions,
 $f_{g}$ and $f_{+}$.
 \begin{subequations}
+
 \label{singlet}
 \begin{eqnarray}
 \frac{d}{dt}f_{+} &=&
-\asotp\left[
-\AP_{\rm FF} f_{+} +\AP_{\rm FG}f_g
+\asotp\left[\AP_{\rm FF} f_{+} +\AP_{\rm FG}f_g
 \right]
 \\
 \frac{d}{dt}f_{g} &=&
@@ -129,21 +131,21 @@ f_{q+} &\equiv& 2 f_q
 \end{eqnarray}
 \end{subequations}
 
-At \NF = 3
+At $n_f = 3$
 \begin{equation}
 \label{eq:fq3}
 f_{q+} = f_{+}/3,\; q = d,u,s
 \,.
 \end{equation}
 % \ifFullVer
-\ie
+i.e.
 % \begin{equation}
 % \Sgl q = 0,\; q = d,u,s
 % \,,
 % \end{equation}
 % where
 \begin{equation}
-\Sgl q \equiv f_{q+} - \frac{1}{\NF}f_{+}
+\Sgl q \equiv f_{q+} - \frac{1}{n_f}f_{+}
  = 0,\;\mbox{for}\; q = d,u,s
 \,.
 \end{equation}
@@ -152,7 +154,7 @@ f_{q+} = f_{+}/3,\; q = d,u,s
 This gives all PDFs for the FFNS, while for VFNS 
 $f_{h+}$ for $h=c,b,t$ are generated dynamically above the respective
 transition scales $Q_h^2$.
-Hence at $\NF > 3$ the singlet has contributions from the heavy quarks
+Hence at $n_f > 3$ the singlet has contributions from the heavy quarks
 and we get non-trivial nonsinglet distributions $\Sgl{h}$ satisfying
 \begin{equation}
 \label{eq:nsevol}
@@ -165,15 +167,15 @@ and we get non-trivial nonsinglet distributions $\Sgl{h}$ satisfying
 %-----------------------------------------------------------
 \label{sec:Par}
 
-Full PDFs are given in analogy to \Eq{eq:FD3}
+Full PDFs are given in analogy to Eq.~\ref{eq:FD3}
 \begin{equation}
-f_k^{D(3)}(\beta,Q^2,\xP) =
-\hat\Phi_\Pom(\xP)\, f^\Pom_k(\beta,Q^2)
+f_k^{D(3)}(\beta,Q^2,\xi) =
+\hat\Phi_\Pom(\xi)\, f^\Pom_k(\beta,Q^2)
 +
-\Phi_\Reg(\xP)\, f^\Reg_k(\beta,Q^2)
+\Phi_\Reg(\xi)\, f^\Reg_k(\beta,Q^2)
 \end{equation}
 where $\hat\Phi_\Pom \equiv \Phi_\Pom/A_\Pom$,
-with the fluxes given by \Eq{eq:intFlux} and \Eq{eq:flux}.
+with the fluxes given by Eq.~\ref{eq:intFlux} and Eq.~\ref{eq:flux}.
 
 The Pomeron PDFs are parametrized as
 \def\Cini#1#2{A^{(#1)}_#2}
@@ -185,8 +187,8 @@ f^\Pom_N = \Cini N1  x^{\Cini N2} (1-x)^{\Cini N3}
 \,,
 \end{equation}
 where the `dumping factor' $d$ is taken as 0.01 or 0.001.
-$N = \mathrm G$ for gluon and $N = \mathrm S$ for `singlet': $f_{\rm S} \equiv f_+(\NF=3)$,
-\cf \Eq{eq:fq3}.
+$N = \mathrm G$ for gluon and $N = \mathrm S$ for `singlet': $f_{\rm S} \equiv f_+(n_f=3)$,
+cf. Eq.~\ref{eq:fq3}.
 
 % The Reggeon PDFs $f^\Reg_k$ are taken from pion.
 
