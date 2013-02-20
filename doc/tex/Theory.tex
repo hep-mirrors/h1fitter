@@ -660,18 +660,26 @@ Please note that in the present version only DIS $ep$ processes can be used
 %%%%%%%%%%%
 \subsection{Diffractive PDFs}
 \label{diff}
+\newcommand{\asotp}{\ensuremath{\frac{\alpha_{\rm s}}{2\pi}}}
+\newcommand{\Sgl}[1]{\ensuremath{\tilde f_{#1+}}}
+\newcommand{\Pom}{{I\!P}}
+\newcommand{\Reg}{{I\!R}}
+
+In this section the diffractive process is briefly described.
 It was observed at HERA that about 10\%
 of deep inelastic interactions are diffractive
-events i.e. events in which the interacting proton stays intact ($ep\to eXp$), 
-despite the inelasticity of the interaction.
+events i.e. events in which the interacting proton stays intact ($ep\to eXp$). 
 In the diffractive process the proton appears well separated from the 
-rest of the hadronic final state by a large rapidity gap.
-The events otherwise look similar to normal deep inelastic events.
+rest of the hadronic final state by a large rapidity gap, otherwise
+the events look similar to normal deep inelastic events.
 This process is usually  interpreted as the diffractive dissociation 
 of the exchanged virtual photon to produce any hadronic final state
  system $X$ with mass much smaller than $W$ and the same net quantum numbers as the exchanged photon
 Figure~\cite{fig:diff} illustrates the kinematic variables used to describe
- the inclusive diffractive DIS process.
+ the inclusive diffractive DIS process.  For this, the \it{proton vertex factorisation}\rm approach
+is assumed such that  the diffractive DIS is mediated by the exchange of hard Pomeron and a
+ secondary Reggeon.  The factorisable pomeron picture has proved remarkably successful for the descriptio of most of these data.
+
 
 \begin{figure}
 \begin{center}
@@ -682,55 +690,47 @@ Figure~\cite{fig:diff} illustrates the kinematic variables used to describe
 \label{fig:diff}
 \end{figure}
 
- In addition to $x$, $Q^2$ and the squared four-momentum transfer $t$, 
+ In addition to $x$, $Q^2$ and the squared four-momentum transfer $t$
+(the undetected momentum transfer to the proton system),
 the mass $M_X$ of the diffractively produced final state provides
- a further degree of freedom. In practice, the variable $M_X$ is often replaced by $beta$.
+ a further degree of freedom. In practice, the variable $M_X$ is often replaced by $\beta$,
+\begin{equation}
+\beta=\frac{Q^2}{M_X^2+Q^2-t}.
+\end{equation}
 
-Diffractive DIS data are fitted within the \it{proton vertex factorisation}\rm approach where 
-the diffractive DIS is mediated by the exchange of hard Pomeron and a secondary Reggeon.
-The model supplied by the DiffDIS package provides values of the \it{reduced cross section}\rm,
-$\sigma_r^D = F_2^D - y^2/(1+(1-y)^2) F_L^D$
-which is expected to be the experimentally measured quantity.
-
+In models based on a factorisable pomeron, $\beta$ may be viewed as the fraction of the
+pomeron longitudinal momentum which is carried by the struck parton, $x=\beta\Pom$.
+%The diffractive parton distribution functions (DPDFs) are interpreted as probabilities for 
+%finding a parton with a small fraction of the proton momentum $x=\beta\Pom$
 
 \subsubsection {Cross-section}
-\newcommand{\asotp}{\ensuremath{\frac{\alpha_{\rm s}}{2\pi}}}
-\newcommand{\Sgl}[1]{\ensuremath{\tilde f_{#1+}}}
-\newcommand{\Pom}{{I\!P}}
-\newcommand{\Reg}{{I\!R}}
 
-
+The diffractive structure functions can be expressed as convolutions of the
+calculable coefficient functions with diffractive quark and gluon distribution functions,
+ which in general depend on all of $x$, $Q^2$, $\beta$, $t$.
 \begin{equation}
-  \frac{d\sigma}{d\beta\,dQ^2,d\xi\,dt}
+  \frac{d\sigma}{d\beta\,dQ^2d\xi\,dt}
 =
   \frac{2\pi\alpha^2}{\beta Q^4}\,
     \left( 1 +  (1-y)^2 \right) \ensuremath{\overline\sigma}^{D(4)}(\beta,Q^2,\xi,t)
 \label{Dxs}
 \end{equation}
-
-%\eeq
 where the ``reduced cross-section'' , $\overline\sigma$, is defined as
-
 \begin{equation}
 \overline\sigma^{D(4)}
  = F_2^{D(4)} - \frac{y^2}{1 +  (1-y)^2}\, F_L^{D(4)}
  = F_T^{D(4)} + \frac{2(1-y)}{1 +  (1-y)^2}\, F_L^{D(4)}
 \label{eq:sigred}
 \end{equation}
-
 The dimension of $F_k^{D(4)}(\beta,Q^2,\xi,t)$
-is $GeV^{-2}$ and thus the quantities integrated over $t$
-
+is $GeV^{-2}$ and thus the quantities integrated over $t$.
 \begin{equation}
 F_k^{D(3)}(\beta,Q^2,\xi)
 \equiv
 \int_{t_{\rm min}}^{t_{\rm max}} dt
 F_k^{D(4)}(\beta,Q^2,\xi,t)
 \end{equation}
-
-are dimensionless.
-
-Maximum kinematically allowed value of $t$ reads
+are dimensionless. Maximum kinematically allowed value of $t$ reads as
 \begin{equation}
 t_{\rm MAX} 
 =
@@ -739,7 +739,6 @@ t_{\rm MAX}
 -\frac{\xi^2}{1-\xi} m_p^2
 \end{equation}
 where $m_p$ is the proton mass.
-
 As $x = \xi\beta$ we can normalize to the standard DIS formula
 \begin{equation}
 \frac{d\sigma}{d\beta\,dQ^2\,d\xi\,dt} =
@@ -752,22 +751,18 @@ which upon integration over $t$ reads
   \frac{d\sigma}{d\beta\,dQ^2\,d\xi}
 =  
   \frac{2\pi\alpha^2}{x Q^4}\,
-    \left( 1 +  (1-y)^2 \right) \,\xi\ensuremath{\overline\sigma}^{D(3)}(\beta,Q^2,\xi)
+    \left( 1 +  (1-y)^2 \right) \,\xi\ensuremath{\overline\sigma}^{D(3)}(\beta,Q^2,\xi).
 \end{equation}
-
-
-The H1 and ZEUS data files typically contain $\xi\ensuremath{\overline\sigma}^{D(3)}$.
+%The H1 and ZEUS data files typically contain $\xi\ensuremath{\overline\sigma}^{D(3)}$.
 
 %==========================================
 \subsubsection {Regge factorization}
-For better data description we include a contribution from a secondary Reggeon, $\Reg$,
+For a  better description of data, a contribution from a secondary Reggeon, $\Reg$, is included, hence
 \begin{equation}
 F_k^{D(4)}(\beta,Q^2,\xi,t) = 
 \sum_{\mathcal{X} =\Pom,\Reg}
 \phi_\mathcal{X}(\xi,t)\, F^\mathcal{X}_k(\beta,Q^2)
 \end{equation}
-
-
 or
 \begin{equation}
 \label{eq:FD3}
@@ -782,8 +777,7 @@ where
 \int\limits_{t_{\rm min}}^{t_{\rm max}} dt\, \phi_\mathcal{X}(\xi,t)
 \,.
 \end{equation}
-
-Parametrization of the fluxes
+Parametrization of the fluxes follows
 \begin{subequations}
 \label{eq:flux}
 \begin{equation}
@@ -796,7 +790,6 @@ where
 \,.
 \end{equation}
 \end{subequations}
-
 $F^\Reg_k(\beta,Q^2)$ are taken as those of the pion.
 %  with the normalization factor being absorbed in $\phi_\Reg(\xi,t)$.
 
