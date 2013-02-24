@@ -128,8 +128,82 @@ The following namelist blocks are encountered:
 These namelist blocks are described in greater details in the User's example \ref{section:example}. 
 
 
+\begin{description}
+\item \it\bf Theory type: \rm\\
+ 
+here is a steering flag which defines the theory type via the chosen evolution.
+The following types are suppprted:
+\begin{itemize}
+\item \tt{TheoryType = 'DGLAP' }\rm as used for collinear evolution theories. For this type,
+ it follows with aother flag which sets the order of perturbative series in $\alpha_S$:
+\tt{Order}\rm which can be leading order (LO), next-to-leading order (NLO) and when available NNLO.
+\item \tt{TheoryType = 'DIPOLE' }\rm as used for the dipole models;
+\item \tt{TheoryType = 'uPDF' }\rm as used for the un-integrated PDFs (with 3 variants)
+\end{itemize}
+
+\item \it\bf Starting scale: \rm\\
+The evolution starting scale is set via flag  \tt{Q02}\rm, commonly used below charm mass threshold, as imposed by QCDNUM.
+
+\item \it\bf Scheme type: \rm\\
+For the DIS process, Several schemes are available for heavy quark treatments via  \tt{HF\_SCHEME}\rm flag.
+\begin{itemize}
+  \item VFNS (Variable Flavour Number Schemes):
+    \begin{itemize}
+     \item RT-VFS  schemes                               [from Robert Thorne], \tt{HF\_SCHEME = RT, RT OPT}\rm, as well as the fast variants based on k-factors \tt{RT FAST, RT OPT FAST}
+     \item Zero Mass VFNS                                 [qcdnum], \tt{ZMVFNS}\rm   
+     \item  ACOT (ACOT-Full, ACOT-ZM, S-ACOT-Chi) schemes  [from Fred Olness], \tt{HF\_SCHEME = ACOT Full, ACOT Chi, ACOT ZM}\rm, they are all based on k-factors. 
+    \end{itemize}
+  \item FFNS (Fixed Flavour Number Scheme)
+    \begin{itemize}
+    \item via QCDNUM, \tt{HF\_SCHEME = FF}\rm 
+    \item via ABM (openqcdrad-1.6)   [from Sergey Alekhin], \tt{HF\_SCHEME = FF ABM}\rm
+    \end{itemize}
+\end{itemize}
+IMPORTANT to note if running with FFNS (nf=3): 
+\begin{itemize}
+  \item only neutral current DIS data should be used in FF scheme due to missing NLO 
+    coefficient functions in charged current (W+c) process, valence quarks 
+    in this case should to be fixed in minuit.in.txt file.
+  \item In FF ABM implementation the charged current coefficients are available
+    therefore valence parameters do not need to be fixed.
+  \item $\alpha_s(Q^2)$ in FFNS is 3-flavour and recommended to be set to value of 0.105 
+    such that is not too high at low energies
+  \item the scale in FFNS is defined as $\mu^2 = Q^2 + 4m_h^2$ by default, can be 
+    changed in HQScale in \tt{steering.txt}\rm (scale variation in ABM not yet implemented)
+  \item  the pole mass definition for heavy quarks is set in ABM by default, 
+    the running mass definition \cite{arXiv:1011.5790v1} can be switched in 
+    by setting \tt{HF\_SCHEME = FF ABM RUNM} \rm in \tt{steering.txt} \rm. 
+\end{itemize}
+
+\item \it\bf PDF parameterisation style: \rm\\
+There are various types of parametric functional form supported by \fitter\.
+They are accessed via the steering flag called \tt{PDFStyle}\rm. Available styles
+are summarised as following:
+
+\begin{tabular}{ll}
+  '10p HERAPDF'   & -- HERAPDF-like with extra assumption Buv = Bdv \\
+   '13p HERAPDF' & -- HERAPDF-like with Buv and Bdv floated independently \\
+   '10p H12000'  & -- H12000-like (D,U,Dbar,Ubar+g) \\
+   'CTEQ'        & -- CTEQ-like parameterisation \\
+   'CHEB'        & -- CHEBYSHEV parameterisation based on glu,sea, uval,dval evolved pdfs \\
+   'LHAPDFQ0'    & -- use lhapdf library to define pdfs at starting scale and evolve with \\
+local qcdnum parameters \\
+   'LHAPDF'      & -- use lhapdf library to define pdfs at all scales\\
+   'DDIS'        & -- use Diffractive DIS \\
+   'BiLog'       & -- bi-lognormal parametrisation \\
+\end{tabular}
+
+
+These styles were described in details in Section~\ref{sec:pdfparam}.
+The LHAPDF style can be used only with proper configuration settings,
+ as explained in the Section~\ref{sec:install}.
+\item \it\bf  Definition of Chisquares:\rm\\
+This section is explained in the Section \ref{sec:chi2}.
+Currently two different styles are supported for a smoother 
+transition to the new style which is more flexible.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Selection of the data}
+%\subsubsection{Selection of the data}
+\item \it\bf Selection of the data:\rm \\
   The namelist \&Cuts, located inside the {\tt steering.txt} file can be used to apply
   simple process dependent cuts. The cuts are limitted to bin variables.
   Simple low and high limits are allowed. For example, a cut on $Q^2>3.5$~GeV$^2$ for
@@ -144,6 +218,9 @@ These namelist blocks are described in greater details in the User's example \re
 \end{verbatim}
 
 Maximum 100 cuts can be used by default.
+\end{description}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The specific input files are stored in the {\tt $input\_steerings$} directory and 
@@ -156,7 +233,7 @@ it contains the following ready to use inputs (with corresponding minuit files):
 \item  {\tt steering.txt.dipole}: dipole model specific settings  
 \end{itemize}
 
-%\subsubsection{Options for DIS fits}
+
 %%%%
 %\subsubsection{Options for Jets}
 %%%%
@@ -166,13 +243,13 @@ it contains the following ready to use inputs (with corresponding minuit files):
 %%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{{\tt Minuit} steering cards}
+\subsubsection{{\tt Minuit} steering cards}
 The minuit steering card is described as it follows, a sample file is presented 
 in Fig.~\ref{fig:minuit}
 \begin{figure}
 \begin{center}
 \caption{An example of a minuit steering card.}
-\includegraphics[width=0.5\linewidth]{figures/minuit.pdf}
+\includegraphics[width=0.35\linewidth]{figures/minuit.pdf}
 \end{center}
 \label{fig:minuit}
 \end{figure}
@@ -514,7 +591,7 @@ passing the information specific to each data point. They are listed below:
   or warnings at the end of minimisation.
   
   Point by point comparison of the data and predictions after the minimization 
-  is provided in {\tt output/fittedresults.txt} file. The file reports three columns
+  is provided in the file stored in {\tt output/fittedresults.txt}. The file reports three columns
   corresponding to the three first bins of the input tables, data value, sum in 
   quadrature of statistical and uncorrelated systematic uncertainty, total
   uncertainty, the predicted value, before and after applying correlated systematic shifts,
