@@ -315,6 +315,62 @@ Statements to watch in minuit.out.txt:
 \item \tt{ERROR MATRIX ACCURATE}   \rm       errors estimated with HESSE method
 \end{itemize}
 
+{\bf HERAFitter parameters for diffractive fits} \\
+%%-----------------------------------------------------------
+\label{sec:HFitterPar}
+
+% minuit.in.txt
+% ExtraMinimisationParameters
+
+\begin{tabular}{l|l|l}
+Parameter & HERAFitter name & input file\\
+% \hline
+$\Cini {\mathrm G}1$ & Ag & minuit.in.txt \\
+$\Cini {\mathrm G}2$ & Bg & minuit.in.txt \\
+$\Cini {\mathrm G}3$ & Cg & minuit.in.txt \\
+$\Cini {\mathrm S}1$ & Auv & minuit.in.txt \\
+$\Cini {\mathrm S}2$ & Buv & minuit.in.txt \\
+$\Cini {\mathrm S}3$ & Cuv & minuit.in.txt \\
+$\alpha_\Pom(0)$ & Pomeron\_a0 & steering.txt \\
+$A_\Reg$ & Reggeon\_factor & steering.txt \\
+$\alpha_\Reg(0)$ & Reggeon\_a0 & steering.txt \\
+\end{tabular}
+
+{\bf HERAFitter parameters for dipole fits} \\
+The default  initial parameters for the fit without valence quarks are : 
+\begin{table}[h]
+\tiny
+\begin{center}
+\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|} 
+\hline 
+$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$\\
+\hline
+37.490 & 3.3446 & 0.0298 & 2.6302 & 4.0 & 15.362 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\\
+For the BGK dipole model fits with valence quarks the initial parameters and the obtained $\chi^2$ are:
+\begin{table}[ht]
+\begin{center}
+\tiny
+\begin{tabular}{|c||c||c||c|c||c|c|c||c|c|c||c|} 
+\hline 
+No& 
+$Q^2$&&
+$\sigma_0$ & $A_g$ & $\lambda_g$ & $C_g$ & $cBGK$& $eBGK$& $Np$& $\chi^2$& $\chi^2/Np$\\
+\hline
+1 &
+$Q^2 \ge 3.5$ & NLO & 35.980 & 1.964 &-0.147& 3.068& 4.0 & 15.171 & 196& 245.74& 1.254 \\
+\hline
+2 &
+$Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92&  0.821 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data file format}

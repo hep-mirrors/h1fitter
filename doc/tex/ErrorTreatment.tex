@@ -173,6 +173,50 @@ If another error definition, $\Delta\chi_1^2 = \lambda$,
 is adopted\footnote{E.g. Jon Pumplin uses $\lambda=5$, cf. \texttt{minuit/iterate.F}} then
 the full covariance matrix, $V$, must be scaled by $\lambda$. 
 
+\subsubsection{Implementation via \fitter\ } 
+
+The Offset method is turned on by setting \verb:CHI2Style = 'Offset':
+By default all fits are run in a single job, each fit driven by initial parameters and Minuit commands read from \verb'minuit.in.txt'.
+Two optional parameters can be set in the \verb'CSOffset' NAMELIST, e.g.
+\vspace*{-2.5ex}
+\begin{verbatim}
+&CSOffset
+ CorSysIndex  =  0
+ UsePrevFit = 1
+&End
+\end{verbatim}
+\vspace*{-1ex}
+Defaults are set in \verb'read_steer.f'
+and the \verb'CSOffset NAMELIST' is read only when the Offset method is active.
+
+
+Setting \verb'CorSysIndex' to any value $\in [-K, K]$ 
+restricts the job to a single fit to data shifted (down or up) by a corresponding correlated error source.
+\verb'CorSysIndex' = 0 corresponds to the central fit.
+
+If \verb'CorSysIndex > NSYSMAX' then all the fits are performed.
+The best way to perform all fits in a single run is 
+to not specify \verb'CorSysIndex' at all 
+(Default: \verb'CorSysIndex = NSYSMAX+1' )
+\vspace{0.4cm}
+
+This parameter determines how to use results of previous fits,
+if such results are present in the \verb'output' folder.
+\begin{enumerate}
+\item [0 ---]
+Do not use any previous fit results (Default)
+\item [1 ---]
+Use previously obtained parameters as starting values for the current fit.
+% For a non-offset fit read initial parameters from \verb'minuit.save.txt';
+% for an offset fit 
+Read initial parameters from \verb'minuit.save_<CSI>.txt'
+ --- e.g.  \verb'minuit.save_001m.txt' for \verb'CorSysIndex' $= -1$.
+If the file does not exist and \verb'CorSysIndex' $\neq 0$ try to read
+\verb'minuit.save_0.txt'.
+\item [2 ---]
+Do not perform the fit if a corresponding \verb'Results_<CSI>.txt' file exists,
+otherwise switch to mode 1.
+\end{enumerate}
 
 %%%%%%%%%%%
 \subsection{Monte Carlo Method}
