@@ -181,16 +181,16 @@ They are accessed via the steering flag called \tt{PDFStyle}\rm. Available style
 are summarised as following:
 
 \begin{tabular}{ll}
-  '10p HERAPDF'   & -- HERAPDF-like with extra assumption Buv = Bdv \\
-   '13p HERAPDF' & -- HERAPDF-like with Buv and Bdv floated independently \\
-   '10p H12000'  & -- H12000-like (D,U,Dbar,Ubar+g) \\
-   'CTEQ'        & -- CTEQ-like parameterisation \\
-   'CHEB'        & -- CHEBYSHEV parameterisation based on glu,sea, uval,dval evolved pdfs \\
-   'LHAPDFQ0'    & -- use lhapdf library to define pdfs at starting scale and evolve with \\
+ \tt  '10p HERAPDF'   & -- HERAPDF-like with extra assumption Buv = Bdv \\
+ \tt   '13p HERAPDF' & -- HERAPDF-like with Buv and Bdv floated independently \\
+ \tt   '10p H12000'  & -- H12000-like (D,U,Dbar,Ubar+g) \\
+ \tt   'CTEQ'        & -- CTEQ-like parameterisation \\
+ \tt   'CHEB'        & -- CHEBYSHEV parameterisation based on glu,sea, uval,dval evolved pdfs \\
+ \tt  'LHAPDFQ0'    & -- use lhapdf library to define pdfs at starting scale and evolve with \\
 local qcdnum parameters \\
-   'LHAPDF'      & -- use lhapdf library to define pdfs at all scales\\
-   'DDIS'        & -- use Diffractive DIS \\
-   'BiLog'       & -- bi-lognormal parametrisation \\
+ \tt  'LHAPDF'      & -- use lhapdf library to define pdfs at all scales\\
+ \tt   ' DDIS'        & -- use Diffractive DIS \\
+ \tt  'BiLog'       & -- bi-lognormal parametrisation \\
 \end{tabular}
 
 
@@ -201,6 +201,18 @@ The LHAPDF style can be used only with proper configuration settings,
 This section is explained in the Section \ref{sec:chi2}.
 Currently two different styles are supported for a smoother 
 transition to the new style which is more flexible.
+The old format corresponds to {\tt CHI2Style}  --- (string) choice of the $\chi^2$ function:\\
+\begin{tabular}{ll}
+    {\tt 'H12000'}& -- Pascaud-like, systematic shifts to theory, no scaling of statistical, uncorrelated errors.\\
+    {\tt 'HERAPDF'}& -- Pascaud-like + "mixed error scaling"\\
+    {\tt 'HERAPDF Sqrt'}&   -- Pascaud-like + "sqrt error scaling"\\
+    {\tt 'HERAPDF Linear'}& -- Pascaud-like + "linear error scaling"\\
+    {\tt 'Offset'}& -- offset method activated\\
+ \end{tabular}
+
+\item \it\bf (logical) debug flag:\rm
+ The debug flag will be turned on for more print outs via \tt LDEBUG. \rm
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Selection of the data}
 \item \it\bf Selection of the data:\rm \\
@@ -249,7 +261,7 @@ in Fig.~\ref{fig:minuit}
 \begin{figure}
 \begin{center}
 \caption{An example of a minuit steering card.}
-\includegraphics[width=0.35\linewidth]{figures/minuit.pdf}
+\includegraphics[width=0.45\linewidth]{figures/minuit.pdf}
 \end{center}
 \label{fig:minuit}
 \end{figure}
