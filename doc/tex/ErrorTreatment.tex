@@ -274,6 +274,30 @@ L=\int_{W_{min}}^{W_{max}} \sqrt{1+\left(\frac{dxf(W)}{dW}\right)^2}dW
 \end{equation}
 This method can be applied when using Chebyshev polynomials to parametrise PDFs.
 For more details, the reader is invited to look up the \cite{Chebyshev} reference.
+This is implemented in \fitter\ via steering flags under Namelist \tt \&Cheb \rm.
+\begin{verbatim}
+&Cheb
+  ! Set following > 0 to turn on:
+   NCHEBGLU = 0   ! number of parameters for the gluon (max 15)
+   NCHEBSEA = 0   ! number of parameters for the sea   (max 15)
+
+  ! Cheb. polynomial type: multiply by (1-x) (1) or not (0)  
+   ichebtypeGlu = 1 
+   ichebtypeSea = 1 
+
+  ! Starting point in x:
+   chebxmin = 1.E-5
+
+   ILENPDF  = 0   ! use pdf length constraint
+
+  ! PDF length constraint strength for different PDFs:
+   PDFLenWeight = 1., 1., 1., 1., 1.     
+
+  ! Range in W where length constraint is applied:
+   WMNLen =  20.
+   WMXLen = 320.
+&end
+\end{verbatim}
 
 For the case when using flexible parametrisation style, 
 a $\chi^2$ penalty term is applied to account for a deviation 
