@@ -16,15 +16,15 @@ A skematic picture of $\chi^2$ definitions is displayed in Fig. \ref{fig:chi2}
 
 
 
-\subsection{Using Nuisance Parameters}
+\subsubsection{Using Nuisance Parameters}
 %%%%
 
 In this subsection the focus is on the $\chi^2$ using nuisance parameters. Different variants are discussed.
 
 
-
+\begin{description}
 %%%%
-\subsubsection{Simple and Scaled Form}
+\item \bf{Simple and Scaled Form} \rm
 
 For a single data set, the $\chi^2$ function can be defined in a simple form 
 \begin{equation}
@@ -131,7 +131,7 @@ is replaced by $C_{\rm stat}+C_{\rm syst}$ in Eq.~\ref{eq:chi2gen}. Similarly, s
 can be treated using offset method and then $C^{\rm total}_{ {\rm par}} = C^{\rm hessian}_{\rm par} + C^{\rm offset}_{\rm par}$
 where offset and hessian covariance matrices are calculated using corresponding systematic error sources.
 
-\subsection{Bias corrections}
+\item \bf{Bias corrections}\rm
 
 The correlated and uncorrelated systematic uncertainties can be treated as additive,  $\Gamma^i_l(m^i) = \gamma^i_l \mu^i$
 or multiplicative, $\Gamma^i_l(m^i) = \gamma^i_l m^i$. The LogNormal treatment in which 
@@ -154,8 +154,10 @@ corresponding to non-constant value of the covariance matrix:
 \begin{equation}
  \chi^2_{\rm log} = 2 \log \frac{\Delta^i(m^i)}{\Delta^i(\mu^i)} 
 \end{equation}  
+\end{description}
 
-\subsection{HERAFitter implementation}
+
+\subsubsection{HERAFitter implementation}
 The form of the $\chi^2$ function and the scaling properties of the 
 uncertainties are controlled globally by the {\sc CHI2SettingsName} and
 {\sc  Chi2Settings} variables and individually using {\sc ``:''} modifiers.

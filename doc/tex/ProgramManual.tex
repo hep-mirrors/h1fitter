@@ -5,7 +5,7 @@ organisation and it follows by a more detailed explanation of most used function
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code Organisation}
+\subsubsection{Code Organisation}
 A general diagram of  available modules is illustrated in Figure~\ref{fig:org}.
 The flow is depicted such that it follows the structure of the \fitter\ .
 \begin{figure}
@@ -82,7 +82,7 @@ the user of available functionalities.
 \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Steering files}
+\subsubsection{Steering files}
  The software behaviour is controlled by three files with steering commands.
  These files have predefined names:
     
@@ -101,7 +101,10 @@ the user of available functionalities.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Steering.txt}
+
+\begin{description}
+\item \bf{Steering.txt}\rm 
+
 Different options are activated via steering flags in the main steering file.
 %and the default steering file is displayed in figure  \ref{fig:steering}.
  
@@ -255,7 +258,9 @@ it contains the following ready to use inputs (with corresponding minuit files):
 %%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{{\tt Minuit} steering cards}
+\item \bf {{\tt Minuit} steering cards}\rm
+
+
 The minuit steering card is described as it follows, a sample file is presented 
 in Fig.~\ref{fig:minuit}
 \begin{figure}
@@ -370,10 +375,10 @@ $Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92& 
 \end{tabular}
 \end{center}
 \end{table}
-
+\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Data file format}
+\subsubsection{Data file format}
 \label{sec:dataformat}
    Experimental data are provided by the standard {\tt ASCII} text files. The files
    contain a "header" which describes the data format and the "data" in terms
@@ -497,7 +502,8 @@ provided within data table and recognised by the program using reserved column n
 In the following all these requirements are listed and shortly explained.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Data format requirements for DIS}
+\begin{description}
+\item \bf{Data format requirements for DIS}\rm
 
 In this subsection we describe specific requirements for files using 'NC e+-p' and 'CC e+-p'
 reaction types. Examples of such input files are:
@@ -540,7 +546,8 @@ the following columns need to present in the correctly formatted input file:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Data format requirements for FastNLO}
+
+\item \bf{Data format requirements for FastNLO} \rm
 
 In this subsection we describe data format specific for the FastNLO implementation
 accessed by choosing 'FastNLO jets' and 'FastNLO ep jets normalised' reaction types.
@@ -634,11 +641,11 @@ passing the information specific to each data point. They are listed below:
          only two are required to be present to unambiguously define the DIS phase space for each data point.
         
 \end{itemize}
-
+\end{description}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Understanding the output}
+\subsubsection{Understanding the output}
   The results of the minimization are printed to the standard output and written
   to the files in the {\tt output/} directory. 
 

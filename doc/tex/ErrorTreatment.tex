@@ -11,7 +11,7 @@
 \DeclareRobustCommand\mb[1]{\ensuremath{\mbox{\mathversion{bold}{$#1$}}}}
 \DeclareRobustCommand\mbs[1]{\ensuremath{\mbox{\mathversion{bold}{\scriptsize $#1$}}}}
 
-\subsection {Correlated errors and \texorpdfstring{$\chi^2$}{chi2}}
+\subsubsection {Correlated errors and \texorpdfstring{$\chi^2$}{chi2}}
 \label{sec:cor-chi2}
 
 % \cite{Chekanov:2002pv,Pascaud:1995qs}
@@ -117,7 +117,7 @@ It is worth noting that the solution Eq.~\ref{eq:chi_int} for $\chi^2$
 can be obtained by minimizing $\chi_{\mathrm c}^2(\mb\rs)$ of Eq.~\ref{eq:chi_c} wrt. $\mb\rs$.
 
 % -----------------------------------
-\subsection{The Offset method}
+\subsubsection{The Offset method}
 
 In the Offset method presented here we assume that $\mb\rs$ is fixed, 
 and we find the best theoretical model by minimizing
@@ -173,7 +173,8 @@ If another error definition, $\Delta\chi_1^2 = \lambda$,
 is adopted\footnote{E.g. Jon Pumplin uses $\lambda=5$, cf. \texttt{minuit/iterate.F}} then
 the full covariance matrix, $V$, must be scaled by $\lambda$. 
 
-\subsubsection{Implementation via \fitter\ } 
+\begin{description}
+\item \bf{Implementation via \fitter\ } \rm
 
 The Offset method is turned on by setting \verb:CHI2Style = 'Offset':
 By default all fits are run in a single job, each fit driven by initial parameters and Minuit commands read from \verb'minuit.in.txt'.
@@ -214,9 +215,10 @@ If the file does not exist and \verb'CorSysIndex' $\neq 0$ try to read
 Do not perform the fit if a corresponding \verb'Results_<CSI>.txt' file exists,
 otherwise switch to mode 1.
 \end{enumerate}
+\end{description}
 
 %%%%%%%%%%%
-\subsection{Monte Carlo Method}
+\subsubsection{Monte Carlo Method}
 \label{sec:ToyMC}
 
 The PDF uncertainties can be estimated using a Monte Carlo technique \cite{mcmethod}.
@@ -253,18 +255,22 @@ or uncorrelated source and three distributions are supported for random number g
 
 
 %%%%%%%%%%%
-\subsection{Regularisation methods}
+\subsubsection{Regularisation methods}
 
 Regularisation methods are aiming to study the parametrisation assumptions on PDFs. When more flexible parametrisation styles is used the shape of the PDFs must be constrained and various methods could be used.
 HERAFitter framework provides the means to study and compare various methods.
 
 %The methods described in this section work for large data sets. 
-\subsubsection{Data Driven Regularisation}
+
+\begin{description}
+
+\item \bf{Data Driven Regularisation}\rm
+
 This method was first applied by NNPDF group which uses redundant parametrisation and introduces a stopping criteria based on data.
 The data driven regularisation method splits data randomly into ``fit'' and ``control''  samples. The ``fit'' sample is used to determine PDF parameters. The $\chi^2$ of this sample is observed to semi-monotonically decrease. The ``control'' sample is used to protect againts over-fitting and for this sample the $\chi^2$ will first decrease and then will start to increase due to fluctuation of the sample.
 
 
-\subsubsection{External Regularisation based on penalty term in $\chi^2$}
+\item \bf{External Regularisation based on penalty term in $\chi^2$} \rm
 
 Another method to constrain the PDF shape is to simply apply a penalty term
 to the $\chi^2$ function. 
@@ -310,4 +316,4 @@ with $\Delta D=\Delta E = 100$, such that for large $D$ and $E$ the ratio will a
 It is easily access via Namelist: \tt \&ExtraMinimisationParameters \rm
 with the name for the name \tt 'Temperature' \rm, which is the $T$ from above description.
 
-
+\end{description}
