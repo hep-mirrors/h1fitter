@@ -863,28 +863,52 @@ C---------------------------------
       
       if (HF_SCHEME.eq.'ZMVFNS') then
           HFSCHEME = 0
+          call hf_errlog(1403201330,
+     $         'I: USING ZMVFNS')
       elseif (HF_SCHEME.eq.'ACOT ZM') then
           HFSCHEME = 1 
+          call hf_errlog(1403201331,
+     $         'I: USING ACOT ZM')
       elseif (HF_SCHEME.eq.'ACOT Full') then
           HFSCHEME = 11 
+          call hf_errlog(1403201332,
+     $         'I: USING ACOT Full')
       elseif (HF_SCHEME.eq.'ACOT Chi') then
           HFSCHEME = 111 
+          call hf_errlog(1403201333,
+     $         'I: USING ACOT Chi')
       elseif (HF_SCHEME.eq.'RT') then
           HFSCHEME = 2
+          call hf_errlog(1403201334,
+     $         'I: USING RT Standard')
       elseif (HF_SCHEME.eq.'RT FAST') then
           HFSCHEME = 22 
+          call hf_errlog(1403201335,
+     $         'I: USING RT Standard FAST')
       elseif (HF_SCHEME.eq.'RT OPT') then
           HFSCHEME = 202
+          call hf_errlog(1403201336,
+     $         'I: USING RT Optimal')
       elseif (HF_SCHEME.eq.'RT OPT FAST') then
           HFSCHEME = 222 
+          call hf_errlog(1403201337,
+     $         'I: USING RT Opimal FAST')
       elseif (HF_SCHEME.eq.'FF') then
           HFSCHEME = 3 
+          call hf_errlog(1403201338,
+     $         'I: USING FFNS QCDNUM')
       elseif (HF_SCHEME.eq.'FF ABM') then
          HFSCHEME = 4 
+          call hf_errlog(1403201339,
+     $         'I: USING ABM FFNS')
       elseif (HF_SCHEME.eq.'BMSN ABM') then
          HFSCHEME = 44 
+          call hf_errlog(1403201340,
+     $         'I: USING ABM BMSN')
       elseif (HF_SCHEME.eq.'FF ABM RUNM') then
          HFSCHEME = 444
+          call hf_errlog(1403201341,
+     $         'I: USING ABM Running mass')
       else
          print *,'Unsupported HFSCHEME =',HF_SCHEME
          print *,'Check value in steering.txt'
@@ -935,6 +959,9 @@ C---------------------------------------
 C---------------------------------
 
       if (Chi2SettingsName(1).eq.'undefined') then
+
+         call hf_errlog(140320131,
+     $        'W: USING OLD CHI2 STRUCTURE')
 C
 C !> Reset defaults if Chi2SettingsName parameter is not set.
 C 
@@ -943,6 +970,7 @@ C
          StatScale   = 'Poisson'
          UncorSysScale = 'Linear'
          CorChi2Type = 'Hessian'
+cv         print*, 'WARNING:   USING NEW CHISQUARE STRUCTURE'
          if (Chi2Style.eq.'HERAPDF') then
             ICHI2 = 11
          elseif (Chi2Style.eq.'HERAPDF Sqrt') then
@@ -966,6 +994,9 @@ C
             call HF_stop
          endif
       else
+
+         call hf_errlog(140320132,
+     $        'I: USING NEW CHI2 STRUCTURE')
          CorrSystByOffset=.false.
 c     $     ,StatScale, UncorSysScale, CorSysScale,UncorChi2Type,CorChi2Type
          ICHI2 = -1
@@ -1217,10 +1248,16 @@ C
 C--------------------------------------------------
       if (Order.eq.'LO') then
          I_Fit_Order = 1
+         call hf_errlog(140320138,
+     $        'I: Using LO ')
       else if (Order.eq.'NLO') then
          I_Fit_Order = 2
+         call hf_errlog(140320139,
+     $        'I: Using NLO ')
       else if (Order.eq.'NNLO') then
          I_Fit_Order = 3
+         call hf_errlog(1403201310,
+     $        'I: Using NNLO ')
       else
          print *,'Unknown computation order = ',order
          print *,'Check your steering.txt file'
@@ -1235,14 +1272,26 @@ C--------------------------------------------------
 C------------------------------------------------
       if (TheoryType.eq.'DGLAP') then
          iTheory =  0
+         call hf_errlog(140320133,
+     $        'I: TheoryType DGLAP')
       else if ( TheoryType.eq.'DIPOLE') then
+         call hf_errlog(140320134,
+     $        'I: TheoryType DIPOLE')
       else if ( TheoryType.eq.'uPDF') then
          iTheory = 101
+         call hf_errlog(140320134,
+     $        'I: TheoryType kt factorisation')
       else if ( TheoryType.eq.'uPDF1') then
+         call hf_errlog(140320135,
+     $        'I: TheoryType kt factorisation')
          iTheory = 101
       else if ( TheoryType.eq.'uPDF2') then
+         call hf_errlog(140320136,
+     $        'I: TheoryType kt factorisation')
          iTheory = 102
       else if ( TheoryType.eq.'uPDF3') then
+         call hf_errlog(140320137,
+     $        'I: TheoryType kt factorisation')
          iTheory = 103
       else
          print *,'Unknown TheoryType = TheoryType'
