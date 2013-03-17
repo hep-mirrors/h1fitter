@@ -18,6 +18,11 @@ echo "========================================"
 cp input_steering/minuit.in.txt.10pHERAPDF minuit.in.txt
 cp input_steering/steering.txt.def steering.txt
 
+rm -rf output.BEFORECHECK
+
+mv output output.BEFORECHECK
+mkdir output
+
 bin/FitPDF >/dev/null
 
 grep  'After' output/Results.txt > temp/out.txt
