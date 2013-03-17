@@ -6,47 +6,55 @@
 
 The main features of the QCD theory are the confinement
 (at short ranges the quarks are strongly bound inside protons)
-and asymptotic freedom (at large scales the coupling constant 
+and the asymptotic freedom (at large scales the coupling constant 
 of strong force decreases and quarks become quasi-free partons).
-Therefore, factorisation theorem exploits these features by 
-separating the short and long distances processes, so that 
-structure functions can be written as a convolution product 
+The factorisation theorem exploits these features by 
+separating the short and long distances processes, such that 
+structure functions can be written as a convolution 
 between calculable parts (hard scattering coefficients) and 
-non-calculable parts, which are therefore parametrised (PDFs) 
-and determined from data.
+non-calculable parts parton distribution functions (PDFs), 
+which are therefore parametrised and determined from data.
 
 Factorisation is most rigorously established for deep inelastic 
 lepton-hadron scattering. For hadronic processes 
 in which a colorless electroweak final state is produced (i.e. Higgs,
- a real or virtual $W$, $Z$ or $\gamma$) factorisation is also well established
-and currently available up to NNLO in perturbation theory at the 
-differential level.
+ a real or virtual $W$, $Z$ or~$\gamma$) factorisation is also well established
+and differential cross section calculations are currently available up to 
+next-to-next-to leading order (NNLO) in perturbation theory.
 
-Factorisation is also proving to work for
+Factorisation is also proved to work for
 sufficiently inclusive colored final
 states, such as the one-jet and dijet cross section.
-In this case no fully rigorous all-order argument is really
-available, but no counterexample to factorisation has ever been found either.
+In this case no fully rigorous all-order argument is 
+available, but no counterexample to factorisation has been found so far.
 
-Even for the diffractive case, two factorisations are used here, one is the Regge factorisation
-and one the collinear factorisation for the hard scattering. 
+For the diffractive case, two factorisations are used here: the Regge factorisation
+and the collinear factorisation for the hard scattering. 
 
-The proton PDFs are extracted from the QCD fits by a measure of 
+The proton PDFs are classically extracted from the QCD fits by a measure of 
 agreement between data and theory models.
-The fit procedure is common to all the processes and it consists first 
+The fit procedure used in \fitter\ framework is common to all the processes and it consists first 
 in parametrising PDFs at a starting scale  $Q^2_0$, chosen to be below the charm mass threshold. 
-The PDFs are then evolved in the \fitter\ using coupled, integro-differential
+The PDFs are then evolved using coupled, integro-differential
 Dokshitzer-Gribov-Lipatov-Altarelli-Parisi (DGLAP)~\cite{Gribov:1972ri,Gribov:1972rt,Lipatov:1974qm,
 Dokshitzer:1977sg,Altarelli:1977zs} evolution equations 
 as implemented in the QCDNUM~\cite{qcdnum} program, 
 at NLO~\cite{Curci:1980uw,Furmanski:1980cm} in the 
-$\overline{\text{MS}}$ scheme.
+$\overline{\text{MS}}$ scheme
 %The renormalisation and factorisation scales are set to $Q^2$. 
-The LO and NNLO evolutions are also provided by the QCDNUM and can also be 
-selecteed via the steering parameters in \fitter\ . 
+(LO and NNLO evolutions are also available).
+The PDFs calculated at a scale corresponding to an measured cross section are convoluted with the partonic 
+cross sections to calculate the predicted cross section. For all measurement points, the predicted 
+and measured cross sections together with the corresponding errors are used to build a global $\chi^2$, 
+which is minimized to deduce the initial PDF parameters. This generic procedure includes a number of 
+subtitles and assumptions, depending on the measurements, scale and available calculations.
+
 In the following sections, the theoretical input for various processes is described,
-such as $ep$ DIS process in section \ref{dis}, $pp$ Drell-Yan process in section \ref{DY}. 
-For the jet cross sections calculations, \fitter\ uses  APPLGRID or FastNLO such as in section \ref{sec:theory:jets}.And in section \ref{ttbar} the $t\bar{t}$ cross sections are calculated based on the HATHOR package.
+such as electron-proton deep inelastic scattering (DIS) process in section 
+\ref{dis}, $pp$ Drell-Yan process in section \ref{DY}. 
+For the jet cross sections calculations, \fitter\ uses  
+APPLGRID or FastNLO such as in section \ref{sec:theory:jets}.
+In section \ref{ttbar} the $t\bar{t}$ cross sections are calculated based on the HATHOR package.
 Alternative approaches to collinear factorisation
 are also discussed, see sections \ref{dipole} for Dipole models and 
 \ref{TMD} for unintegrated PDFs.
@@ -72,8 +80,8 @@ final state. The schematic pf the DIS kinematical variables is illustrated in
 Figure~\ref{fig:dis}.
 \begin{figure}
 \begin{center}
-\caption{Diagram for a neutral and charged current DIS scattering.}
 \includegraphics[width=0.5\linewidth]{figures/DIS.pdf}
+\caption{Diagram for a neutral and charged current DIS scattering.}
 \end{center}
 \label{fig:dis}
 \end{figure}
