@@ -63,36 +63,101 @@ in the context of the resolved Pomeron model to predict
 such processes as seminclusive diffractive scattering in DIS.
 
 %%%%%%%%%%%
-\subsection{Deep inelasticI Scattering Formalism and Schemes}
+\subsection{Deep Inelastic Scattering Formalism and Schemes}
 %There are different approaches to the treatment of the heavy quark production. 
 %These include the fixed-flavour (FFN) and variable flavour number (VFN) schemes.
 %%%%
 \label{dis}
 
-Main information on the structure function comes from
-the Deep Inelastic Scattering (DIS) 
-experiments which provide the cleanest approach 
-of probing the proton. 
+The DIS experiments provide the cleanest approach 
+to measure the proton structure. 
+The DIS experiments are carried either on fixed targets 
+or at the collider facilities using electrons, muons or neutrinos 
+to probe the proton. 
 In the DIS process a lepton is scattered off the constituents of 
 the proton by a virtual exchange of neutral (NC) or charged (CC)
  boson producing a hadronic shower and a scattered lepton in the
-final state. The schematic pf the DIS kinematical variables is illustrated in 
-Figure~\ref{fig:dis}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.5\linewidth]{figures/DIS.pdf}
-\caption{Diagram for a neutral and charged current DIS scattering.}
-\end{center}
-\label{fig:dis}
-\end{figure}
-The DIS experiments are carried either on fixed targets 
-or at the collider facilities using electrons, muons or neutrinos 
-to probe the proton. The kinematic variables of a DIS process are the
- negative squared four-momentum of the exchange boson, $Q^2$, the 
+final state. The schematic of the DIS kinematical variables is illustrated 
+in Figure~\ref{fig:dis}:
+the negative squared four-momentum of the exchange boson, $Q^2$, the 
 scaling variable $x$, which can be related in the parton model to 
 the fraction of momentum carried by the struck quark, and the 
 inelasticity parameter $y$, which is the fraction of the energy 
 transferred to the hadronic vertex. 
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\linewidth]{figures/DIS.pdf}
+\end{center}
+\caption{Diagram for a neutral and charged current DIS scattering.}
+\label{fig:dis}
+\end{figure}
+%
+The NC (and similarly CC) cross section can be expressed in terms of generalised structure functions:
+\begin{eqnarray}
+   \frac{d^2\sigma_{NC}^{e^{\pm} p}}{dxdQ^2}=\frac{2\pi\alpha^2}{xQ^4} 
+    \big [ Y_{+} \tilde F_2^{\pm} \mp Y_{-}x \tilde F_3^{\pm} - y^2 \tilde F_L^{\pm} \big ],
+    %\label{eq:NC not reduced}
+\end{eqnarray}
+where $Y_{\pm} = 1 \pm (1-y)^2$ with $y$ being the inelasticity. The structure function $\tilde F_2$
+is the dominant contribution to the cross section, $x \tilde F_3$ is important at high $Q^2$ and $\tilde F_L$ is sizable
+only at high $y$.
+$\tilde F_2^{\pm}$ and $\tilde F_3^{\pm}$ can be expressed in terms of five structure
+functions describing the contributions from pure photon exchange, $\gamma Z$ interference
+and pure $Z$ exchange:  
+% ------ F_2 ------------
+\begin{center}
+  \begin{eqnarray}
+  \tilde F_2^{\pm} = F_2-v_e \Bigg( \frac{\kappa_W Q^2}{Q^2+M^2_Z} \Bigg)F_2^{\gamma Z}
+   + (v_e^2 + a_e^2) \Bigg( \frac{\kappa_W Q^2}{Q^2+M^2_Z} \Bigg)^2 F_2^Z  \\ 
+% ------ xF_3 ------------
+  x\tilde F_3^{\pm} = \pm a_e \Bigg( \frac{\kappa_W Q^2}{Q^2+M^2_Z} \Bigg)xF_3^{\gamma Z}
+  \mp 2a_e v_e \Bigg( \frac{\kappa_W Q^2}{Q^2+M^2_Z} \Bigg)^2 xF_3^Z   
+ \end{eqnarray}
+\end{center}
+Here, the pure photon exchange is described by $F_2$, pure $Z$ exchange by $F_2^Z$ and
+$xF_3^Z$, and $\gamma Z$ interference by $F_2^{\gamma Z}$ and $xF_3^{\gamma Z}$.
+$v_e$ is the weak vector and $a_e$ the weak axial-vector coupling of the electron
+to the $Z$. 
+The Weinberg angle $\theta_W$ enters the quantity $\kappa_W$ in the following way: $\kappa_W = \frac{1}{4 \sin^2 \theta_W \cos^2 \theta_W}$.
+\\ \\
+%
+In the framework of perturbative QCD the structure functions are directly related to the
+parton distribution functions, i.e. in leading order (LO)  $F_2$ is the momentum sum of quark and anti-quark distributions:
+\begin{center}
+  \begin{eqnarray}
+    \lbrack F_2,F_2^{\gamma Z},F_2^Z \rbrack =
+   x \sum_q[e_q^2,2e_qv_q,v_q^2+a_q^2] \{ q(x,Q^2) + \overline q(x,Q^2) \} \\ 
+   \lbrack xF_3^{\gamma Z},xF_3^Z \rbrack = 
+   x \sum_q[e_q^2a_q,2v_qa_q]\{q(x,Q^2) - \overline q(x,Q^2)\}
+ \end{eqnarray}
+\end{center}
+%$F_2 \approx x \sum e^2_q (q+ \overline q)$, and $xF_3$ is related to their difference,
+%$xF_3 \approx x \sum 2e_q a_q (q- \overline q)$. At higher orders, terms related to the gluon density distribution
+%($\alpha_s g$) appear.
+%\\
+In analogy to neutral currents, the inclusive CC $ep$ cross section can be expressed
+in terms of structure functions:
+\begin{center}
+  \begin{equation}
+   \frac{d^2\sigma_{CC}^{e^{\pm} p}}{dxdQ^2}=
+   \frac{G_F^2}{4\pi x} \bigg( \frac{M_W^2}{Q^2+M_W^2} \bigg)^2
+             \big [ Y_{+} W_2^{\pm} + y^2  W_L^{\pm} \mp Y_-x  W_3^{\pm} \big ],
+  \label{eq:CC not reduced}
+ \end{equation}
+\end{center}
+Here, $G_F$ is the Fermi constant which is related to the weak coupling $g$ and
+electromagnetic coupling $e$, i.e. $G_F = \frac{g^2}{4 \sqrt{2} M_W^2}$.
+%
+In LO the $e^+p$ and $e^-p$ cross sections are sensitive to different quark
+densities:
+\begin{eqnarray}
+  \begin{array}{rll}
+    \tilde \sigma_{CC}^{e^{+} p} = 
+    x[\overline u +\overline c] + (1-y)^2 x[ d+s ]  \\
+    \tilde \sigma_{CC}^{e^{-} p} = 
+    x[ u +c] + (1-y)^2 x[\overline d +\overline s ].
+  \end{array}
+\end{eqnarray}
 
 The cross-section predictions are obtain by convoluting the PDFs with the 
 hard scattering coefficient functions. 
@@ -196,10 +261,10 @@ terms without violating the definition of a GM-VFNS is what mainly distinguish t
 
 \begin{figure}
 \begin{center}
-\caption{Schematic Summary of ACOT  and TR  Schemes}
 \includegraphics[width=0.5\linewidth]{figures/schemes.pdf}
-\end{center}
+\caption{Schematic Summary of ACOT  and TR  Schemes}
 \label{fig:schemes}
+\end{center}
 \end{figure}
 
 
@@ -280,9 +345,9 @@ predict lepton pair production at the LHC or Tevatron.
 A schematic of the Drell Yan process is illustrated in Figure~\ref{fig:dy}.
 \begin{figure}
 \begin{center}
-\caption{Diagram for a generic DY scattering.}
 \includegraphics[width=0.5\linewidth]{figures/dy.pdf}
 \end{center}
+\caption{Diagram for a generic DY scattering.}
 \label{fig:dy}
 \end{figure}
 The calculations of the Drell Yan processes are known for many observables up to  the NNLO order.
