@@ -168,8 +168,9 @@ For the DIS processes, those are calculated using the Fixed-Flavour number
 Variable-Flavour number (GMVFN)~\cite{VFN} schemes. 
 %\fitter\ implements the zero mass variable flavour number (ZMVFN) scheme
 % from QCDNUM and are discussed in the following subsections.
-In The FFN scheme, heavy quark contributions are explicitly included in the hard cross sections. 
-In the VFN scheme, PDFs for heavy quarks are introduced and the number of active flavors changes by one unit when a heavy quark threshold is crossed.
+In the FFN scheme, heavy quark contributions are explicitly included in the hard cross sections. 
+In the VFN scheme, PDFs corresponding to heavy quarks are introduced and the number of active 
+flavors changes by one unit when the scale crosses the threshold for heavy quark distribution ($Q^2 \ge m_{Q}^2$).
 
 
 %The various treatments for the heavy quark thresholds are implemented as provided by the MSTW group
@@ -177,27 +178,28 @@ The evolution program QCDNUM~\cite{qcdnum} used in \fitter\ provides
 the calculation of the deep inelastic structure functions in the zero-mass, 
 generalised mass and the fixed flavour number schemes. 
 The VFN schemes with various treatments for the heavy 
-quark  thresholds are implemented in\\ \fitter\ 
-as provided by the MSTW group
-- the Thorne Roberts (TR) scheme with its variants at NLO and 
-NNLO~\cite{Thorne:1997ga,Thorne:2006qt}, 
-as provided by the CTEQ group - the ACOT scheme
- with its variants at LO and NLO, 
-as provided by the ABM group - the BMSN scheme at 
-NLO and NNLO~\footnote{The BMSN scheme as provided by ABM group 
-currently is not yet fully implemented in \fitter\ .}. 
+quark  thresholds are considered in \fitter\ :
+\begin{center}
+ \begin{enumerate}
+  \item[$\bullet$] the Thorne Roberts (TR) scheme with its variants at NLO and
+  NNLO~\cite{Thorne:1997ga,Thorne:2006qt} as provided by the MSTW group,
+  \item[$\bullet$] the ACOT scheme with its variants at LO and NLO as provided by the CTEQ group, 
+  \item[$\bullet$]  BMSN scheme at NLO and NNLO~\footnote{The BMSN scheme as provided by ABM group
+      currently is not yet fully implemented in \fitter\ .}.
+  \end{enumerate}
+\end{center}  
 The fixed-flavour number scheme
 is available via the QCDNUM implementation and via the 
-{\tt OPENQCDRAD~\cite{openqcdrad:page} } interface.
+{\tt OPENQCDRAD}~\cite{openqcdrad:page} interface.
 Each of these schemes is briefly discussed in further details.
 
 
 \subsubsection{Zero-Mass Variable Flavour Scheme}
 
 In the zero-mass variable flavour number scheme (ZM-VFNS) heavy quark densities are
-included in the proton for$Q^2>>m_h^2$ but they are treated as massless in both,
+included in the proton for $Q^2>>m_h^2$ but they are treated as massless in both,
 the initial and final states.
-This scheme is accurate in the region where $Q^2$ is so much greater than $m_h^2$
+This scheme is accurate in the region where $Q^2$ is much greater than $m_h^2$
 but becomes unreliable for $Q^2 \sim m_h^2$. 
 
 %The un-polarised DIS structure functions in ZM-VFN scheme are computed as a 
@@ -206,26 +208,29 @@ but becomes unreliable for $Q^2 \sim m_h^2$.
 %%%%
 \subsubsection{General Mass Variable Flavour Scheme: Thorne-Roberts scheme}
 
-The Thorne-Roberts (TR) scheme, (refered to it in the \fitter\ as RT scheme)
+The Thorne-Roberts (TR) scheme, (refered as RT scheme in the \fitter\ )
 is a general-mass variable flavour number scheme (GM-VFNS)
  used as default for the MTSW PDF sets. GM-VFNS smoothly connects the two regions: 
 scales below the heavy quark mass scale ($Q^2<m_h^2$) and scales much above the heavy quark scale threshold ($Q^2>>m_h^2$). However, the definition is not unique.
 A GM-VFNS can be defined by demanding equivalence of the $n_f = n$ (FFNS) and $n_f = n+1$ flavour (ZM-VFNS) descriptions above the transition point for the new parton distributions
 (they are by definition identical below this point), at all orders.
 
-The TR scheme comes in different variants depending on the treatment across the threshold of heavy quarks: TR standard (as used in MSTW PDF sets) and TR optimal, with a smoother transition across the heavy quark mass scales. Both of these variants are accessible within the \fitter\ package.
-The calculations are available to NLO, NNLO order. However, a fast version of the scheme is available (i.e. RT FAST) by using the $k-factor$ technique. The $k-factors$ are applied at the first iteration of the minimisation process enabling the code to run fast, as the $k-factors$ are defined as the ratio between massless and massive scheme, while the massless scheme accessed via QCDNUM is very fast.
+The TR scheme has two different variants depending on the treatment across the threshold of heavy quarks: TR standard (as used in MSTW PDF 
+sets~\cite{Thorne:2006qt,Martin:epC63}) 
+and TR optimal~\cite{Thorne:6180}, with a smoother transition across the heavy quark mass scales. Both of these variants are accessible within the \fitter\ package.
+The calculations are available to NLO and NNLO order. In addition, a fast version of the scheme is available (i.e. RT FAST) by using the k-factor technique. 
+The k-factors are applied at the first iteration of the minimisation process enabling the code to run fast, as the k-factors are defined as the ratio between massless and massive scheme, while the massless scheme accessed via QCDNUM is very fast.
 
  
 %%%%
 \subsubsection{General Mass Variable Flavour Scheme: ACOT scheme}
 
-The Aivazis-Collins-Olness-Tung scheme  belongs to the group of VFN 
-factorisation schemes that uses the renormalization method of 
+The Aivazis-Collins-Olness-Tung scheme belongs to the group of VFN 
+factorisation schemes that use the renormalization method of 
 Collins-Wilczek-Zee (CWZ) \cite{CWZ}.
 This scheme involves a mixture of the $\overline{\text{MS}}$ scheme 
-for light partons (and for heavy partons if the factorisation scale 
-is larger than the heavy mass)and the zero-momentum subtraction 
+for light partons (and for heavy partons when the factorisation scale 
+is larger than the heavy quark mass) and the zero-momentum subtraction 
 renormalisation scheme for graphs with heavy quark lines 
 (if factorisation scale is smaller than the mass of the heavy quark threshold). 
 The DGLAP kernels and PDF evolution are pure  $\overline{\text{MS}}$.
@@ -237,17 +242,18 @@ Within the ACOT package, different variants of the ACOT scheme are available:
 ACOT Full, ACOT-S, ACOT
 Chi,  $\overline{\text{MS}}$  at LO and NLO. 
 For the longitudinal structure function higher order
- calculations are also available. Each of these schemes have advantages and disadvantages, 
-for example the ACOT Full though it fully takes into account the quark masses and it reduces
-to  $\overline{\text{MS}}$  in the limit of masses going to zero, it has the disadvantage 
+ calculations are also available. 
+The ACOT Full implementation fully takes into account the quark masses and it reduces
+to  $\overline{\text{MS}}$  in the limit of masses going to zero, but it has the disadvantage 
 of being quite slow.
-Therefore the $k-factor$ technique has been addopted within the \fitter\  
-machinery to be able to perform QCD fits. The $k-factor$ where can be defined in two different ways:
+Therefore the k-factor technique has been addopted within the \fitter\  
+machinery to be able to perform QCD fits. The k-factor can be defined in two different ways:
 on one hand as the ratio between same order calculations but massless vs massive 
 (i.e. NLO (ZMVFNS)/NLO (ACOT), on the other hand one could speed up the calculations by 
-defining the $k-factors$ as the ratio between LO (massless)/NLO (massive).
+defining the k-factors as the ratio between LO (massless)/NLO (massive).
 Both options are available in the \fitter\ package and give similar results. 
-For convergence of the $k-factors$ usually $2-3$ iterations of complete fits are needed.
+%k-factors depend on PDFs therefore same iterations of the fit are needed.
+For convergence of the k-factors usually $2-3$ iterations are needed.
 These different variants of this scheme are all integrated in the \fitter\  framework and can be 
 selected via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt} (ACOT ZM, ACOT FULL, ACOT CHI, ACOT-S).
 
