@@ -219,6 +219,14 @@ C---------------------------------!*** OPTION TO USE QCDNUM FOR K-FACTORS
             isave=.false.
             iqcdnum=0
             iqcdnum=1
+          HFSCHEME = 0
+          call hf_errlog(2003201301,
+     $         'W: using kfactors=NLO(massless)/NLO(massive) for F2, FL')
+
+          call hf_errlog(2003201302,
+     $         'W: using kfactors=LO(massive)/NLO(massive) for Fc, Fb')
+
+
 cv            write(6,*) ' enter 1 for QCDNUM K-facs; 0 for LO-Massive ACOT ',iqcdnum
 cv            read (5,*) iqcdnum
             write(6,*) ' set: 1 for QCDNUM K-facs; 0 for LO-Massive ACOT  = ',iqcdnum
