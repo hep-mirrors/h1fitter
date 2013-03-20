@@ -165,7 +165,7 @@ There are various approaches of dividing the structure functions
 into calculable processes and PDFs.
 For the DIS processes, those are calculated using the Fixed-Flavour number 
 (FFN)~\cite{Laenen:1992, Laenen:1993, Riem:1995} or the general mass 
-Variable-Flavour number (GMVFN)~\cite{VFN} schemes. 
+Variable-Flavour number (GM-VFN)~\cite{VFN} schemes. 
 %\fitter\ implements the zero mass variable flavour number (ZMVFN) scheme
 % from QCDNUM and are discussed in the following subsections.
 In the FFN scheme, heavy quark contributions are explicitly included in the hard cross sections. 
@@ -249,7 +249,7 @@ of being quite slow.
 Therefore the k-factor technique has been addopted within the \fitter\  
 machinery to be able to perform QCD fits. The k-factor can be defined in two different ways:
 on one hand as the ratio between same order calculations but massless vs massive 
-(i.e. NLO (ZMVFNS)/NLO (ACOT), on the other hand one could speed up the calculations by 
+(i.e. NLO (ZM-VFNS)/NLO (ACOT), on the other hand one could speed up the calculations by 
 defining the k-factors as the ratio between LO (massless)/NLO (massive).
 Both options are available in the \fitter\ package and give similar results. 
 %k-factors depend on PDFs therefore same iterations of the fit are needed.
@@ -257,42 +257,39 @@ For convergence of the k-factors usually $2-3$ iterations are needed.
 These different variants of this scheme are all integrated in the \fitter\  framework and can be 
 selected via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt} (ACOT ZM, ACOT FULL, ACOT CHI, ACOT-S).
 
-
-
-The differences between TR and ACOT scheme types are nicely summarised in the figure \ref{fig:schemes}.
+The differences between TR and ACOT scheme types are summarised in the figure \ref{fig:schemes}.
 One major issue in a complete GM-VFNS, is that of the ordering of the
 perturbative expansion.
- The equivalency of swapping the $O(m_{H}^2/Q^2)$ 
-terms without violating the definition of a GM-VFNS is what mainly distinguish the ACOT from TR schemes. 
-
-\begin{figure}
+The equivalency of swapping the $O(m_{H}^2/Q^2)$ terms between Wilson coefficients (or hard-scattering amplitudes) 
+without violating the definition of a GM-VFNS is what mainly distinguish the ACOT from TR schemes. 
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.5\linewidth]{figures/schemes.pdf}
-\caption{Schematic Summary of ACOT  and TR  Schemes}
+\caption{Schematic summary of ACOT and TR schemes.}
 \label{fig:schemes}
 \end{center}
 \end{figure}
-
-
+%
 %%%%
 \subsubsection{Fixed -Flavour Number Scheme}
 
-The fixed-flavour number scheme for DIS structure functions in \fitter\ can be selected via {\tt HF$\_$SCHEME}
-using QCDNUM or ABM~\cite{openqcdrad:page} implementation.
 As mentioned before, in the FFN scheme only gluon and the light quarks are considered
 as partons within the proton, massive quarks are produced perturbatively in the final state.
+\fitter\ includes FFN scheme from ABM~\cite{openqcdrad:page} and can use as well the QCDNUM implementation.
+%The fixed-flavour number scheme for DIS structure functions in \fitter\ can be selected via {\tt HF$\_$SCHEME}
+%using QCDNUM or ABM~\cite{openqcdrad:page} implementation.
 
 In addition, the recent variant of the fixed-flavour number scheme in which the running mass definition 
-is used in the $\overline{\text{MS}}$ scheme~\cite{Alekhin:runm} can be selected
+is used in the $\overline{\text{MS}}$ scheme~\cite{Alekhin:runm} is implemented
 in \fitter\ .This variant is realised via the interface to the open-source code 
 OPENQCDRAD~\cite{openqcdrad:page}.
 This scheme has the advantage of reducing the sensitivity of the DIS cross sections to
 higher order corrections, and improving the theoretical precision of the mass definition. 
-\\           
 In QCDNUM, the calculation of the heavy quark contributions to DIS structure functions
 are available at NLO and only electromagnetic exchange contributions are taken into account.
 In the ABM implementation, the QCD corrections to the massive Wilson coefficients 
-up to the NNLO for the neutral-current (NC) heavy-quark production~\cite{SMoch} and up to NLO
+up to the currently best known approximate NNLO for the neutral-current (NC) 
+heavy-quark production~\cite{SMoch:npb864} and up to NLO
 for the charged-current (CC) case are available.
 %
 %The fixed-flavour number scheme for  in \fitter\ can be also accessed via interface to
@@ -319,7 +316,7 @@ for the charged-current (CC) case are available.
 %
 %       
 %%%%%%%%%%%
-\subsubsection{\texorpdfstring{$ep$}{ep} Electroweak corrections}
+\subsubsection{Electroweak corrections for \texorpdfstring{$ep$}{ep} scattering} 
 %%%%%%%%%%%
  
 To properly compare the experimental data with theoretical predictions, 
@@ -336,7 +333,7 @@ $\alpha$ and other fermion masses.
 The code provides the running of $\alpha$ using the most recent parametrisation
 of the hadronic contribution to $\Delta_\alpha$ \cite{Jegerlehner}, as well as an older 
 one from Burkhard \cite{Burkhard}.
-For the Drell Yan processes there are independent treatments applied as $k-factors$ (such as 
+For the Drell Yan processes there are independent treatments applied as k-factors (such as 
 from SANC, FEWZ packages).
 
  
@@ -360,7 +357,7 @@ The calculations of the Drell Yan processes are known for many observables up to
  For example, there are packages such as FEWZ~\cite{FEWZ}, DYNNLO~\cite{DYNNLO} for NNLO,
  or MCFM~\cite{MCFM} for NLO calculations. However, due to the complicated nature of these
  calculation involving an increased number of diagrams with additional higher order, these calculations are too slow to be used iteratively in a fit.
-There are various methods to overcome this shortage: using the $k-factors$ approximation from lower to higher order,  or using the grid technique when available.
+There are various methods to overcome this shortage: using the k-factors approximation from lower to higher order,  or using the grid technique when available.
   
  \fitter\ provides two implementations
 for $pp$  Drell Yan processes.
@@ -436,7 +433,7 @@ possibility to apply lepton \(p_{\perp}\) cuts, making this procedure
 flexible to describe data.
 
 The calculated leading order cross sections are multiplied by
-NLO or NNLO $k-factors$ provided for corresponding data distributions.
+NLO or NNLO k-factors provided for corresponding data distributions.
 %%%%
 
 
@@ -566,7 +563,7 @@ requested observables.
 
 Afterwards the NLO cross sections are restored from the grids
 with providing PDFs, \(\alpha_S\), factorization and 
-renormalization scales and with QCD NNLO $k-factors$ applied
+renormalization scales and with QCD NNLO k-factors applied
 if stated.
 
 %%%%%%%%%%%
