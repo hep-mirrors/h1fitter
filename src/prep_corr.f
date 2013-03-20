@@ -176,10 +176,14 @@ C SG: Mark the points for covariance matrix method:
                corr_stat(Idx2, Idx1) = buffer(NIdColumns1+NIdColumns2+1)
                lcorr_stat(Idx1) = .true.
                lcorr_stat(Idx2) = .true.
+               Call HF_ERRLOG(2003201309,
+     $              'W: Only statistical corrrelation matrix is used!')
 
             elseif (MatrixType.eq.'Covariance Matrix') then
                cov(Idx1, Idx2) = buffer(NIdColumns1+NIdColumns2+1)
                cov(Idx2, Idx1) = buffer(NIdColumns1+NIdColumns2+1)
+               Call HF_ERRLOG(2003201310,
+     $              'W: Stat + systematic covariance matrix is used!')
             else
                Call HF_ERRLOG(26060000,
      $              'W: Matrix type not recognised! ignore!')
