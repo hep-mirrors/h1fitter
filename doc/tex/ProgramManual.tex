@@ -18,7 +18,7 @@ The flow is depicted such that it follows the structure of the \fitter\ .
 
 In addition, an inventory list with short description of existing subroutines is  
 presented in Table~\ref{tab:list}. 
-Here we choose to enlist only the routines from the common target module to gudie 
+Here we choose to enlist only the routines from the common target module to guide 
 the user of available functionalities.
 
 \begin{center}
@@ -34,7 +34,7 @@ the user of available functionalities.
 & $\bullet$ read\_steer.f: &access steer parameters from steering card \\
 & $\bullet$ read\_data.f: & reading the datatables and storing data information \\
 & $\bullet$ init\_theory.f: & initialising theory modules \\
-& $\bullet$ dataset\_tools.f:&  allocating bin indecies \\
+& $\bullet$ dataset\_tools.f:&  allocating bin indices \\
 & $\bullet$ error\_logging.f: &  error logging information\\
 & $\bullet$ minuit\_ini.f: & initialise minuit module \\
 & $\bullet$ fcn.f: & passes to minuit the $\chi^2$ to be minimize \\
@@ -83,7 +83,7 @@ the user of available functionalities.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Steering files}
- The software behaviour is controlled by three files with steering commands.
+ The software behavior is controlled by three files with steering commands.
  These files have predefined names:
     
 \begin{itemize}
@@ -124,7 +124,7 @@ The following namelist blocks are encountered:
 \item  {\tt Cheb} (Optional): Chebyshev study namelist
 \item  {\tt Poly} (Optional): pure polynomial parameterisation for valence quarks
 \item  {\tt HQScale} (Optional): choose the factorisation scale for HQs
-\item  {\tt lhapdf} (Optional):LHAPDF sttering card
+\item  {\tt lhapdf} (Optional):LHAPDF steering card
 \item  {\tt reweighting} (Optional): reweighting steering cards
 \end{itemize}
 
@@ -135,10 +135,10 @@ These namelist blocks are described in greater details in the User's example \re
 \item \it\bf Theory type: \rm\\
  
 here is a steering flag which defines the theory type via the chosen evolution.
-The following types are suppprted:
+The following types are supported:
 \begin{itemize}
 \item \tt{TheoryType = 'DGLAP' }\rm as used for collinear evolution theories. For this type,
- it follows with aother flag which sets the order of perturbative series in $\alpha_S$:
+ it follows with another flag which sets the order of perturbative series in $\alpha_S$:
 \tt{Order}\rm which can be leading order (LO), next-to-leading order (NLO) and when available NNLO.
 \item \tt{TheoryType = 'DIPOLE' }\rm as used for the dipole models;
 \item \tt{TheoryType = 'uPDF' }\rm as used for the un-integrated PDFs (with 3 variants)
@@ -220,7 +220,7 @@ The old format corresponds to {\tt CHI2Style}  --- (string) choice of the $\chi^
 %\subsubsection{Selection of the data}
 \item \it\bf Selection of the data:\rm \\
   The namelist \&Cuts, located inside the {\tt steering.txt} file can be used to apply
-  simple process dependent cuts. The cuts are limitted to bin variables.
+  simple process dependent cuts. The cuts are limited to bin variables.
   Simple low and high limits are allowed. For example, a cut on $Q^2>3.5$~GeV$^2$ for
   NC ep scattering is specified as
 
@@ -291,7 +291,7 @@ The second column represents just user defined names,
 the third column is  input value for the parameter.
 The forth column sets the step size (usually chosen of the same order as of the error).
 To note that if step size value is 0. then this parameter is FIXED.
-The fifth colum sets the lower boundary of the fit parameter, 
+The fifth column sets the lower boundary of the fit parameter, 
 The sixth column set the upper boundary of the fit parameter
 if boundaries are not mentioned then there are no boundaries.
 
@@ -449,7 +449,7 @@ $Q^2 \ge 8.5$ & NLO & 27.820& 3.660 &-0.076& 8.405& 4.0 & 18.188 & 157& 128.92& 
                        \item 'stat'  -- specifies column with statistical uncertainties, request Poisson re-scaling;
                        \item 'stat const'  -- specifies column with statistical uncertainties, request no re-scaling of the errors;
                        \item 'uncor' -- specifies column with uncorrelated uncertainties. Any name containing keyword ``uncor'' is treated as an uncorrelated
-  error souce, e.g. ``h1 uncor'';  
+  error source, e.g. ``h1 uncor'';  
                        \item 'uncor const' -- specifies column with uncorrelated uncertainties, request no re-scaling of the errors;  
                        \item 'total' -- specifies column with total uncertainties. 
                                   Total uncertainties are not used in the fit,
@@ -671,7 +671,7 @@ passing the information specific to each data point. They are listed below:
   corresponding to the three first bins of the input tables, data value, sum in 
   quadrature of statistical and uncorrelated systematic uncertainty, total
   uncertainty, the predicted value, before and after applying correlated systematic shifts,
-  pull betweenthe  data and theory and 
+  pull between the  data and theory and 
   data set index. The pull $p$ is calculated as 
   \begin{equation}
       p = \frac{ \mu - m} {\sigma_{\rm uncor}}
