@@ -10,9 +10,9 @@ A general diagram of  available modules is illustrated in figure~\ref{fig:org}.
 The flow is depicted such that it follows the structure of the \fitter\ .
 \begin{figure}
 \begin{center}
-\caption{Schematic Structure of the \fitter\ program organisation in different modules.}
 \includegraphics[width=0.75\linewidth]{figures/organisation.pdf}
 \end{center}
+\caption{Schematic structure of the \fitter\ program organisation in different modules.}
 \label{fig:org}
 \end{figure}
 
@@ -197,11 +197,11 @@ local qcdnum parameters \\
 \end{tabular}
 
 
-These styles were described in details in Section~\ref{sec:pdfparam}.
+These styles were described in details in section~\ref{sec:pdfparam}.
 The LHAPDF style can be used only with proper configuration settings,
- as explained in the Section~\ref{sec:install}.
+ as explained in the section~\ref{sec:install}.
 \item \it\bf  Definition of Chisquares:\rm\\
-This section is explained in the Section \ref{sec:chi2}.
+This section is explained in the section \ref{sec:chi2}.
 Currently two different styles are supported for a smoother 
 transition to the new style which is more flexible.
 The old format corresponds to {\tt CHI2Style}  --- (string) choice of the $\chi^2$ function:\\
@@ -265,9 +265,9 @@ The minuit steering card is described as it follows, a sample file is presented
 in Fig.~\ref{fig:minuit}
 \begin{figure}
 \begin{center}
-\caption{An example of a minuit steering card.}
 \includegraphics[width=0.45\linewidth]{figures/minuit.pdf}
 \end{center}
+\caption{An example of a minuit steering card.}
 \label{fig:minuit}
 \end{figure}
 
@@ -311,7 +311,7 @@ hesse        & hessian estimate of the \tt{MINUIT}\rm parameters \\
 \end{tabular}
 
 
-The output of the fit is stored in the output/ directory as \tt{minuit.out.txt}\rm
+The output of the fit is stored in the output/ directory as \tt{minuit.out.txt}\rm.
 Statements to watch in minuit.out.txt:
 \begin{itemize}
 \item \tt{FCN=575.16}\rm  this is total chisquare
@@ -340,6 +340,7 @@ $\alpha_\Pom(0)$ & Pomeron\_a0 & steering.txt \\
 $A_\Reg$ & Reggeon\_factor & steering.txt \\
 $\alpha_\Reg(0)$ & Reggeon\_a0 & steering.txt \\
 \end{tabular}
+\vspace{0.7cm}
 
 {\bf HERAFitter parameters for dipole fits} \\
 The default  initial parameters for the fit without valence quarks are : 

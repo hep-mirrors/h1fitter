@@ -538,7 +538,8 @@ QCDNUM evolution code.
 
 
 \subsubsection{APPLGRID}
-The APPLGRID~\cite{Carli:2010rw} package allows to compute a fast estimate
+The APPLGRID~\cite{Carli:2010rw} package allows to compute in a fast
+way an estimate
 of NLO cross sections for particular processes for arbitrary set of 
 proton parton density functions. The package implements
 calculations of Drell Yan cross sections of electroweak boson (\(Z,W\))
@@ -567,7 +568,8 @@ are in fact pre-set following the MCFM input steering card, while
 binning and definitions of the observables for which the
 differential cross sections are needed are set in the 
 APPLGRID code. 
-The grid parameters \(x_1, x_2\) and \(Q^2\) binning
+%The grid parameters \(x_1, x_2\) and \(Q^2\) binning
+The grid parameters, \(Q^2\) binning
 and interpolation orders are also defined in the code.
 
 APPLGRID performs construction of the grid tables in two 
@@ -581,6 +583,14 @@ with providing PDFs, \(\alpha_S\), factorization and
 renormalization scales and with QCD NNLO k-factors applied
 if stated.
 
+In order to use APPLGRID tables in \fitter\ , APPLGRID package 
+has to be downloaded and installed first.
+In addition, \fitter\ code has to be configured with a special option 
+(for details see section~\ref{sec:install}).
+%Within \fitter\ package there are several APPGRID grid tables already 
+%provided for the calculation of Drell Yan and jet processes which
+%are data set specific.
+
 %%%%%%%%%%%
 \subsection{DIPOLE models}
 \label{dipole}
@@ -593,33 +603,36 @@ if stated.
 %the original model version (GBW)~\cite{Golec-Biernat:1998js}, a model based on the colour glass condensate approach
 %to the high parton density regime (IIM)~\cite{Iancu:2003ge}, and a modified GBW model by adding effects of the 
 The dipole picture provides an attractive approach to the virtual photon-proton
- scattering in the low $x$ region because it allows to describe inclusive and 
-diffractive processes together.
+ scattering in the low $x$ region because it allows to describe both, inclusive and 
+diffractive processes.
  In this approach the virtual photon fluctuates into a $q\bar q$ (or $q\bar q g$) 
  dipole which interacts with the proton~\cite{NNZ:91}.  
 The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long 
 life time $\propto 1/m_p x\;$ and a size which is not changed by scattering.
- A schematic view of dipole factorisation at small x in DIS is illustrated in figure~\ref{fig:dipole}
+A schematic view of dipole factorisation at small x in DIS is illustrated in figure~\ref{fig:dipole}.
 The virtual photon fluctuates into a quark-antiquark pair and subsequently interacts with the target, 
 and the dynamics of the interaction are embeded in the dipole scattering amplitude.
 
 \begin{figure}
 \begin{center}
-\caption{Schematic diagram of dipole factorisation for the inclusive cross section in DIS.}
 \includegraphics[width=0.5\linewidth]{figures/dipole.pdf}
 \end{center}
+\caption{Schematic diagram of dipole factorisation for the inclusive cross section in DIS.}
 \label{fig:dipole}
 \end{figure}
 
-Several dipole models have been developed to describe various DIS reactions. They vary due to different assumption made about the behavior of the dipole cross sections.   In the \fitter\  three representative models  are implemented:
-\begin{itemize}
-\item the original Golec-Biernat-W\"usthoff (GBW)~\cite{Golec-Biernat:1998js} 
+Several dipole models have been developed to describe various DIS reactions. 
+They vary due to different assumption made about the behavior of the dipole-proton cross sections.   
+In the \fitter\  three representative models  are implemented:
+%\begin{itemize}
+%\item the original Golec-Biernat-W\"usthoff (GBW)~\cite{Golec-Biernat:1998js} 
+the original Golec-Biernat-W\"usthoff (GBW)~\cite{Golec-Biernat:1998js} 
 dipole saturation model,
-\item the colour glass condensate approach to the high parton density 
+the colour glass condensate approach to the high parton density 
 regime Iancu-Itakura-Munier (IIM) model~\cite{Iancu:2003ge},
-\item a modified GBW model which takes into account the effects of  
+a modified GBW model which takes into account the effects of  
 DGLAP evolution Bartels-Golec-Kowalski(BGK)~\cite{Bartels:2002cj}.
-\end{itemize}
+%\end{itemize}
 %%%%
 \subsubsection{GBW model}
 
@@ -637,7 +650,7 @@ The free fitted parameters are the cross-section normalisation $\sigma_{0}$ as w
 \subsubsection{IIM model}
 The IIM model assumes an improved expression for the dipole cross section which is based on the 
 Balitsky-Kovchegov equation~\cite{Balitsky:1995ub}. The explicit formula for $\sigma_{\text{dip}}$ 
-can be find in~\cite{Iancu:2003ge}. The free fitted parameters are the alternative scale parameter $\tilde{R}$, $x_{0}$ and $\lambda$.
+can be found in~\cite{Iancu:2003ge}. The free fitted parameters are the alternative scale parameter $\tilde{R}$, $x_{0}$ and $\lambda$.
 %%%%
 \subsubsection{BGK model}
 The BGK model modifies the GBW model by taking into account the  DGLAP evolution
@@ -665,7 +678,7 @@ The free fitted parameters for this model are $\sigma_{0}$, $\mu^{2}_{0}$ and th
 The dipole models are valid in the low-$x$ region only, where the valence quark contribution is small, of the order of 5\%. The new HERA $F_2$ data have a precision which is  better than 2 \%. Therefore in the \fitter\ the contribution of the valence quarks is taken from the PDF fits and added to the original 
  BGK model, this is uniquely possible within the \fitter\ framework.
  The quality of the fits of the BGK dipole model with valence quarks and without 
-valence quarks are the same. The sample input steering and output fits are discussed in the user example section.
+valence quarks are the same. The sample input steering and output fits are discussed in section~\ref{sec:man}.
 
 
 
@@ -690,7 +703,7 @@ Since the evolution cannot be easily obtained in  a closed form,
  first a kernel $ {\cal \tilde A}\left(x'',\kt,\Pmax\right) $ 
 is determined from the MC solution of the CCFM evolution equation, 
 and then is then folded with the non-perturbative starting distribution 
-${\cal A}_0 (x)$ \cite{Jung:2012hy}:
+${\cal A}_0 (x)$~\cite{Jung:2012hy}:
 \begin{eqnarray}
 x {\cal A}(x,\kt,\Pmax) &= &x\int dx' \int dx'' {\cal A}_0 (x) {\cal \tilde A}\left(x'',\kt,\Pmax\right)  \delta(x' \cdot x'' - x) \\
 &= &\int dx' \int dx'' {\cal A}_0 (x) {\cal \tilde A}\left(x'',\kt,\Pmax\right) \frac{x}{x'} \delta(x'' - \frac{x}{x'}) \\
@@ -708,7 +721,7 @@ a grid of $50\otimes50\otimes50$ bins in $x,\kt,\Pmax$.
 
 The calculation of the cross section according to Eq.(\ref{kt-factorisation})
  involves a multidimensional Monte Carlo integration which is time consuming
- and suffers from numerical fluctuations, and cannot be used directly in a fit
+ and suffers from numerical fluctuations, and therefore cannot be used directly in a fit
  procedure involving the calculation of numerical derivates in the search for the minimum. 
 Instead the following procedure is applied:
 \begin{eqnarray}
@@ -724,16 +737,16 @@ x{\cal A}_0(x,\kt) &=& N x^{-B_g} \cdot (1 -x)^{C_g}\left( 1 -D_g x\right)
 \label{a0}
 \end{eqnarray}
 with free parameters $N,\, B_g,\, C_g,\, D_g$. 
-In the present version, only the transverse momentum dependent gluon distribution 
-can be obtained from the fit. 
+%In the present version, only the transverse momentum dependent gluon distribution 
+%can be obtained from the fit. 
 
 The calculation of the $ep$ cross section follows eq.(\ref{kt-factorisation}), 
 with the off-shell matrix element including quarks masses taken from \cite{Catani:1990eg} 
 in its implementation in {\tt CASCADE} \cite{Jung:2010si}.
 In addition to the boson gluon fusion process, also valence quark initiated 
 $\gamma q\to q$ processes are included, with the valence quarks taken from~\cite{Deak:2010gk}.
-Please note that in the present version only DIS $ep$ processes can be used
- to determine the transverse momentum dependent (uPDF) gluon density distribution.
+%Please note that in the present version only DIS $ep$ processes can be used
+% to determine the transverse momentum dependent (uPDF) gluon density distribution.
 
 %%%%%%%%%%%
 \subsection{Diffractive PDFs}
@@ -745,27 +758,27 @@ Please note that in the present version only DIS $ep$ processes can be used
 
 In this section the diffractive process is briefly described.
 It was observed at HERA that about 10\%
-of deep inelastic interactions are diffractive
-events i.e. events in which the interacting proton stays intact ($ep\to eXp$). 
+of deep inelastic interactions are diffractive leading to
+events in which the interacting proton stays intact ($ep\to eXp$). 
 In the diffractive process the proton appears well separated from the 
 rest of the hadronic final state by a large rapidity gap, otherwise
 the events look similar to normal deep inelastic events.
 This process is usually  interpreted as the diffractive dissociation 
 of the exchanged virtual photon to produce any hadronic final state
- system $X$ with mass much smaller than $W$ and the same net quantum numbers as the exchanged photon
-figure~\ref{fig:diff} illustrates the kinematic variables used to describe
+system $X$ with mass much smaller than $W$ and the same net quantum numbers as the exchanged photon.
+Figure~\ref{fig:diff} illustrates the kinematic variables used to describe
  the inclusive diffractive DIS process.  For this, the 
-\it proton vertex factorisation \rm approach
+proton vertex factorisation approach
 is assumed such that  the diffractive DIS is mediated by the exchange of hard Pomeron and a
  secondary Reggeon.  The factorisable pomeron picture has proved remarkably successful for the descriptio of most of these data.
 
 
-\begin{figure}
+\begin{figure}[!ht]
 \begin{center}
-\caption{Schematic diagram of the kinematic variables used to
- describe the inclusive diffractive DIS process.}
 \includegraphics[width=0.5\linewidth]{figures/diffraction.pdf}
 \end{center}
+\caption{Schematic diagram of the kinematic variables used to
+ describe the inclusive diffractive DIS process.}
 \label{fig:diff}
 \end{figure}
 
@@ -784,9 +797,7 @@ pomeron longitudinal momentum which is carried by the struck parton, $x=\beta\Po
 
 \subsubsection {Cross-section}
 
-The diffractive structure functions can be expressed as convolutions of the
-calculable coefficient functions with diffractive quark and gluon distribution functions,
- which in general depend on all of $x$, $Q^2$, $\beta$, $t$.
+As for the inclusive case, the diffractive cross-section can be expressed as:
 \begin{equation}
   \frac{d\sigma}{d\beta\,dQ^2d\xi\,dt}
 =
@@ -833,6 +844,10 @@ which upon integration over $t$ reads
     \left( 1 +  (1-y)^2 \right) \,\xi\ensuremath{\overline\sigma}^{D(3)}(\beta,Q^2,\xi).
 \end{equation}
 %The H1 and ZEUS data files typically contain $\xi\ensuremath{\overline\sigma}^{D(3)}$.
+The diffractive structure functions can be expressed as convolutions of the
+calculable coefficient functions with diffractive quark and gluon distribution functions,
+ which in general depend on all of $x$, $Q^2$, $\beta$, $t$.
+
 
 %==========================================
 \subsubsection {Regge factorization}
