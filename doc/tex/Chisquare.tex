@@ -8,7 +8,7 @@ A skematic picture of $\chi^2$ definitions is displayed in Fig. \ref{fig:chi2}
 \caption{Various $\chi^2$ representations in \fitter\ .}
 \includegraphics[width=0.75\linewidth]{figures/chi2.pdf}
 \end{center}
-\label{fig:org}
+\label{fig:chi2}
 \end{figure}
  The description starts with most simple cases and it extends to 
  more evolved form that takes into account the
@@ -50,7 +50,7 @@ or more evolved as~\cite{H1:2009bp},
 { \textstyle \delta^2_{i,{\rm stat}}\mu^i \left(m^i -  \sum_j \gamma^i_j m^i b_j\right)+
 \left(\delta_{i,{\rm uncor}}\,  m^i\right)^2}
  + \sum_j b^2_j.
-\label{eq:ave}\end{equation}
+\label{eq:aven}\end{equation}
 %
 Here ${\mu^i}$ is the  measured central value  at a point $i$ 
 with  relative statistical $\delta_{i,stat}$ 
@@ -139,7 +139,7 @@ $ \mu^i + \sum_l \Gamma^i_j b_l$ is replaced by $ \mu^i \prod_l \exp( \gamma^i_j
 next release of the {\tt HERAFitter}. 
 
 The statistical uncertainties can be treated as additive, $\Delta^i(m^i) = \delta^i \mu^i$  and as Poisson,
-$\Delta^i(m^i) = \delta^i \sqrt{\mu^i m^i}$. More complex scaling from Eq.~\ref{eq:ave}, 
+$\Delta^i(m^i) = \delta^i \sqrt{\mu^i m^i}$. More complex scaling from Eq.~\ref{eq:aven}, 
 which depends on shifts of $b_j$, is implemented using an iterative approach: for the first iteration $b_l =0$ 
  is used to determine values of $b_l$ which are then applied in the second iteration. Statistical covariance
 matrix is scaled in a similar manner. In this case the correlation matrix is assumed to be fixed, the diagonal

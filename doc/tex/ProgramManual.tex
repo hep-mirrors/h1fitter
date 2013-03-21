@@ -6,7 +6,7 @@ organisation and it follows by a more detailed explanation of most used function
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Code Organisation}
-A general diagram of  available modules is illustrated in Figure~\ref{fig:org}.
+A general diagram of  available modules is illustrated in figure~\ref{fig:org}.
 The flow is depicted such that it follows the structure of the \fitter\ .
 \begin{figure}
 \begin{center}
@@ -115,8 +115,8 @@ The following namelist blocks are encountered:
 \item  {\tt InFiles}: Namelist to control input data
 \item  {\tt InCorr}: Namelist to control statistical correlation files
 \item  {\tt Scales} (Optional): Namelist to modify renormalisation/factorisation scale
-\item  {\tt HeraFitter}: Main steering cards. Further details can be found in the appendix 
-\ref{sec:herafitter}. 
+\item  {\tt HeraFitter}: Main steering cards. 
+%Further details can be found in the appendix \ref{sec:herafitter}. 
 \item  {\tt ExtraMinimisationParameters}:  Namelist to add extra to minuit parameters.
 \item  {\tt Output}: Namelist that outputs steering cards 
 \item  {\tt Cuts}: Namelist for process dependent cuts
@@ -174,7 +174,7 @@ IMPORTANT to note if running with FFNS (nf=3):
   \item the scale in FFNS is defined as $\mu^2 = Q^2 + 4m_h^2$ by default, can be 
     changed in HQScale in \tt{steering.txt}\rm (scale variation in ABM not yet implemented)
   \item  the pole mass definition for heavy quarks is set in ABM by default, 
-    the running mass definition \cite{arXiv:1011.5790v1} can be switched in 
+    the running mass definition \cite{Alekhin:runm} can be switched in 
     by setting \tt{HF\_SCHEME = FF ABM RUNM} \rm in \tt{steering.txt} \rm. 
 \end{itemize}
 

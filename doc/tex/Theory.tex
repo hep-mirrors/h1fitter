@@ -78,7 +78,7 @@ In the DIS process a lepton is scattered off the constituents of
 the proton by a virtual exchange of neutral (NC) or charged (CC)
  boson producing a hadronic shower and a scattered lepton in the
 final state. The schematic of the DIS kinematical variables is illustrated 
-in Figure~\ref{fig:dis}:
+in figure~\ref{fig:dis}:
 the negative squared four-momentum of the exchange boson, $Q^2$, the 
 scaling variable $x$, which can be related in the parton model to 
 the fraction of momentum carried by the struck quark, and the 
@@ -239,8 +239,7 @@ Therefore, the ACOT scheme is considered to be a minimal extension of $\overline
 
 
 Within the ACOT package, different variants of the ACOT scheme are available:
-ACOT Full, ACOT-S, ACOT
-Chi,  $\overline{\text{MS}}$  at LO and NLO. 
+ACOT Full, S-ACOT Chi, ACOT ZM,  $\overline{\text{MS}}$  at LO and NLO. 
 For the longitudinal structure function higher order
  calculations are also available. 
 The ACOT Full implementation fully takes into account the quark masses and it reduces
@@ -255,7 +254,7 @@ Both options are available in the \fitter\ package and give similar results.
 %k-factors depend on PDFs therefore same iterations of the fit are needed.
 For convergence of the k-factors usually $2-3$ iterations are needed.
 These different variants of this scheme are all integrated in the \fitter\  framework and can be 
-selected via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt} (ACOT ZM, ACOT FULL, ACOT CHI, ACOT-S).
+selected via namelist {\tt HF$\_$SCHEME} in the {\tt steering.txt} (ACOT ZM, ACOT FULL, S-ACOT Chi).
 
 The differences between TR and ACOT scheme types are summarised in the figure \ref{fig:schemes}.
 One major issue in a complete GM-VFNS, is that of the ordering of the
@@ -346,25 +345,31 @@ from SANC, FEWZ packages).
 
 This section presents calculations of Drell Yan processes that can be used to 
 predict lepton pair production at the LHC or Tevatron.
-A schematic of the Drell Yan process is illustrated in Figure~\ref{fig:dy}.
-\begin{figure}
+A schematic of the Drell Yan process is shown in figure~\ref{fig:dy}. 
+The calculations of the Drell Yan processes are known for many observables up to  the NNLO order.
+For example, there are packages such as FEWZ~\cite{FEWZ}, DYNNLO~\cite{DYNNLO} for NNLO,
+or MCFM~\cite{MCFM} for NLO calculations. However, due to the complicated nature of these
+calculation involving an increased number of diagrams with additional higher order, these 
+calculations are too slow to be used iteratively in a fit.
+There are various methods to overcome this shortage: using the k-factors approximation 
+from lower to higher order, or using the so-called grid technique 
+(storing the matrix elements on grids such that the cross sections later may be calculated
+convoluting these grids with the input PDFs) when available.
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.5\linewidth]{figures/dy.pdf}
 \end{center}
 \caption{Diagram for a generic DY scattering.}
 \label{fig:dy}
 \end{figure}
-The calculations of the Drell Yan processes are known for many observables up to  the NNLO order.
- For example, there are packages such as FEWZ~\cite{FEWZ}, DYNNLO~\cite{DYNNLO} for NNLO,
- or MCFM~\cite{MCFM} for NLO calculations. However, due to the complicated nature of these
- calculation involving an increased number of diagrams with additional higher order, these calculations are too slow to be used iteratively in a fit.
-There are various methods to overcome this shortage: using the k-factors approximation from lower to higher order,  or using the grid technique when available.
   
- \fitter\ provides two implementations
-for $pp$  Drell Yan processes.
- The first implementation uses calculations at LO which can be extended to NLO using k-factors,
-the second uses the APPLGRID interface.
-For thorough details of the theoretical modules we direct the user to read the provided references of these packages.
+\fitter\ provides two implementations for $pp$  Drell Yan processes.
+The first implementation uses calculations at LO which can be extended to NLO using k-factors,
+the second uses the APPLGRID interface. Short description of both implementations is 
+given below while for details of the theoretical modules we direct the user to read the 
+references of these packages provided in the description.
+%
+%For details of the theoretical modules we direct the user to read the provided references of these packages.
 
 
 The leading order Drell-Yan~\cite{Drell:1970wh,Yamada:1981mw} cross section 
@@ -411,9 +416,10 @@ The simple form of these expressions allows to calculate integrated
 cross sections without utilization of Monte-Carlo techniques.
 This is particularly useful for PDF fitting purposes because
 the statistical fluctuations are avoided in this case. In both 
-neutral and charge current expressions the parton density functions
+neutral and charged current expressions the parton density functions
 factorise as a function dependent only on boson rapidity \(y\) and
-invariant mass \(M\) leaving \(\cos\theta\) dependence aside.
+invariant mass \(M\).
+%leaving \(\cos\theta\) dependence aside.
 The integral in \(\cos\theta\) can be computed analytically and
 integrations in \(y\) and \(M\) can be performed with the Simpson
 method. The \(\cos\theta\) parts are kept in the equation 
@@ -421,8 +427,7 @@ explicitly because their integration is asymmetric for
 data in lepton \(\eta\) bins and also is being performed when applying 
 the lepton \(p_{\perp}\) cuts.
 
-The fact that PDF functions factorise,
-it allows to significantly boost calculations when 
+The fact that PDF functions factorise, allows to significantly boost calculations when 
 performing parameter fits over lepton rapidity data. In this case
 the factorised part of the expression which is independent on PDFs can be
 calculated only once for all minimisation iterations.
@@ -430,23 +435,31 @@ The leading order code in \fitter\ package implements this
 optimisation and uses fast convolution routines provided by
 QCDNUM. Currently the full width LO calculations are optimised 
 for lepton pseudorapidity and boson rapidity distributions with the
-possibility to apply lepton \(p_{\perp}\) cuts, making this procedure
-flexible to describe data.
+possibility to apply lepton \(p_{\perp}\) cuts.
+%making this procedure flexible to describe data.
+This flexibility allows to perform the calculations within the phase space
+corresponding to the available measurement.
 
+%The calculated leading order cross sections are multiplied by
+%NLO or NNLO k-factors provided for corresponding data distributions.
 The calculated leading order cross sections are multiplied by
-NLO or NNLO k-factors provided for corresponding data distributions.
+k-factors to obtain predictions at NLO or NNLO precision.
 %%%%
 
-
-On the other hand, one can obtain directly the NLO predictions by using APPLGRID or FASTNLO techniques, which rely on factorisation theorem by decoupling the hard scattering coefficients from PDFs. Therefore, the calculated hard scattering coefficients can be stored into a grid for a given kinematic bin, speeding up the convolution process with the PDFs allowing to be used for QCD fits. 
-These method are described in more details in sections \ref{sec:theory:jets}
+On the other hand, one can obtain directly the NLO predictions by using 
+APPLGRID or FASTNLO techniques, which rely on factorisation theorem by 
+decoupling the hard scattering coefficients from PDFs.
+The hard scattering coefficients are calculated once and stored into a grid 
+for a given kinematic bin, speeding up the convolution process with the PDFs 
+allowing to be used for QCD fits. 
+These method are described in more details in section \ref{sec:theory:jets}
 
 %%%%%%%%%%%
-\subsection{\texorpdfstring{$t\bar{t}$}{t-tbar} Cross Sections via {\tt HATHOR}}
+\subsection{Cross Sections for \texorpdfstring{$t\bar{t}$}{t-tbar} production in $pp$ or $p\bar p$ collisions}
 \label{ttbar}
-This section presents the calculation tool available 
-in \fitter\ for top-guark pair prouction in $p \bar{p}$ and $pp$ collisions.
-
+%This section presents the calculation tool available 
+%in \fitter\ for top-guark pair prouction in $p \bar{p}$ and $pp$ collisions.
+%
 Top-quark pairs ($t\bar{t}$) are mainly produced at hadron colliders via $gg$ fusion and
 $q \bar q$ annihilation. Furthermore, there are the $q q'$ and
 $q g$ production modes.
@@ -459,26 +472,27 @@ soft-gluon resummation \cite{Moch:2012mk}.
 The default choice for renormalization and factorization scale in $t \bar t$ production is the top-quark mass, $m_t$.
 The pole mass scheme is typically employed for $m_t$ but HATHOR also supports calculations in
 the $\overline{\text{MS}}$ scheme.
+
 \subsection{Jets}
 \label{sec:theory:jets}
-In this subsection, the use of the factorisation formalism is fully exploited for the 
-calculations of the inclusive jets and dijet cross sections.
-This sections presents various fast tool techniques based on this concept.
-
+%In this subsection, the use of the factorisation formalism is fully exploited for the 
+%calculations of the inclusive jets and dijet cross sections.
+This sections presents various fast calculations techniques for jet production based on
+the factorization formalism.
 
 The calculation of higher order jet cross sections is very demanding
 in means of computing power. The reasons are the large number of contributing
 Feynman diagrams and also the large number of infrared divergencies.
-For an accurate cancellation of these singularities, typically, the 
-dipole subtraction method is applied in such calculations.
+For an accurate cancellation of these singularities, the 
+dipole subtraction method is often applied in such calculations.
 During the necessary Monte Carlo integration a very fine phase
 space sampling has to be performed in order to account for the
 accurate cancellation of the counter terms.
 
 In order to enable the inclusion of jet-cross section 
-measurements in PDF and $\alpha_s$ fits, these perturbative
+measurements in PDF and $\alpha_s$ fits, the perturbative
 coefficients have to be pre-computed in a PDF and $\alpha_s$ 
-independent way. For this purpose, two quite similar tools are
+independent way. For this purpose, two similar tools are
 interfaced to the \fitter .
 
 \subsubsection{FastNLO}
@@ -488,16 +502,16 @@ This tool uses multi-dimensional interpolation
 techniques to convert the convolutions of perturbative 
 coeffcients with parton distribution functions and 
 the strong coupling into simple products.
-Although the concept is process independent, the perturbative 
-coefficients are usually calculated by the \texttt{NLOJET++}
+%Although the concept is process independent, 
+The perturbative 
+coefficients are calculated by the \texttt{NLOJET++}
 program~\cite{Nagy:1998bb} where calculations for jet-production
 in DIS~\cite{Nagy:2001xb}  as well as in hadron-hadron 
-collisions~\cite{Nagy:2003tz,Nagy:2001fj} are available.
-Also threshold-corrections of $\mathcal{O}$(NNLO) for 
-inclusive jet cross sections in hadron-hadron collisions are
-available~\cite{Kidonakis:2000gi}.
+collisions~\cite{Nagy:2003tz,Nagy:2001fj} with threshold-corrections 
+of $\mathcal{O}$(NNLO) for inclusive jet cross 
+sections~\cite{Kidonakis:2000gi} are available.
 
-The fastNLO libraries are standardized included in the \fitter\
+The fastNLO libraries are included in the \fitter\
 package and no further requirements or compilation options
 are needed. In order to include a new measurement into the PDF-fit,
 the fastNLO table have to be specified. These tables include all
@@ -585,7 +599,7 @@ diffractive processes together.
  dipole which interacts with the proton~\cite{NNZ:91}.  
 The dipoles can be viewed as quasi-stable quantum mechanical states, which have very long 
 life time $\propto 1/m_p x\;$ and a size which is not changed by scattering.
- A schematic view of dipole factorisation at small x in DIS is illustrated in Figure~\ref{fig:dipole}
+ A schematic view of dipole factorisation at small x in DIS is illustrated in figure~\ref{fig:dipole}
 The virtual photon fluctuates into a quark-antiquark pair and subsequently interacts with the target, 
 and the dynamics of the interaction are embeded in the dipole scattering amplitude.
 
@@ -739,7 +753,7 @@ the events look similar to normal deep inelastic events.
 This process is usually  interpreted as the diffractive dissociation 
 of the exchanged virtual photon to produce any hadronic final state
  system $X$ with mass much smaller than $W$ and the same net quantum numbers as the exchanged photon
-Figure~\ref{fig:diff} illustrates the kinematic variables used to describe
+figure~\ref{fig:diff} illustrates the kinematic variables used to describe
  the inclusive diffractive DIS process.  For this, the 
 \it proton vertex factorisation \rm approach
 is assumed such that  the diffractive DIS is mediated by the exchange of hard Pomeron and a
