@@ -26,6 +26,7 @@
 &Scales 
     DataSetMuR  = 4*1.0     ! Set muR scale to 1 for all 4 datasets
     DataSetMuF  = 4*1.0     ! Set muF scale to 1 for all 4 datasets
+    DataSetIOrder = 4*2     ! Set Order for APPLGRID (needed for NNLO fits)
 &End
 
 
@@ -70,7 +71,8 @@
  !  'LHAPDFQ0'    -- use lhapdf library to define pdfs at starting scale and evolve with local qcdnum parameters
  !  'LHAPDF'      -- use lhapdf library to define pdfs at all scales
  !  'DDIS'        -- use Diffractive DIS 
- !  'BiLog'        -- bi-lognormal parametrisation 
+ !  'BiLog'       -- bi-lognormal parametrisation 
+ !  'strange'     -- parametrising strange PDF explicitely
 
   PDFStyle = '10p HERAPDF'
 
@@ -293,6 +295,7 @@
 * (Optional) LHAPDF sttering card
 *
 &lhapdf
+  LHAPDFErrors = TRUE
   LHAPDFSET  = 'cteq66.LHgrid' ! LHAPDF grid file 
   ILHAPDFSET = 0               ! Set number withing PdfSet
 &End
