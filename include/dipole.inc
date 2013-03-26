@@ -5,7 +5,8 @@ C =========================================================
       
       double precision sig0,xlam,x0,xm,cBGK,eBGK
       
-      common/pass1/ sig0,xlam,x0,xm,cBGK,eBGK
+      common/pass1/ sig0,xlam,x0,xm
+      common/pass2/ cBGK,eBGK
       
       
       double precision cm

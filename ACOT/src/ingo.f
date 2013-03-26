@@ -131,7 +131,8 @@ c      data massps / 0d0,0d0,0d0,0d0,1.3d0,4.5d0,175.0d0 /
       data massps / 0d0,0d0,0d0,0d0,1.3d0,4.5d0,0.0d0 /
 
       double precision  xm0,xmc,xmb,HMASS
-      common /fred/ xm0,xmc,xmb,HMASS
+      common /fred/ xmc,xmb,HMASS
+      common /ingo/ xm0
 c 
 c     =======================================================================
       massps(4)=xmc
