@@ -588,8 +588,10 @@ C XXXXXXXXXXXXXXXXXXXXXXXXX
 
 C Reset:
          do i=1,NUncert
-            NAsymPlus(i)     =  0
-            NAsymMinus(i)     =  0
+            if ( CompressIdx(i).gt.0 ) then
+               NAsymPlus(CompressIdx(i))     =  0
+               NAsymMinus(CompressIdx(i))     =  0
+            endif
          enddo
 
          do i=1,NUncert
@@ -602,12 +604,6 @@ C Reset:
 
                BETA(CompressIdx(i),npoints) = syst(i)
      $              *SysScaleFactor(CompressIdx(i))
-
-C--- Add data point to the syst. list (this will help to speedup loops):
-               n_syst_meas(CompressIdx(i)) = n_syst_meas(CompressIdx(i))
-     $              + 1
-               syst_meas_idx(n_syst_meas(CompressIdx(i)),CompressIdx(i)) 
-     $              = npoints
 
                
 C     Store also asymmetric errors:
@@ -661,16 +657,36 @@ C !> Store:
      $                 *SysScaleFactor(CompressIdx(i))                
                endif
 
+
 C !> Symmetrise:
-               if (NAsymPlus(CompressIdx(i)).eq.1
-     $              .and. NAsymPlus(CompressIdx(i)).eq.1 ) then
+               if ( (NAsymPlus(CompressIdx(i)).eq.1
+     $              .and. NAsymMinus(CompressIdx(i)).eq.1)
+     $              ) then
                   
                   BETA(CompressIdx(i),npoints) = 
      $                 0.5*( BetaAsym(CompressIdx(i),1,npoints)-
      $                        BetaAsym(CompressIdx(i),2,npoints))
 
                   LAsymSyst(CompressIdx(i)) = .true.
+
                endif
+
+               if ( (NAsymPlus(CompressIdx(i)).eq.1
+     $              .and. NAsymMinus(CompressIdx(i)).eq.1)
+     $              .or.
+     $              ( NAsymPlus(CompressIdx(i)).eq.0
+     $              .and.  NAsymMinus(CompressIdx(i)).eq.0)
+     $              ) then
+                  
+
+C--- Add data point to the syst. list (this will help to speedup loops):
+                  n_syst_meas(CompressIdx(i)) = n_syst_meas(CompressIdx(i))
+     $                 + 1
+                  syst_meas_idx(n_syst_meas(CompressIdx(i)),CompressIdx(i)) 
+     $                 = npoints
+
+               endif
+
 
             endif
          enddo
