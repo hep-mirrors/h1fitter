@@ -23,7 +23,7 @@ C--------------------------------------------------------
 
       double precision fs
       double precision fshermes
-      double precision alphasPDF
+      double precision alphasPDF, StepAlphaS
 
       	
 C-------------------------------------------------------
@@ -61,6 +61,7 @@ C-------------------------------------------------------
             print *,'Add to ExtraParamters with the name alphas'
             call HF_stop
          else
+            StepAlphaS=ExtraParamStep(idxAlphaS)
             idxAlphaS = iExtraParamMinuit(idxAlphaS)
          endif
          idxFS = GetParameterIndex('fs')
@@ -174,9 +175,19 @@ C Get from extra pars:
 
 C In case PDF and alphas needs to be read from LHAPDF (iparam=0, ipdfset=5)
 C maybe instead warning message should be issued
-      if( PDF_DECOMPOSITION.eq.'LHAPDF' ) then
-         alphas=alphasPDF(Mz)
+      
+      if( PDFStyle.eq.'LHAPDF'.or.PDFStyle.eq.'LHAPDFQ0') then
+         if (StepAlphaS.eq.0.) then
+            alphas=alphasPDF(Mz)
+            Call HF_errlog(13051401,
+     $              'W: alphas is fixed and taken from LHAPDF file') 
+         else
+            Call HF_errlog(13051402,
+     $           'W: alphas is free and taken from steering.txt  ') 
+         endif
       endif
+         
+
 
 C Hermes strange prepare:
       if (ifsttype.eq.0) then
