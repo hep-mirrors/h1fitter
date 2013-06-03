@@ -100,7 +100,8 @@ C-----------------------------------------
 
       do i=1,npoints
          ALPHA(i) = ALPHA(i) / 100.
-         if (alpha(i).le.0) write(6,*) 'alpha(i) = 0 for point ',i
+C XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+C         if (alpha(i).le.0) write(6,*) 'alpha(i) = 0 for point ',i
       enddo
 
 
