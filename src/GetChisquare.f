@@ -520,6 +520,9 @@ C-----------------------------------------------------------------------
 
       integer i,j,i1,j1
       double precision Stat, StatConst, Unc, Sum
+
+      double precision ScaledErrorsStat(NTot)
+      double precision ScaledErrorsSyst(NTot)
 C-------------------------------------------------------
 
 C
@@ -538,6 +541,8 @@ C Re-scale for systematic shifts:
             enddo
          endif
          ScaledErrors(i) = sqrt((Stat*Sum)**2+StatConst**2+Unc**2)
+         ScaledErrorsStat(i) = sqrt((Stat*Sum)**2+StatConst**2)
+         ScaledErrorsSyst(i) = sqrt(Unc**2)
       enddo
 
 C
@@ -552,9 +557,11 @@ C Try to use covariance matrix:
                ScaledErrorMatrix(i1,j1) = cov(i,j)
             else
 C We have stat. correlation, use it:
-               ScaledErrorMatrix(i1,j1) =
-     $           ScaledErrors(i)
-     $           *ScaledErrors(j)*corr_stat(i,j)
+C syst correlations to be implemented                
+            ScaledErrorMatrix(i1,j1) = 
+     $          ScaledErrorsStat(i)*ScaledErrorsStat(j)*corr_stat(i,j) +
+     $          ScaledErrorsSyst(i)*ScaledErrorsSyst(j)*corr_syst(i,j) 
+
             endif
          enddo
       enddo

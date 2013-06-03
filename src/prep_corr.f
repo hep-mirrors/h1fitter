@@ -76,12 +76,15 @@ C Functions:
       integer GetBinIndex, FindIdxForCorrelation
       
 C     reset statistical correlation matrix
+C     statistical correlation matrix initialised only, implementation to be done
       do i=1, npoints
          do j=1, npoints
             corr_stat(i,j) = 0.d0
+            corr_syst(i,j) = 0.d0
             cov(i,j) = 0.d0
          enddo
          corr_stat(i,i) = 1.d0
+         corr_syst(i,i) = 1.d0
          is_stat_covariance(i) = .false.
          lcorr_stat(i) = .false.
       enddo
