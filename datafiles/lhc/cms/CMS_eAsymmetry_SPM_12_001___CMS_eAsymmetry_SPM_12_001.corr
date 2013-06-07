@@ -11,12 +11,15 @@
    NCorr = 121
 
   ! Matrix Type: 
-  !     'Statistical correlations': Given are correlation factors that need to be applied to statistical errors
-  !                                 needs 'stat' column in data files
-  !     'Covariance Matrix'       : Given is a covariance matrix, will be added to statistical and systematic
-  !                                 errors from data files
+  !   'Statistical correlations':     Given are correlation factors that need to be applied to statistical errors
+  !                                   needs 'stat' column in data files
+  !   'Systematic correlations' :     Given are correlation factors that need to be applied to systematic errors
+  !                                   needs 'uncor' column in data files
+  !   'Systematic covariance matrix': Given is a systematic covariance matrix  
+  !
+  !   'Full covariance matrix':       Given is a full covariance matrix including stat and syst parts
 
-   MatrixType = 'Covariance Matrix'
+   MatrixType = 'Systematic covariance matrix'
 &End
 0.0 0.2 0.0 0.2 0.0000237
 0.2 0.4 0.0 0.2 0.0000026 

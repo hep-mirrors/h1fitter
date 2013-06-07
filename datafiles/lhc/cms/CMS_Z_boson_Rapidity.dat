@@ -13,7 +13,7 @@
    NDATA = 35
    NColumn = 4 
    ColumnType = 2*'Bin','Sigma','Error'
-   ColumnName = 'y1','y2','section','uncor'
+   ColumnName = 'y1','y2','section','total'
 
 
    NInfo   = 6
