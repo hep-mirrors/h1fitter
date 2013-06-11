@@ -150,7 +150,7 @@ C-----------------------------------------------------
       print *,'  HH   HH  EE       RR  RR   AA   AA  FF       II     TT        TT     EE       RR  RR  '
       print *,'  HH   HH  EEEEEEE  RR   RR  AA   AA  FF       II     TT        TT     EEEEEEE  RR   RR '
       print *,'                                                                                        '
-      print *,'  Version 0.3.0                                                                         '
+      print *,'  Version 0.3.1                                                                         '
       print *,'  http://herafitter.org                             herafitter-help@desy.de    '
       print *,'----------------------------------------------------------------------------------------'
       print *,' '
