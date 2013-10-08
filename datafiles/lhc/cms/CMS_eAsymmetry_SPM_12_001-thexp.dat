@@ -24,17 +24,13 @@
 
    Reaction = 'CC pp'
 
- TheoryType     = 'expression'
- TermName = 'A1', 'A2'
- TermType = 'applgrid','applgrid'
- TermSource = 'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wplus_eta4.root',
-              'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wminus_eta3.root'
- TheorExpr= '(A1-A2)/(A1+A2)'
+   TheoryType     = 'expression'
+   TermName = 'A1', 'A2'
+   TermType = 'applgrid','applgrid'
+   TermSource = 'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wplus_eta4.root',
+                'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wminus_eta3.root'
+   TheorExpr= '(A1-A2)/(A1+A2)'
 
-!   NKfactor = 0
-!   TheoryType  = 'applgrid', 'applgrid'   
-!   TheoryInfoFile = 'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wplus_eta4.root',
-!                    'theoryfiles/cms/SPM_12_001/CMS-PAS-SMP-12-001-Wminus_eta3.root'
 
    Percent = False, False, False, False, False ! absolute errors
 
