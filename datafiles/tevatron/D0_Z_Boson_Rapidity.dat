@@ -8,7 +8,7 @@
 ! Errors are symmetrizated as errsym = sign("1")*max(|"1"|,|"2"|)
 !
 &Data
-   Name = 'D0 Z Boson rapidity 2007'
+   Name = 'D0 Z rapidity 2007'
    Reaction  = 'NC ppbar'
 
  ! Description of the data table
@@ -30,8 +30,14 @@
    KFactorNames = 'Z0'
 
    Percent   = False, False    ! For asymmetry: absolute errors
-!y1	y2	CS_norm	stat	syst	e*A	e*Atot
 &End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn = 'y2'
+   PlotDefValue = 0., 5.
+   PlotOptions(1)  = 'XTitle: y_{Z} @YTitle: 1/#sigma #upoint d#sigma/dy_{Z} '
+&End
+*y1	y2	CS_norm	stat	syst	e*A	e*Atot
 0.0     0.1     0.271   0.009   0.006	0.176	0.006
 0.1     0.2     0.276   0.009   0.007	0.172	0.006
 0.2     0.3     0.274   0.009   0.005	0.166	0.004
