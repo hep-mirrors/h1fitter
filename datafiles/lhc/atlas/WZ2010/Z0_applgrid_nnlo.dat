@@ -27,7 +27,7 @@
  TermName = 'A1', 'K'
  TermType = 'applgrid','kfactor'
  TermSource = 'theoryfiles/atlas/WZ2010/Z0-applgrid.root' , 
-              'theoryfiles/atlas/WZ2010/KF-Z0-nnlo2nlo-ew-thexp.txt'
+              'theoryfiles/atlas/WZ2010/KF-Z0-nnlo2nlo-ew.txt'
  TheorExpr= 'K*A1'
 
  PERCENT = F, 32*T

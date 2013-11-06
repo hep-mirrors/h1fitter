@@ -19,7 +19,7 @@
          'ATL_WZ2010_Source_29','ATL_WZ2010_Source_30','ATLAS_lumi2010'
 
  NInfo    = 6 
- DataInfo =   7000.,   -1,      20.,       25,          0, 100000. 
+ DataInfo =   7000.,   -1,      20.,       25,          1, 100000. 
  CInfo    = 'sqrt(S)','e charge','pte cut', 'ptnu cut', 'applgridCKM', 'theoryunit'
  IndexDataset = 93
  Reaction = 'CC pp'
@@ -27,7 +27,7 @@
  TermName = 'A1', 'K'
  TermType = 'applgrid','kfactor'
  TermSource = 'theoryfiles/atlas/WZ2010/WM-applgrid.root' , 
-              'theoryfiles/atlas/WZ2010/KF-Wm-nnlo2nlo-ew-thexp.txt'
+              'theoryfiles/atlas/WZ2010/KF-Wm-nnlo2nlo-ew.txt'
  TheorExpr= 'K*A1'
          
  PERCENT = F, 32*T
