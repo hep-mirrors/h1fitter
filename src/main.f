@@ -195,7 +195,7 @@ C-----------------------------------------------------
       print *,'  HH   HH  EE       RR  RR   AA   AA  FF       II     TT        TT     EE       RR  RR  '
       print *,'  HH   HH  EEEEEEE  RR   RR  AA   AA  FF       II     TT        TT     EEEEEEE  RR   RR '
       print *,'                                                                                        '
-      print *,'  Version trunk                                                                         '
+      print *,'  Version 1.0.0                                                                         '
       print *,'  http://herafitter.org                             herafitter-help@desy.de    '
       print *,'----------------------------------------------------------------------------------------'
       print *,' '
