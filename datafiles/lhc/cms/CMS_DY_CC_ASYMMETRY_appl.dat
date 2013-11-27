@@ -21,7 +21,7 @@
    DataInfo = 7000.,  1., 25., 0., 1.
    CInfo    = 'sqrt(S)', 'asymmetry', 'pte cut', 'ptnu cut', 'theoryunit'
    
-   IndexDataset = 79
+   IndexDataset = 242
 
    Reaction  = 'CC pp'
 

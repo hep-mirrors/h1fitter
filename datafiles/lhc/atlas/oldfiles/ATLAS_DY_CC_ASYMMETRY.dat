@@ -22,7 +22,7 @@
    DataInfo = 7000.,  1., 20., 25.
    CInfo    = 'sqrt(S)', 'asymmetry', 'pte cut', 'ptnu cut'
    
-   IndexDataset = 76
+   IndexDataset = 140
 
    TheoryInfoFile = 'theoryfiles/DY_CC_ATLAS_KFACTORS.dat'
    TheoryType     = 'kfactor'

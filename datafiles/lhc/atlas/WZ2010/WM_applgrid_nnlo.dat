@@ -21,7 +21,7 @@
  NInfo    = 5 
  DataInfo =   7000.,   -1,      20.,       25,          100000. 
  CInfo    = 'sqrt(S)','e charge','pte cut', 'ptnu cut', 'theoryunit'
- IndexDataset = 93
+ IndexDataset = 143
  Reaction = 'CC pp'
  TheoryType     = 'expression'
  TermName = 'A1', 'K'

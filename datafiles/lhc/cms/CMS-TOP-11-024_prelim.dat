@@ -19,6 +19,6 @@
    CInfo = 'sqrt(S)','ppbar','precisionLevel'
    DataInfo = 7000,0,2
 
-   IndexDataset = 80
+   IndexDataset = 200
 &End
 0. 0. 0. 165.8 2.2 10.6 7.8

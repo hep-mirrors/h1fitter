@@ -20,7 +20,7 @@
    DataInfo = 7000., 0., 0.,60.,120.,1.
    CInfo    = 'sqrt(S)', 'pte cut','ptnu cut','Minv min','Minv max','Normalised'
    
-   IndexDataset = 32
+   IndexDataset = 244
 
  !  TheoryInfoFile = 'theoryfiles/CMS_20111022_KFACTORSv1.dat'
  !  TheoryType     = 'kfactor'

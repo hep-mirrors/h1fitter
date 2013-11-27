@@ -69,7 +69,7 @@
    DataInfo = 1960.,  
    CInfo    = 'sqrt(S)'
    
-   IndexDataset = 101
+   IndexDataset = 82
 
    TheoryInfoFile = 'theoryfiles/fnt2007midp.tab'
    TheoryType     = 'FastNLO'

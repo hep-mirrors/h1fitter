@@ -15,7 +15,7 @@
   NInfo   = 1
   DataInfo = 7000.
   CInfo    = 'sqrt(S)'
-  IndexDataset = 20
+  IndexDataset = 120
   Reaction  = 'pp jets APPLGRID'
   TheoryType     = 'expression'
   TermName = 'A1', 'K' 
