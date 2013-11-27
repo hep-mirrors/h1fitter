@@ -24,7 +24,7 @@
    DataInfo = 1960.,  
    CInfo    = 'sqrt(S)'
    
-   IndexDataset = 100
+   IndexDataset = 84
 
    TheoryInfoFile = 'theoryfiles/fnt2009midp.tab'
    TheoryType     = 'FastNLO'

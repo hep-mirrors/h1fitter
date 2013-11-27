@@ -21,7 +21,7 @@
  NInfo    = 3 
  DataInfo = 7000.,     20.,      100000.
  CInfo    = 'sqrt(S)','pte cut', 'theoryunit'
- IndexDataset = 91
+ IndexDataset = 141
  Reaction = 'NC pp'
  TheoryType     = 'expression'
  TermName = 'A1', 'K'
