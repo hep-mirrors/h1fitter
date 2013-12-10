@@ -619,7 +619,7 @@ j) Options for the chi2 choice:
     DrawResults ! will draw F2 results
 
 
-3) USING NNPDF REWEIGHTING PROGRAM
+4) USING NNPDF REWEIGHTING PROGRAM
 =====================
  * *************************************************************** * 
  * NNPDF subpackage - Reweighting program of NNPDF fitting group   *
@@ -708,7 +708,7 @@ j) Options for the chi2 choice:
  fit - 0.5 for example however suspiciously good.
 
 
-4) DESCRIPTION OF DiffDIS PACKAGE
+5) DESCRIPTION OF DiffDIS PACKAGE
    FOR THE DIFFRACTIVE FIT TO DIS
 =====================
 
