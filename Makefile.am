@@ -41,4 +41,4 @@ DIST_SUBDIRS+= datafiles/hera datafiles/lhc/atlas/Jets2010 datafiles/lhc/atlas/W
 #TESTS_ENVIRONMENT = $(SHELL) 
 #TESTS= ./tools/check.sh
 
-EXTRA_DIST= README README-MacOSX LICENCE REFERENCES ewparam.txt minuit.in.txt steering.txt 
+EXTRA_DIST= README INSTALLATION LICENCE REFERENCES ewparam.txt minuit.in.txt steering.txt 
