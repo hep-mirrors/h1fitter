@@ -13,22 +13,21 @@
    Reaction  = 'NC ppbar'
 
  ! Description of the data table
- !  NDATA = 28
-   NDATA = 27
+   NDATA = 28
    NColumn = 16
    ColumnType = 2*'Bin','Sigma',13*'Error',
    ColumnName = 'y1','y2','sigma','stat','lum','BCC','BCP','BPP','CID','PID','CMat','PMat','ZVtx','Trkeff','NoTrk','ignore' 
 
-   NInfo   = 6
-   DataInfo = 1960., 0., 0.,66.,116.,1.
-   CInfo    = 'sqrt(S)', 'pte cut','ptnu cut','Minv min','Minv max','theoryunit'
-   
+   NInfo   = 2
+   CInfo    = 'theoryunit','ppbar'
+   DataInfo = 2000.,1.
    IndexDataset = 83
 
-   TheoryInfoFile = 'theoryfiles/D0_20070214_KFACTORSv1.dat'
-   TheoryType     = 'kfactor'
-   NKFactor       = 1
-   KFactorNames = 'Z0'
+  TheoryType     = 'expression'
+  TermName = 'A1'
+  TermType = 'applgrid'
+  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Z0_zy.root'
+  TheorExpr= 'A1'
 
    Percent   = 13*False    ! absolute errors
 &End
@@ -36,7 +35,9 @@
     PlotN = 1
     PlotDefColumn = 'y2'
     PlotDefValue = 0., 5.
-    PlotOptions(1)  = 'XTitle: y_{Z} @YTitle: d#sigma/dy_{Z} [pb] '
+    PlotOptions(1)  = 'Experiment:CDF@ExtraLabel:p#bar{p} #rightarrow Z; #sqrt{s} = 1.96 TeV; #int L = 2 fb^{-1}@XTitle: y_{Z} @YTitle: d#sigma/dy_{Z} [pb] '
+!@YminR:0.61@YmaxR:1.39'
+
 &End
 *y1    	   y2     sigma      stat.    lum      B(CC)    B(CP)    B(PP)    CID      PID      CMat     PMat     ZVtx     Trkeff   NoTrk   Tot errors 
 0.0000   0.1000   69.4600    0.7300   -4.1676  -0.0220  -0.0302   0.0000  -0.2836  -0.0199   0.3220   0.2334   0.0000   0.0000   0.0000   4.1963
