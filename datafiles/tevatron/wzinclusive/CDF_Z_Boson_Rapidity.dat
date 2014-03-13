@@ -26,7 +26,7 @@
   TheoryType     = 'expression'
   TermName = 'A1'
   TermType = 'applgrid'
-  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Z0_zy.root'
+  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Z0_zycdf.root'
   TheorExpr= 'A1'
 
    Percent   = 13*False    ! absolute errors
@@ -35,7 +35,7 @@
     PlotN = 1
     PlotDefColumn = 'y2'
     PlotDefValue = 0., 5.
-    PlotOptions(1)  = 'Experiment:CDF@ExtraLabel:p#bar{p} #rightarrow Z; #sqrt{s} = 1.96 TeV; #int L = 2 fb^{-1}@XTitle: y_{Z} @YTitle: d#sigma/dy_{Z} [pb] '
+    PlotOptions(1)  = 'Experiment:CDF@ExtraLabel:p#bar{p} #rightarrow Z; #sqrt{s} = 1.96 TeV; #int L = 2.1 fb^{-1}@XTitle: y_{Z} @YTitle: d#sigma/dy_{Z} [pb] '
 !@YminR:0.61@YmaxR:1.39'
 
 &End

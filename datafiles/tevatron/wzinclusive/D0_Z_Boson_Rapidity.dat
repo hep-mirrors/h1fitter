@@ -3,7 +3,9 @@
 !
 ! "Measurement of the shape of the boson rapidity distribution for
 !  $p\bar{p}->Z/\gamma^{*}->e^{+}e^{-}+X$ events produced at $\sqrt{s}$ of 1.96TeV"
+!
 !  By D0 Collaboration (V.M. Abazov et al.). February 14 2007.
+!  hep-ex/0702025
 !
 ! Errors are symmetrizated as errsym = sign("1")*max(|"1"|,|"2"|)
 !
@@ -18,24 +20,25 @@
    ColumnName = 'y1','y2','section','stat','D0_yZ_2007_SystCorr','ignore','ignore'
 
 
-   NInfo   = 6
-   DataInfo = 1960., 0., 0.,71.,111.,2.
-   CInfo    = 'sqrt(S)', 'pte cut','ptnu cut','Minv min','Minv max','Normalised'
+   NInfo   = 3
+   CInfo    = 'theoryunit', 'ppbar','Normalised'
+   DataInfo = 2.,1.,1.
    
    IndexDataset = 85
 
-   TheoryInfoFile = 'theoryfiles/D0_20070214_KFACTORSv1.dat'
-   TheoryType     = 'kfactor'
-   NKFactor       = 1
-   KFactorNames = 'Z0'
+  TheoryType     = 'expression'
+  TermName = 'A1'
+  TermType = 'applgrid'
+  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Z0_zyd0.root'
+  TheorExpr= 'A1'
 
-   Percent   = False, False    ! For asymmetry: absolute errors
+   Percent   = False, False    ! absolute errors
 &End
 &PlotDesc
    PlotN = 1
    PlotDefColumn = 'y2'
    PlotDefValue = 0., 5.
-   PlotOptions(1)  = 'XTitle: y_{Z} @YTitle: 1/#sigma #upoint d#sigma/dy_{Z} '
+   PlotOptions(1)  = 'Experiment:D0@ExtraLabel:p#bar{p} #rightarrow Z; #sqrt{s} = 1.96 TeV; #int L = 0.4 fb^{-1}@XTitle: y_{Z} @YTitle: 1/#sigma #upoint d#sigma/dy_{Z} '
 &End
 *y1	y2	CS_norm	stat	syst	e*A	e*Atot
 0.0     0.1     0.271   0.009   0.006	0.176	0.006

@@ -24,7 +24,7 @@
   TheoryType     = 'expression'
   TermName = 'A1', 'A2'
   TermType = 'applgrid','applgrid'
-  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Wplus_wy_plus.root', 'theoryfiles/tevatron/grid-40-6-15-3-Wminus_wy_minus.root'
+  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Wplus_wyd0.root', 'theoryfiles/tevatron/grid-40-6-15-3-Wminus_wyd0.root'
   TheorExpr= '(A1-A2)/(A1+A2)'
   Percent   = false,false,false
 &End
