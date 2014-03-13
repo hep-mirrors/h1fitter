@@ -26,7 +26,7 @@
   TheoryType     = 'expression'
   TermName = 'A1'
   TermType = 'applgrid'
-  TermSource = 'theoryfiles/tevatron/grid-40-6-15-3-Z0_zycdf.root'
+  TermSource = 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Z0_zycdf.root'
   TheorExpr= 'A1'
 
    Percent   = 13*False    ! absolute errors
