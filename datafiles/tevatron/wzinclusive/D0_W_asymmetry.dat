@@ -14,8 +14,8 @@
    NDATA = 14
    NColumn = 6
    ColumnType = 'Flag',2*'Bin','Sigma',3*'Error'
-!   ColumnName = 'binFlag', 'y1','y2','sigma','stat','syst','total'
-   ColumnName = 'binFlag','y1','y2','sigma','stat','uncor','ignore'
+!   ColumnName = 'binFlag','y1','y2','sigma','stat const','uncor const','total'
+   ColumnName = 'binFlag','y1','y2','sigma','stat const','uncor const','ignore'
    NInfo   = 2
    CInfo    = 'theoryunit','ppbar'
    DataInfo = 1.,1.

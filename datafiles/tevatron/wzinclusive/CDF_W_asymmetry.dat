@@ -13,7 +13,7 @@
    NDATA = 13
    NColumn = 12
    ColumnType = 'Flag',2*'Bin','Sigma',8*'Error'
-   ColumnName = 'binFlag', 'y1','y2','sigma','chmisid','background','energyscale','recoil','eletrigger','eleid','pdf','stat'
+   ColumnName = 'binFlag', 'y1','y2','sigma','chmisid:A','background:A','energyscale:A','recoil:A','eletrigger:A','eleid:A','pdf:A','stat const'
    NInfo   = 2
    CInfo    = 'theoryunit','ppbar'
    DataInfo = 1.,1.

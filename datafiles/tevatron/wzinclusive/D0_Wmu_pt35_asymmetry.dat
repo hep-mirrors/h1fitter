@@ -14,8 +14,8 @@
    NDATA = 10
    NColumn = 11
    ColumnType = 2*'Bin','Sigma',8*'Error'
-   ColumnName = 'eta1','eta2','sigma','stat',
-              'EWbkg','MJbkg','charge_misid','rel_charge_efficiency','magnet_pol_weighting','momentum_met_resolution','trigger_isolation'
+   ColumnName = 'eta1','eta2','sigma','stat const',
+              'EWbkg:A','MJbkg:A','charge_misid:A','rel_charge_efficiency:A','magnet_pol_weighting:A','momentum_met_resolution:A','trigger_isolation:A'
    NInfo   = 2
    CInfo    = 'theoryunit','ppbar'
    DataInfo = 1.,1.
