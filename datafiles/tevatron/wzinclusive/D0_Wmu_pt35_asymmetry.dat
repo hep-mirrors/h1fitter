@@ -15,7 +15,7 @@
    NColumn = 11
    ColumnType = 2*'Bin','Sigma',8*'Error'
    ColumnName = 'eta1','eta2','sigma','stat const',
-              'EWbkg:A','MJbkg:A','charge_misid:A','rel_charge_efficiency:A','magnet_pol_weighting:A','momentum_met_resolution:A','trigger_isolation:A'
+              'D0_WMUA_EWbkg:A','D0_WMUA_MJbkg:A','D0_WMUA_charge_misid:A','D0_WMUA_rel_charge_efficiency:A','D0_WMUA_magnet_pol_weighting:A','D0_WMUA_momentum_met_resolution:A','D0_WMUA_trigger_isolation:A'
    NInfo   = 2
    CInfo    = 'theoryunit','ppbar'
    DataInfo = 1.,1.

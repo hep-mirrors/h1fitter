@@ -1,5 +1,5 @@
 !
-! The data are taken from:
+! The data are taken from arXiv:0908.3914
 !
 ! Measurement of $d\sigma/dy$ of Drell-Yan $e^+e^-$ pairs
 ! in the $Z$ Mass Region from $p\bar{p}$ Collisions at
@@ -12,11 +12,11 @@
    Name = 'CDF Z rapidity 2010'
    Reaction  = 'NC ppbar'
 
- ! Description of the data table
    NDATA = 28
    NColumn = 16
    ColumnType = 2*'Bin','Sigma',13*'Error',
-   ColumnName = 'y1','y2','sigma','stat','lum','BCC','BCP','BPP','CID','PID','CMat','PMat','ZVtx','Trkeff','NoTrk','ignore' 
+!   ColumnName = 'y1','y2','sigma','stat','CDF_ZY_lum','CDF_ZY_background_CC:A','CDF_ZY_background_CF:A','CDF_ZY_background_FF:A','CDF_ZY_CID','CDF_ZY_FID','CDF_ZY_CMaterial','CDF_ZY_FMaterial','CDF_ZY_ZVtx','CDF_ZY_Trkeff','CDF_ZY_NoTrk','ignore' 
+   ColumnName = 'y1','y2','sigma','stat','CDF_ZY_lum','CDF_ZY_background_CC:A','CDF_ZY_background_CF:A','CDF_ZY_background_FF:A','uncor','uncor','CDF_ZY_CMaterial','CDF_ZY_FMaterial','CDF_ZY_ZVtx','CDF_ZY_Trkeff','CDF_ZY_NoTrk','ignore' 
 
    NInfo   = 2
    CInfo    = 'theoryunit','ppbar'
