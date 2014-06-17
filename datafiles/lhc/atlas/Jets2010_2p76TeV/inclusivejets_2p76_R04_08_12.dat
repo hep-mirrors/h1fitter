@@ -3,7 +3,7 @@
   Name = 'ATLAS 2.76 TeV Jet data 0.8 <= |y| < 1.2 R=0.4'
   NDATA = 9
   NColumn = 28
-  ColumnType = 4*'Bin','Sigma','Error',22*'Error'
+  ColumnType = 2*'Bin',2*'Dummy','Sigma','Error',22*'Error'
   ColumnName = 'pt1','pt2','YBinSize','NPCorr','Sigma','stat', 
 		'JES1_RelSys_2' , 'JES2_RelSys_8' , 'JES3_RelSys_14' , 'JES4_RelSys_20' , 'JES5_RelSys_26' , 'JES6_ForwardGenRelSys_88' , 
          'JES7_RelSys_33' , 'JES8_RelSys_39' , 'JES9_RelSys_45' , 'JES10_RelSys_51' , 'JES11_RelSys_57' , 
