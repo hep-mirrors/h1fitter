@@ -19,18 +19,17 @@
    ColumnType = 'Flag',2*'Bin','Sigma',4*'Error',
    ColumnName = 'binFlag','y1','y2','section','stat','D0_ZY_2007_SystCorr','ignore','ignore'
 
-
-   NInfo   = 3
-   CInfo    = 'theoryunit', 'ppbar','Normalised'
-   DataInfo = 2.,1.,1.
+   NInfo   = 1
+   CInfo    = 'ppbar'
+   DataInfo = 1.
    
    IndexDataset = 85
 
-  TheoryType     = 'expression'
-  TermName = 'A1'
-  TermType = 'applgrid'
-  TermSource = 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Z0_zyd0.root'
-  TheorExpr= 'A1'
+   TheoryType     = 'expression'
+   TermName = 'A1','A2'
+   TermType = 'applgrid','applgrid_norm'
+   TermSource = 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Z0_zyd0.root','theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Z0_zyd0.root'
+   TheorExpr= 'A1/2/sum(A2)'
 
    Percent   = False, False    ! absolute errors
 &End
