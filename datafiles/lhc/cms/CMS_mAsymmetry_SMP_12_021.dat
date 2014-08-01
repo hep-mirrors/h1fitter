@@ -8,23 +8,27 @@
 
  ! Description of the data table
    NDATA = 11 
-   NColumn = 18 
-   ColumnType = 2*'Bin','Sigma',15*'Error'  ! 2 bins, Asymmetry, errors
-   ColumnName = 'eta1','eta2','Asymmetry','stat const',14*'uncor const'
- ! ColumnName = 'eta1','eta2','Asymmetry','stat',14*'ignore'
- ! ColumnName = 'eta1','eta2','Asymmetry','stat','CMS_WmuAsym_eff','CMS_WmuAsym_QCDpm','CMS_WmuAsym_QCDshape','CMS_WmuAsym_muScale','CMS_WmuAsym_FSR','CMS_WmuAsym_PDF','CMS_WmuAsym_DYbkg','CMS_WmuAsym_etaPhiMod','CMS_WmuAsym_recoil','CMS_WmuAsym_PU','CMS_WmuAsym_lumi', 'CMS_WmuAsym_ttbar', 'CMS_WmuAsym_wtau', 'CMS_WmuAsym_qt'
+   NColumn = 19 
+   ColumnType = 'Flag',2*'Bin','Sigma',15*'Error'  ! 2 bins, Asymmetry, errors
+   ColumnName = 'binFlag','eta1','eta2','Asymmetry','stat const',14*'uncor const'
+ ! ColumnName = 'binFlag','eta1','eta2','Asymmetry','stat',14*'ignore'
+ ! ColumnName = 'binFlag','eta1','eta2','Asymmetry','stat','CMS_WmuAsym_eff','CMS_WmuAsym_QCDpm','CMS_WmuAsym_QCDshape','CMS_WmuAsym_muScale','CMS_WmuAsym_FSR','CMS_WmuAsym_PDF','CMS_WmuAsym_DYbkg','CMS_WmuAsym_etaPhiMod','CMS_WmuAsym_recoil','CMS_WmuAsym_PU','CMS_WmuAsym_lumi', 'CMS_WmuAsym_ttbar', 'CMS_WmuAsym_wtau', 'CMS_WmuAsym_qt'
 
    NInfo   = 5
-   DataInfo = 7000.,  1., 25., 0., 100000
-   CInfo    = 'sqrt(S)', 'asymmetry', 'pte cut', 'ptnu cut', 'theoryunit'
+   DataInfo = 7000.,  1., 25., 0., 1
+   CInfo    = 'sqrt(S)', 'asymmetry', 'ptm cut', 'ptnu cut', 'theoryunit'
    
    IndexDataset = 245
 
    Reaction  = 'CC pp'
-   NKfactor = 0
-   TheoryType  = 'applgrid', 'applgrid'   
-   TheoryInfoFile = 'theoryfiles/cms/SMP_12_021/Wplus_applgrid_Pt25.root',
-                    'theoryfiles/cms/SMP_12_021/Wminus_applgrid_Pt25.root'
+
+   TheoryType     = 'expression'
+   TermName = 'A1', 'A2'
+   TermType = 'applgrid','applgrid'
+   TermSource = 'theoryfiles/cms/SMP_12_021/Wplus_applgrid_Pt25.root',
+                'theoryfiles/cms/SMP_12_021/Wminus_applgrid_Pt25.root'
+   TheorExpr= '(A1-A2)/(A1+A2)'
+
 
    Percent   = 15*F
 
@@ -36,14 +40,14 @@
    PlotVarColumn = 'eta2'
    PlotOptions(1)  = 'Experiment:CMS@Title:W Muon Charge Asymmetry@XTitle:Muon |#eta| @YTitle:Charge asymmetry'
 &End 
-0.0  0.2  0.1521 0.00096 0.00111 0.0012  0.0007  0.00045  0.00074 0.00028 2e-05     0.00011 3e-05   0.00017  2e-05   0.00012 0.00026 3e-05 
-0.2  0.4  0.1538 0.00098 0.00133 0.00113 0.00065 0.0005   0.00077 0.00026 1e-05     9e-05   3e-05   0.00013  3e-05   0.00013 0.00026 4e-05 
-0.4  0.6  0.1603 0.00094 0.00121 0.0011  0.00065 0.0005   0.00104 0.00023 2e-05     0.00033 3e-05   0.00011  4e-05   0.00012 0.00026 4e-05 
-0.6  0.8  0.1706 0.00093 0.00122 0.00105 0.00067 0.00049  0.00109 0.00025 3e-05     0.00012 3e-05   5e-05    4e-05   0.00012 0.00026 5e-05 
-0.8  1.0  0.1788 0.00098 0.0017  0.00102 0.00068 0.00051  0.00089 0.00018 0         0.00029 3e-05   0.00014 6e-05    0.00011 0.00026 8e-05 
-1.0  1.2  0.2007 0.00099 0.00175 0.00103 0.00069 0.00054  0.00113 0.0002  7e-05     0.00034 3e-05   0.00025  9e-05   0.00011 0.00025 0.00011 
-1.2  1.4  0.2113 0.00099 0.0017  0.00097 0.00078 0.00054  0.00107 0.00027 1e-05     0.00044 3e-05   0.00022  0.00012 0.0001  0.00025 8e-05 
-1.4  1.6  0.2217 0.00099 0.00168 0.00104 0.00082 0.00058  0.00091 0.00031 0.00013   0.00045 3e-05   0.00031  0.00017 9e-05   0.00025 9e-05 
-1.6  1.85 0.2461 0.00093 0.00165 0.00108 0.00092 0.00054  0.00118 0.00042 0.00019   0.00055 3e-05   0.00019  0.00024 8e-05   0.00025 6e-05 
-1.85 2.1  0.2616 0.00094 0.00175 0.00094 0.00083 0.00054  0.00087 0.0005  0.00038   0.00049 4e-05   0.00028  0.00033 7e-05   0.00025 3e-05 
-2.1  2.4  0.2649 0.00106 0.00268 0.00183 0.00087 0.00055  0.00077 0.00069 0.00046   0.00038 3e-05   0        0.0004  5e-05   0.00024 0 
+1  0.0  0.2  0.1521 0.00096 0.00111 0.0012  0.0007  0.00045  0.00074 0.00028 2e-05     0.00011 3e-05   0.00017  2e-05   0.00012 0.00026 3e-05 
+1  0.2  0.4  0.1538 0.00098 0.00133 0.00113 0.00065 0.0005   0.00077 0.00026 1e-05     9e-05   3e-05   0.00013  3e-05   0.00013 0.00026 4e-05 
+1  0.4  0.6  0.1603 0.00094 0.00121 0.0011  0.00065 0.0005   0.00104 0.00023 2e-05     0.00033 3e-05   0.00011  4e-05   0.00012 0.00026 4e-05 
+1  0.6  0.8  0.1706 0.00093 0.00122 0.00105 0.00067 0.00049  0.00109 0.00025 3e-05     0.00012 3e-05   5e-05    4e-05   0.00012 0.00026 5e-05 
+1  0.8  1.0  0.1788 0.00098 0.0017  0.00102 0.00068 0.00051  0.00089 0.00018 0         0.00029 3e-05   0.00014 6e-05    0.00011 0.00026 8e-05 
+1  1.0  1.2  0.2007 0.00099 0.00175 0.00103 0.00069 0.00054  0.00113 0.0002  7e-05     0.00034 3e-05   0.00025  9e-05   0.00011 0.00025 0.00011 
+1  1.2  1.4  0.2113 0.00099 0.0017  0.00097 0.00078 0.00054  0.00107 0.00027 1e-05     0.00044 3e-05   0.00022  0.00012 0.0001  0.00025 8e-05 
+1  1.4  1.6  0.2217 0.00099 0.00168 0.00104 0.00082 0.00058  0.00091 0.00031 0.00013   0.00045 3e-05   0.00031  0.00017 9e-05   0.00025 9e-05 
+1  1.6  1.85 0.2461 0.00093 0.00165 0.00108 0.00092 0.00054  0.00118 0.00042 0.00019   0.00055 3e-05   0.00019  0.00024 8e-05   0.00025 6e-05 
+1  1.85 2.1  0.2616 0.00094 0.00175 0.00094 0.00083 0.00054  0.00087 0.0005  0.00038   0.00049 4e-05   0.00028  0.00033 7e-05   0.00025 3e-05 
+1  2.1  2.4  0.2649 0.00106 0.00268 0.00183 0.00087 0.00055  0.00077 0.00069 0.00046   0.00038 3e-05   0        0.0004  5e-05   0.00024 0 
