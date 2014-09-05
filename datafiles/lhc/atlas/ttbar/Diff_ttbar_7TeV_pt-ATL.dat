@@ -1,0 +1,40 @@
+! 
+! Based on data from arXiv:1407.0371 [hep-ex]
+! Normalized differential ttbar cross sections vs pT sqrt(s)=7 TeV
+! by the ATLAS collaboration: lepton + jets,
+! Normalized Xsec data
+! 
+!
+!
+&Data
+   Name = 'ATLAS Norm. differential ttbar vs pT 7 TeV'
+   Reaction  = 'FastNLO ttbar normalised'
+
+   NDATA = 6
+   NColumn = 5
+   ColumnType = 'Bin','Bin','Sigma','Error','Error'
+   ColumnName = 'ptlow','pthigh','Sigma','stat','uncor'
+   NInfo   = 4
+   DataInfo = 7000.,  1.                 ,-1.,       -1.
+   CInfo    = 'sqrt(S)', 'PublicationUnits','MurDef', 'MufDef'
+
+   IndexDataset = 205
+
+   TheoryInfoFile = 'theoryfiles/fnlttbarpty0_7TeV_mt173.3.tab'
+   TheoryType     = 'FastNLO'
+
+   Percent   = 25*True
+&End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn = 'pthigh'
+   PlotDefValue = 0., 500.
+   PlotVarColumn = 'pthigh'
+   PlotOptions(1)  = 'Experiment:ATLAS@ExtraLabel:top 7 TeV mt=173.3 GeV@XTitle:P_{T} @YTitle:(1/#sigma) d#sigma/dP_{T}'
+&End 
+  0    50   3.40E-3  2.6  5.1
+ 50   100   6.70E-3  1.0  1.9
+100   150   5.30E-3  1.6  2.6
+150   200   2.60E-3  1.9  4.8
+200   250   1.12E-3  2.4  4.8
+250   350   0.32E-3  3.4  5.5
