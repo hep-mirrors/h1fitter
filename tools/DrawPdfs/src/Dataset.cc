@@ -308,19 +308,25 @@ void Subplot::Init(string label, int dataindex, int subplotindex)
   valid = true;
 }
 
-void readLineFiles ( int nfile, ifstream **infiles, string *lines) {
+vector <string> readLineFiles ( int nfile, ifstream **infiles)
+{
+  vector <string> lines;
   for (int i=0; i<nfile; i++) {
-    getline(*infiles[i],lines[i]);
+    string line;
+    getline(*infiles[i],line);
+    lines.push_back(line);
   }
+  return lines;
 }
 
-float getTheoryShift (  vector<pdfshift> pdfshifts, pdferr err, string *lines) {
+float getTheoryShift (  vector<pdfshift> pdfshifts, pdferr err, vector <string> lines) {
   // Decode string thing
   int N = ( err == AsymHess ) ? 2*pdfshifts.size()+1 : pdfshifts.size()+1;
 
   if (N == 1) return 0;
 
   double val[N];
+
   for (int i=0; i<N; i++) {
     istringstream iss(lines[i]);
     // Hardwire !!! //
@@ -380,7 +386,9 @@ Data::Data(string dirname, string label)
 
 
   //Read datasets
-  string line;  string lines[nfiles];
+  string line;  
+  vector <string> lines;
+  lines.reserve(nfiles);
 
   int dtindex, nextdtindex;
   string name;
@@ -389,7 +397,7 @@ Data::Data(string dirname, string label)
   map <int, string> coltag;
 
   int Ndatasets;
-  getline(infile, line); readLineFiles(nfiles,infiles,lines);
+  getline(infile, line); lines = readLineFiles(nfiles,infiles);
 
   istringstream issnd(line);
   issnd >> Ndatasets; // Total number of data sets
@@ -397,7 +405,7 @@ Data::Data(string dirname, string label)
   if (infile.eof() || Ndatasets == 0)
     return; //empty file, or no datasets found
 
-  getline(infile, line); readLineFiles(nfiles,infiles,lines);
+  getline(infile, line); lines = readLineFiles(nfiles,infiles);
   istringstream issdi(line);
   issdi >> nextdtindex;  //Dataset index
 
@@ -407,12 +415,12 @@ Data::Data(string dirname, string label)
       dtindex = nextdtindex;
 
       //Read dataset name
-      getline(infile, name); readLineFiles(nfiles,infiles,lines);
+      getline(infile, name); lines = readLineFiles(nfiles,infiles);
       
       //Initialise new dataset
       Dataset dtset(dtindex, name);
 
-      getline(infile, line); readLineFiles(nfiles,infiles,lines);
+      getline(infile, line); lines = readLineFiles(nfiles,infiles);
       //Read plot options
       while(!infile.eof())
 	{
@@ -429,7 +437,7 @@ Data::Data(string dirname, string label)
 	  //End of reading subplotindex
 
 	  dtset.subplots[iplot] = Subplot(line);
-	  getline(infile, line); readLineFiles(nfiles,infiles,lines);
+	  getline(infile, line); lines = readLineFiles(nfiles,infiles);
 	}
 
       //Read columns tags
@@ -460,7 +468,7 @@ Data::Data(string dirname, string label)
       coltag[13] = "x";
       //end of patch
 
-      getline(infile, line); readLineFiles(nfiles,infiles,lines);
+      getline(infile, line);  lines = readLineFiles(nfiles,infiles);
       //Loop on data points
       while(!infile.eof())
 	{
@@ -505,7 +513,7 @@ Data::Data(string dirname, string label)
 	  fline["thorig"] += Thshift;
 
 	  dtset.subplots[iplot].AddPoint(fline);
-	  getline(infile, line); readLineFiles(nfiles,infiles,lines);
+	  getline(infile, line); lines = readLineFiles(nfiles,infiles);
 
 	}//End loop on data points
       for (map <int, Subplot>::iterator sit = dtset.subplots.begin(); sit != dtset.subplots.end(); sit++)
