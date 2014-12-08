@@ -144,8 +144,14 @@ c somthing needs to be done here for FL
             elseif(Itheory.eq.102.or.Itheory.eq.105) then 
             if(Xsecglu(idx).eq.0) then
 c something needs to be done here for FL
-              call sigcalc(xx,q2x,phi,phie)
-              Xsecglu(idx) = phi
+              IcasHF=0
+              call sigcalc(xx,q2x,phil,phie)
+              IcasHF=4
+              call sigcalc(xx,q2x,phic,phie)
+              IcasHF=5
+              call sigcalc(xx,q2x,phib,phie)
+              
+              Xsecglu(idx) = phil+phic+phib
             endif
             
             else
@@ -164,6 +170,9 @@ c call kt factorisation sigma_red
                phit = phitl + phic + phib
                phil = phill + philc + philb
             endif
+            if(XSecType.eq.'F2') then
+               phil =0
+            endif
             phi = phit - epsilon*phil
             if (XSecType.eq.'FL') then
                 phi = phil
@@ -178,7 +187,7 @@ c call kt factorisation sigma_red
            Xsec(i) = phi
          Endif
          if(Xsecqpm(idx).eq.0) then
-            if(IcasHF.lt.4.and.XsecType.ne.'FL') then
+            if(IcasHF.lt.4.and.XsecType.ne.'FL' ) then
                If(Itheory.eq.101) then
                   phiqpm = 0
                   if(auh(7).gt.0.001) call sigqpm(xx,q2x,phiqpm,phieqpm)
