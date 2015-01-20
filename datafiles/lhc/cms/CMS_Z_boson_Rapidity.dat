@@ -4,6 +4,7 @@
 ! "Measurement of the Rapidity and Transverse Momentum Distributions of
 !  Z Bosons in pp Collisions at $\sqrt{s}=7TeV$.
 !  By the CMS Collaboration. October 22 2011.
+!  Phys. Rev. D 85 (2012) 032002, arXiv:1110.4973  
 !
 &Data
    Name = 'CMS Boson rapidity'
@@ -34,6 +35,13 @@
    Percent   = False, False    ! absolute errors
 !y1   y2    Combined Normalized CS    d(Combined Normalized CS)
 &End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn = 'y1'
+   PlotDefValue = -1., 4
+   PlotVarColumn = 'y2'
+   PlotOptions(1)  = 'Experiment:CMS@ExtraLabel: Z boson rapidity at #sqrt{s} = 7 TeV@Title: 2010 @XTitle: |y| @YTitle:(1/#sigma) d#sigma/d|y|'
+&End 
 0.0   0.1   0.337   0.010
 0.1   0.2   0.335   0.010
 0.2   0.3   0.341   0.010
