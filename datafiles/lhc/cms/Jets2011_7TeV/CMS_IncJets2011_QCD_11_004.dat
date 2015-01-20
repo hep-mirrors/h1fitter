@@ -7,7 +7,7 @@
 !
 &Data
    Name           = 'CMS inclusive jets 2011'
-   Reaction       = 'FastNLO ep jets'
+   Reaction       = 'FastNLO jets'
 
    NDATA          = 133
    NColumn        = 31
