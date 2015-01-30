@@ -12,7 +12,7 @@
    NDATA          = 133
    NColumn        = 31
    ColumnType     = 'Bin'  , 'Bin'   , 'Bin'   , 'Bin'    , 'Sigma' , 'Error' , 'Error' , 'Bin'    , 'Error'    , 'Error'       , 'Error'   , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error' , 'Error'
-   ColumnName     = 'ylow' , 'yhigh' , 'ptlow' , 'pthigh' , 'Sigma' , 'stat'  , 'uncor' , 'NPCorr' , 'npcorerr' , 'CMS_lumierr' , 'unf_err' , 'JEC0'  , 'JEC1'  , 'JEC3'  , 'JEC4'  , 'JEC5'  , 'JEC6'  , 'JEC7'  , 'JEC9'  , 'JEC10' , 'JEC8'  , 'JEC14' , 'JEC12' , 'JEC13' , 'JEC14' , 'JEC15' , 'JEC2a' , 'JEC2b' , 'JEC2c' , 'JEC2d' , 'JEC2e'
+   ColumnName     = 'ylow' , 'yhigh' , 'ptlow' , 'pthigh' , 'Sigma' , 'stat'  , 'uncor' , 'NPCorr' , 'npcorerr' , 'CMS_lumierr' , 'unf_err' , 'JEC0'  , 'JEC1'  , 'JEC3'  , 'JEC4'  , 'JEC5'  , 'JEC6'  , 'JEC7'  , 'JEC9'  , 'JEC10' , 'JEC8'  , 'JEC11' , 'JEC12' , 'JEC13' , 'JEC14' , 'JEC15' , 'JEC2a' , 'JEC2b' , 'JEC2c' , 'JEC2d' , 'JEC2e'
    NInfo          = 4
    DataInfo       = 7000.     , 1.                 , -1.      , -1.
    CInfo          = 'sqrt(S)' , 'PublicationUnits' , 'MurDef' , 'MufDef'
