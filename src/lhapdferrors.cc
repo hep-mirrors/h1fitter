@@ -52,6 +52,9 @@ void get_lhapdferrors_()
   //Start program
   int npoints = cndatapoints_.npoints_;
   int nsysloc = systema_.nsys_;
+
+  cout << " NSYST = " << nsysloc << "\n";
+
   int MonteCarloPDFErr = 0;
   int AsymHessPDFErr = 0;
   int SymmHessPDFErr = 0;
@@ -248,29 +251,29 @@ void get_lhapdferrors_()
       sprintf (num, "%d", totmc);
       msg = (string) "I: Found " + num + " Monte Carlo PDF uncertainties variations";
       hf_errlog_(25051401, msg.c_str(), msg.size());
-    }
-  //Evaluate MC covariance matrix
-  int dim = npoints;
-  double covmx[dim*dim];
-  for (map <int, point>::iterator  pit1 = pointsmap.begin(); pit1 != pointsmap.end(); pit1++)
-    for (map <int, point>::iterator  pit2 = pointsmap.begin(); pit2 != pointsmap.end(); pit2++)
-      {
-	int i = pit1->first;
-	int j = pit2->first;
-	if (pit1->second.th_mc.size() != pit2->second.th_mc.size())
+
+      //Evaluate MC covariance matrix
+      int dim = npoints;
+      double covmx[dim*dim];
+      for (map <int, point>::iterator  pit1 = pointsmap.begin(); pit1 != pointsmap.end(); pit1++)
+	for (map <int, point>::iterator  pit2 = pointsmap.begin(); pit2 != pointsmap.end(); pit2++)
 	  {
-	    msg = (string)"S: Error: inconsistent number of MC replica per point";
-	    hf_errlog_(25051402, msg.c_str(), msg.size());
+	    int i = pit1->first;
+	    int j = pit2->first;
+	    if (pit1->second.th_mc.size() != pit2->second.th_mc.size())
+	      {
+		msg = (string)"S: Error: inconsistent number of MC replica per point";
+		hf_errlog_(25051402, msg.c_str(), msg.size());
+	      }
+	    covmx[j*dim+i] = 0;
+	    for (int mc = 0; mc < totmc; mc++)
+	      covmx[j*dim+i] += (pit1->second.th_mc[mc] - pit1->second.th_mc_mean) * (pit2->second.th_mc[mc] - pit2->second.th_mc_mean) / (double)totmc;
 	  }
-	covmx[j*dim+i] = 0;
-	for (int mc = 0; mc < totmc; mc++)
-	  covmx[j*dim+i] += (pit1->second.th_mc[mc] - pit1->second.th_mc_mean) * (pit2->second.th_mc[mc] - pit2->second.th_mc_mean) / (double)totmc;
-      }
-  //Evaluate covariance matrix to nuisance parameters conversion      
-  if (totmc > 0)
-    {
+
+      //Evaluate covariance matrix to nuisance parameters conversion      
       double beta_from_covmx[dim*npoints];
       double alpha_from_covmx[dim];
+
       int ncorr = 0;	
       getnuisancefromcovar_(dim,npoints,npoints,
 			    covmx,beta_from_covmx,0,
@@ -493,6 +496,7 @@ void get_lhapdferrors_()
       for (int j = 0; j < npoints; j++)
 	sysmeas_.syst_meas_idx_[i][j] = j + 1;
       systscal_.sysscalingtype_[i] = 1;  //Apply linear scaling to PDF uncertainties
+      csysttype_.isysttype_[i] = 2; // THEORY
     }
 
   //Add the PDF uncertainties to the total number of systematic uncertainties
