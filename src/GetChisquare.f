@@ -1442,7 +1442,7 @@ c      integer IWork(NWork)
       integer ifail
 
       double precision factor, facMax, facMin
-      double precision diag(1000), testm(1000,1000)
+      double precision diag(NDimCovar), testm(NDimCovar,NDimCovar) ! dynamic
       double precision Sum,Run
       integer i,j,k
 

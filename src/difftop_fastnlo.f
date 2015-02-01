@@ -15,10 +15,16 @@ C---------------------------------------------------------------------------
       integer IDataSet
       integer GetInfoIndex
       double precision UseZMVFNS
-      integer local_hfscheme
+      integer local_hfscheme, idx
       
-      UseZMVFNS=(DATASETInfo(GetInfoIndex(IDataSet,
-     $     'UseZMVFNS'),IDataSet))
+      idx = GetInfoIndex(IDataSet,'UseZMVFNS')
+      
+      if (idx.gt.0) then
+         UseZMVFNS=DATASETInfo(idx,IDataSet)
+      else
+         UseZMVFNS=0
+      endif
+
       if(UseZMVFNS.eq.0.) then
          local_hfscheme = HFSCHEME
       else
