@@ -1,0 +1,49 @@
+!
+! The data are taken from:
+!  [ATLAS - CERN-PH-EP-2012-064 - arXiv:1305.4192]
+!  7 TeV 
+&DATA
+ Name = 'ATLAS high mass DY mass 2011'
+ Ndata  = 13
+ NColumn   = 20
+ ColumnType = 2*'Bin','Sigma',20*'Error'
+ ColumnName = 'mass1','mass2','Sigma', 'stat','uncor','DY_Tg','DY_rec','DY_ID','DY_Sca', 'DY_Sca uncor' 'Res uncor', 'Pileup uncor',
+'Zpt uncor','Vtx uncor','Kf uncor', 'DY_BG uncor','DY_BG', 'DY_th uncor','DY_th', 'DYlumi'
+
+ NInfo    = 1
+ CInfo    = 'theoryunit'
+ DataInfo = 100000.
+
+ IndexDataset = 91
+ Reaction = 'NC pp'
+ TheoryType     = 'expression'
+ TermName = 'A1', 'K1', 'K2', 'K3'
+ TermType = 'applgrid','kfactor', 'kfactor'
+ TermSource = 'datafiles/lhc/atlas/drellYan/1305.4192/high_fidu.root' , 
+              'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.nnlo.txt',
+              'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.nloew.txt',
+              'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.pi.txt'
+ TheorExpr= 'K1*K2*A1+K3'
+
+  PERCENT = 30*T
+&END
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn = 'mass2'
+   PlotDefValue = 100., 2000.
+   PlotOptions(1)  = 'Experiment:ATLAS@ExtraLabel:pp #rightarrow l^{+}l^{-}; #sqrt{s} = 7 TeV; #int L = 4.7 fb^{-1}@XTitle: M_{ll} @YTitle: d#sigma/dM_{ll} [pb] @Xlog@Ylog'
+&End
+*mee    mee      sigma       stat CDYst  Tg  Rec ID  ScC ScU  Res P-P Zpt Vtx Kf  BgU  BgC   thU   thC    lumi
+116     130      2.24E-001   1.4  0.7    0.8 1.6 2.3 0.9 0.13 0.3 0.1 0.0 0.1 0.1 0.1  1.3   0.2   0.3   1.80
+130     150      1.02E-001   1.6  0.7    0.8 1.6 2.3 0.6 0.10 0.2 0.1 0.0 0.5 0.1 0.2  1.8   0.2   0.2   1.80
+150     170      5.12E-002   2.3  1.0    0.8 1.6 2.3 0.8 0.13 0.4 0.1 0.1 0.0 0.0 0.3  2.5   0.2   0.2   1.80
+170     190      2.84E-002   3.0  1.3    0.8 1.6 2.3 0.4 0.09 0.0 0.1 0.1 0.2 0.0 0.4  2.8   0.3   0.2   1.80
+190     210      1.87E-002   3.7  1.7    0.9 1.6 2.4 1.0 0.10 0.1 0.1 0.2 0.2 0.0 0.5  3.4   0.4   0.4   1.80
+210     230      1.07E-002   5.0  2.0    0.8 1.6 2.4 1.2 0.08 0.2 0.2 0.1 0.8 0.0 0.9  4.1   0.5   0.5   1.80
+230     250      8.23E-003   5.7  2.4    0.9 1.6 2.4 0.8 0.34 0.5 0.2 0.1 0.0 0.0 0.9  3.8   0.6   0.3   1.80
+250     300      4.66E-003   4.4  0.9    0.8 1.6 2.4 1.4 0.07 0.2 0.1 0.1 0.0 0.1 0.7  4.1   0.2   0.2   1.80
+300     400      1.70E-003   5.1  1.0    0.8 1.6 2.5 1.5 0.11 0.1 0.1 0.1 0.3 0.1 0.9  4.4   0.2   0.3   1.80
+400     500      4.74E-004   9.4  0.9    0.8 1.6 2.6 2.1 0.07 0.1 0.0 0.2 0.5 0.1 2.0  4.0   0.2   0.4   1.80
+500     700      1.46E-004   11.5  0.8    0.8 1.6 2.6 2.4 0.16 0.1 0.1 0.0 0.2 0.1 2.0  3.1   0.2   0.3   1.80
+700     1000     2.21E-005   24.1  0.6    0.8 1.7 2.6 2.7 0.10 0.2 0.1 0.0 0.2 0.1 4.0  4.3   0.1   0.4   1.80
+1000    1500     2.88E-006   50.4  0.4    0.8 1.7 2.5 3.1 0.09 0.0 0.1 0.1 0.3 0.1 7.6  3.1   0.1   0.4   1.80

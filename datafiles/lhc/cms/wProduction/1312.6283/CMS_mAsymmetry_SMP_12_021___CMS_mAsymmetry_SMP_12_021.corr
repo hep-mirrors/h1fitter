@@ -1,0 +1,54 @@
+&StatCorr
+   Name1 = 'CMS W muon asymmetry'
+   Name2 = 'CMS W muon asymmetry'
+
+   NIdColumns1 = 2
+   NIdColumns2 = 2
+
+   IdColumns1 = 'eta1','eta2'
+   IdColumns2 = 'eta1','eta2'
+
+   NBins1 = 11
+   NBins2 = 11
+
+!   NCorr = 121
+
+    MatrixFormatIsTable = true
+
+  ! Matrix Type: 
+  !   'Statistical correlations':     Given are correlation factors that need to be applied to statistical errors
+  !                                   needs 'stat' column in data files
+  !   'Systematic correlations' :     Given are correlation factors that need to be applied to systematic errors
+  !                                   needs 'uncor' column in data files
+  !   'Systematic covariance matrix': Given is a systematic covariance matrix  
+  !
+  !   'Full covariance matrix':       Given is a full covariance matrix including stat and syst parts
+  !
+  !   'Full correlation matrix':      Given is a full correlation matrix including stat and syst parts
+
+  !  For uncertainties provided in matrix format use the following format and options:
+  !  bin1_min 	       bin1_max    [delta1_i] 	c_11	  c_12	 c_13	 ...
+  !  bin2_min 	       bin2_max    [delta2_i] 	c_21	  c_22	 c_23	 ...
+  !  ....
+  ! 
+  ! If full correlation matrix, provide also the delta_i
+
+   MatrixType = 'Systematic correlations'
+
+&End
+0    0      0.0    0.2    0.4    0.6    0.8    1.0    1.2    1.4    1.6   1.85    2.1 
+0    0      0.2    0.4    0.6    0.8    1.0    1.2    1.4    1.6   1.85    2.1    2.4 
+0.0 0.2       1  0.281  0.324  0.329  0.271  0.290  0.295  0.280  0.305  0.261  0.167
+0.2 0.4   0.281      1  0.307  0.314  0.256  0.275  0.279  0.263  0.289  0.245  0.158
+0.4 0.6   0.324  0.307      1  0.374  0.309  0.338  0.345  0.321  0.361  0.303  0.193
+0.6 0.8   0.329  0.314  0.374      1  0.311  0.340  0.344  0.320  0.363  0.304  0.200
+0.8 1.0   0.271  0.256  0.309  0.311      1  0.285  0.295  0.280  0.312  0.269  0.173
+1.0 1.2   0.290  0.275  0.338  0.340  0.285      1  0.326  0.311  0.348  0.302  0.193 
+1.2 1.4   0.295  0.279  0.345  0.344  0.295  0.326      1  0.328  0.369  0.322  0.208 
+1.4 1.6   0.280  0.263  0.321  0.320  0.280  0.311  0.328      1  0.360  0.327  0.213 
+1.6 1.85  0.305  0.289  0.361  0.363  0.312  0.348  0.369  0.360      1  0.371  0.249 
+1.85 2.1  0.261  0.245  0.303  0.304  0.269  0.302  0.322  0.327  0.371      1  0.244
+2.1 2.4   0.167  0.158  0.193  0.200  0.173  0.193  0.208  0.213  0.249  0.244      1
+
+
+

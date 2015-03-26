@@ -1,0 +1,41 @@
+!
+! Created based on data from
+! Normalized differential ttbar cross sections vs pt sqrt(s)=7 TeV
+! by CMS collaboration,
+! Normalized Xsec data
+! 
+!
+!
+&Data
+   Name = 'CMS Norm. differential ttbar vs pt 7 TeV'
+   Reaction  = 'FastNLO ttbar normalised'
+
+   NDATA = 7
+   NColumn = 5
+   ColumnType = 'Bin','Bin','Sigma','Error','Error'
+   ColumnName = 'ptlow','pthigh','Sigma','stat','uncor'
+   NInfo   = 4
+   DataInfo = 7000.,  1.                 ,-1.,       -1.
+   CInfo    = 'sqrt(S)', 'PublicationUnits','MurDef', 'MufDef'
+
+   IndexDataset = 202
+
+   TheoryInfoFile = 'datafiles/lhc/cms/topProduction/1211.2220/fnlttbarpty0_7TeV_mt173.3.tab'
+   TheoryType     = 'FastNLO'
+
+   Percent   = 25*True
+&End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn = 'pthigh'
+   PlotDefValue = 0., 500.
+   PlotVarColumn = 'pthigh'
+   PlotOptions(1)  = 'Experiment:CMS@ExtraLabel:top 7 TeV mt=173.3 GeV@XTitle:P_{T} @YTitle:(1/#sigma) d#sigma/dP_{T}'
+&End 
+  0    60   4.54E-3  2.5  3.6
+ 60   100   6.66E-3  2.4  4.9
+100   150   4.74E-3  2.4  3.2
+150   200   2.50E-3  2.6  5.1
+200   260   1.04E-3  2.9  5.5
+260   320   0.38E-3  3.7  8.2
+320   400   0.12E-3  5.8  9.5
