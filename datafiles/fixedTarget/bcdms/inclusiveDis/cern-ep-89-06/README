@@ -1,0 +1,27 @@
+* info from hepdata: 
+*EXPeriment     = CERN-NA-4                      
+*REACtion       = muon P --> muon X 
+*Plab           = 100, 120, 200, 280 GeV                                   
+*Collaboration  = BCDMS                   
+*Author         = Benvenuti et al 
+*REFerence      = Phys. Lett. 223B (1989) 485    
+*Additional info: The combined energy proton structure function as measured 
+*                 by the BCDMS Collaboration in muon-proton deep inelastic 
+*                 scattering.
+*
+* additional info:
+*REFerence 	= Cern-ep-89-170.pdf, Cern-ep-89-06.pdf
+*Data measured at 100, 120, 200 and 280 GeV beam energy
+*The columns are: x, Q^2, inelastisity Y, reduced c.s.=F_2*(1-Y....,
+*uncorrelated error, the number of syst. errors, correlated errors (all
+*errors in percent):
+*  due to the beam momentum calibration, due to the spectrometer magnetic
+*field calibration, uncertainty in the spectrometer resolution,
+*uncertainty in the detector and trigger inefficiencies, uncertainty in
+*the relative normalization of data from external and internal targets,
+*the absolute normalization of the data taken at the beam energy of 200
+*GeV, the relative normalization of the data taken at other energies 
+*(100, 120, and 280 GeV).
+* the last column corresponds to 1.3sigma systematic shift due to the 
+*beam energy or spectrometer resolution.
+*and was not included in the original table
