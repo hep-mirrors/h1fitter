@@ -1,0 +1,12 @@
+*
+* The data are taken from:
+*
+*"Jet production in ep collisions at low Q2 and determination of alphas"
+* By H1 Collaboration (February 2010)
+* Published in: Eur.Phys.J.C67:1-24,2010. 
+* e-Print: 	arXiv:0911.5678 [hep-ex] 
+*
+! Data as listed in Table 5 of the original publication
+! THeory not corrected for Z0 exchange (no information given in paper)
+! 
+! 5.0 7.0     5.0  10.0  109.    0.7   4.9   2.1  0.4  0.5  4.3  1.5   0.87   3.3
