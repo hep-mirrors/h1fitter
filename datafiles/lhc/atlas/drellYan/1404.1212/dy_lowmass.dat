@@ -8,9 +8,7 @@
  ColumnType = 'Flag', 2*'Bin','Sigma',17*'Error'
  ColumnName = 'binFlag', 'mass1','mass2','Sigma', 'stat','uncor','ignore', 'LMDYcorr1','LMDYcorr2','LMDYcorr3','LMDYcorr4', 'LMDYcorr5', 'LMDYcorr6', 'LMDYcorr7', 'LMDYcorr8', 'LMDYcorr9', 'LMDYcorr10', 'LMDYcorr11', 'LMDYcorr12', 'LMDYcorr13', 'ALumi2011'
 
- NInfo    = 1
- CInfo    = 'theoryunit'
- DataInfo = 100000.
+ NInfo    = 0
 
  IndexDataset = 177
  Reaction = 'NC pp'
@@ -21,7 +19,7 @@
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.nominal.NNLO-NLOEW.txt',
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.nominal.PI.txt'
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.nominal.scheme.txt'
- TheorExpr= 'K1*K3*A1+K2'
+ TheorExpr= 'K1*K3*A1/1.e5+K2'
 ! TheorExpr= 'A1'
  PERCENT = 3*F, 32*T
 &END

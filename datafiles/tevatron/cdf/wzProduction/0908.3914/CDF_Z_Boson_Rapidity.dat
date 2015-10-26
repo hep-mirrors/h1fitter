@@ -18,16 +18,16 @@
 !   ColumnName = 'binFlag','y1','y2','sigma','stat','CDF_ZY_lum','CDF_ZY_background_CC:A','CDF_ZY_background_CF:A','CDF_ZY_background_FF:A','CDF_ZY_CID','CDF_ZY_FID','CDF_ZY_CMaterial','CDF_ZY_FMaterial','CDF_ZY_ZVtx','CDF_ZY_Trkeff','CDF_ZY_NoTrk','ignore' 
    ColumnName = 'binFlag','y1','y2','sigma','stat','CDF_ZY_lum','CDF_ZY_background_CC:A','CDF_ZY_background_CF:A','CDF_ZY_background_FF:A','uncor','uncor','CDF_ZY_CMaterial','CDF_ZY_FMaterial','CDF_ZY_ZVtx','CDF_ZY_Trkeff','CDF_ZY_NoTrk','ignore' 
 
-   NInfo   = 2
-   CInfo    = 'theoryunit','ppbar'
-   DataInfo = 2000.,1.
+   NInfo   = 1
+   CInfo    = 'ppbar'
+   DataInfo = 1.
    IndexDataset = 83
 
   TheoryType     = 'expression'
   TermName = 'A1'
   TermType = 'applgrid'
   TermSource = 'datafiles/tevatron/cdf/wzProduction/0908.3914/grid-40-6-15-3-Z0_zycdf.root'
-  TheorExpr= 'A1'
+  TheorExpr= 'A1/2e3'
 
    Percent   = 13*False    ! absolute errors
 &End

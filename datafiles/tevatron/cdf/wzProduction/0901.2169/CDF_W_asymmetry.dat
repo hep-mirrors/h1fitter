@@ -15,9 +15,9 @@
    ColumnType = 'Flag',2*'Bin','Sigma',8*'Error'
 !   ColumnName = 'binFlag', 'y1','y2','sigma','CDF_WA_chmisid:A','CDF_WA_background:A','CDF_WA_energyscale:A','CDF_WA_recoil:A','CDF_WA_eletrigger:A','CDF_WA_eleid:A','CDF_WA_pdf:A','stat const'
    ColumnName = 'binFlag', 'y1','y2','sigma','CDF_WA_chmisid:A','CDF_WA_background:A','CDF_WA_energyscale:A','CDF_WA_recoil:A','uncor const','uncor const','CDF_WA_pdf:A','stat const'
-   NInfo   = 2
-   CInfo    = 'theoryunit','ppbar'
-   DataInfo = 1.,1.
+   NInfo   = 1
+   CInfo    = 'ppbar'
+   DataInfo = 1.
    IndexDataset = 89
 
   TheoryType     = 'expression'

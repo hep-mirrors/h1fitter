@@ -17,9 +17,9 @@
    ColumnName = 'binFlag','eta1','eta2','sigma','stat const',
 !   'D0_WELA_Gen:A', 'D0_WELA_EMID:A', 'D0_WELA_Keffqp:A', 'D0_WELA_Energy:A', 'D0_WELA_Recoil:A', 'D0_WELA_Model:A', 'D0_WELA_Bkgs:A', 'D0_WELA_Qmis:A', 'D0_WELA_Unfolding:A', 'ignore'
    'D0_WELA_Gen:A', 'uncor const', 'uncor const', 'D0_WELA_Energy:A', 'D0_WELA_Recoil:A', 'D0_WELA_Model:A', 'D0_WELA_Bkgs:A', 'uncor const', 'uncor const', 'ignore'
-   NInfo   = 2
-   CInfo    = 'theoryunit','ppbar'
-   DataInfo = 1.,1.
+   NInfo   = 1
+   CInfo    = 'ppbar'
+   DataInfo = 1.
    IndexDataset = 84
 
   TheoryType     = 'expression'

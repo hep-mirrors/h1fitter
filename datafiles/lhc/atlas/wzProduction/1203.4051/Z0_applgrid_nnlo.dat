@@ -18,9 +18,9 @@
          'ATL_WZ2010_Source_25','ATL_WZ2010_Source_26','ATL_WZ2010_Source_27','ATL_WZ2010_Source_28',
          'ATL_WZ2010_Source_29','ATL_WZ2010_Source_30','ATLAS_lumi2010'
 
- NInfo    = 3 
- DataInfo = 7000.,     20.,      100000.
- CInfo    = 'sqrt(S)','pte cut', 'theoryunit'
+ NInfo    = 2 
+ DataInfo = 7000.,     20.
+ CInfo    = 'sqrt(S)','pte cut'
  IndexDataset = 141
  Reaction = 'NC pp'
  TheoryType     = 'expression'
@@ -28,7 +28,7 @@
  TermType = 'applgrid','kfactor'
  TermSource = 'datafiles/lhc/atlas/wzProduction/1203.4051/Z0-applgrid.root' , 
               'datafiles/lhc/atlas/wzProduction/1203.4051/KF-Z0-nnlo2nlo-ew.txt'
- TheorExpr= 'K*A1'
+ TheorExpr= 'K*A1/1.e5'
 
  PERCENT = F, 32*T
 &END

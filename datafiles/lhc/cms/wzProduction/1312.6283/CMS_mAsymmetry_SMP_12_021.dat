@@ -14,9 +14,9 @@
  ! ColumnName = 'binFlag','eta1','eta2','Asymmetry','stat',14*'ignore'
  ! ColumnName = 'binFlag','eta1','eta2','Asymmetry','stat','CMS_WmuAsym_eff','CMS_WmuAsym_QCDpm','CMS_WmuAsym_QCDshape','CMS_WmuAsym_muScale','CMS_WmuAsym_FSR','CMS_WmuAsym_PDF','CMS_WmuAsym_DYbkg','CMS_WmuAsym_etaPhiMod','CMS_WmuAsym_recoil','CMS_WmuAsym_PU','CMS_WmuAsym_lumi', 'CMS_WmuAsym_ttbar', 'CMS_WmuAsym_wtau', 'CMS_WmuAsym_qt'
 
-   NInfo   = 5
-   DataInfo = 7000.,  1., 25., 0., 1
-   CInfo    = 'sqrt(S)', 'asymmetry', 'ptm cut', 'ptnu cut', 'theoryunit'
+   NInfo   = 4
+   DataInfo = 7000.,  1., 25., 0.
+   CInfo    = 'sqrt(S)', 'asymmetry', 'ptm cut', 'ptnu cut'
    
    IndexDataset = 245
 

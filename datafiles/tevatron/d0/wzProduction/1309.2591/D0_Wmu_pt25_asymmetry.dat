@@ -17,9 +17,9 @@
    ColumnName = 'binFlag','eta1','eta2','sigma','stat const',
 !              'D0_WMUA_EWbkg:A','D0_WMUA_MJbkg:A','D0_WMUA_charge_misid:A','D0_WMUA_rel_charge_efficiency:A','D0_WMUA_magnet_pol_weighting:A','D0_WMUA_momentum_met_resolution:A','D0_WMUA_trigger_isolation:A'
               'D0_WMUA_EWbkg:A','D0_WMUA_MJbkg:A','D0_WMUA_charge_misid:A','D0_WMUA_rel_charge_efficiency:A','D0_WMUA_magnet_pol_weighting:A','D0_WMUA_momentum_met_resolution:A','uncor const'
-   NInfo   = 2
-   CInfo    = 'theoryunit','ppbar'
-   DataInfo = 1.,1.
+   NInfo   = 1
+   CInfo    = 'ppbar'
+   DataInfo = 1.
    IndexDataset = 87
 
   TheoryType     = 'expression'

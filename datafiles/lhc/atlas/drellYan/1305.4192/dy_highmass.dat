@@ -10,20 +10,21 @@
  ColumnName = 'mass1','mass2','Sigma', 'stat','uncor','DY_Tg','DY_rec','DY_ID','DY_Sca', 'DY_Sca uncor' 'Res uncor', 'Pileup uncor',
 'Zpt uncor','Vtx uncor','Kf uncor', 'DY_BG uncor','DY_BG', 'DY_th uncor','DY_th', 'DYlumi'
 
- NInfo    = 1
- CInfo    = 'theoryunit'
- DataInfo = 100000.
+ NInfo    = 0
+! CInfo    = 'theoryunit'
+! DataInfo = 1.
 
  IndexDataset = 91
  Reaction = 'NC pp'
  TheoryType     = 'expression'
  TermName = 'A1', 'K1', 'K2', 'K3'
- TermType = 'applgrid','kfactor', 'kfactor'
+ TermType = 'applgrid','kfactor', 'kfactor', 'kfactor'
+ TermInfo =    '',       '',        '',       '' 
  TermSource = 'datafiles/lhc/atlas/drellYan/1305.4192/high_fidu.root' , 
               'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.nnlo.txt',
               'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.nloew.txt',
               'datafiles/lhc/atlas/drellYan/1305.4192/dy.hm.pi.txt'
- TheorExpr= 'K1*K2*A1+K3'
+ TheorExpr= 'K1*K2*A1/1.e5+K3'
 
   PERCENT = 30*T
 &END

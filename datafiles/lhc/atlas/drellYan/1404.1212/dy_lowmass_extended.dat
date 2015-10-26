@@ -7,9 +7,7 @@
  NColumn   = 20
  ColumnType = 'Flag', 2*'Bin','Sigma',16*'Error'
  ColumnName = 'binFlag', 'mass1','mass2', 'Sigma', 'ignore', 'ignore', 'ignore', 'ereco_1', 'etrig1_2', 'etrig2_3', 'eiso_4', 'eqcd_5','emoms_6','uncor','uncor', 'stat', 'ignore', 'ignore',  'ignore', 'ALumi2010'
- NInfo    = 1
- CInfo    = 'theoryunit'
- DataInfo = 100000.
+ NInfo    = 0
 
  IndexDataset = 178
  Reaction = 'NC pp'
@@ -20,7 +18,7 @@
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.ext.NNLO-NLOEW.txt',
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.ext.PI.txt' 
               'datafiles/lhc/atlas/drellYan/1404.1212/kf.ext.scheme.txt' 
- TheorExpr= 'K1*A1*K3+K2'
+ TheorExpr= 'K1*A1*K3/1.e5+K2'
 ! TheorExpr= 'A1'
 
   PERCENT = 30*T
