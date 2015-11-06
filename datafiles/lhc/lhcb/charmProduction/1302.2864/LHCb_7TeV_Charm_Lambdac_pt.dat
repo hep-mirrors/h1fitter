@@ -1,0 +1,36 @@
+*
+* The data are taken from LHCb-PAPER-2012-041
+* "Prompt charm production in pp collisions at sqrt(s)=7 TeV"
+* Nucl. Phys. B 871 (2013), 1
+* arXiv:1302.2864
+*
+* Fragmentation fractions are taken from arXiv:1112.3757
+*
+&Data
+   Name         = 'LHCb 7TeV Lambdac pT cross section'    
+   IndexDataset = 405
+   Reaction     = 'HVQMNR pp QQbar'          
+   NInfo        = 5
+   CInfo        = 'LHCb_7tev_charm','abs','lambdac','sqrt(S)','fragfraction'                      
+   DataInfo     =                0.,   0.,       0.,    7E+03,        0.1080
+   NData        = 6
+   NColumn      = 16
+   ColumnType   = 6*'Bin','Sigma',9*'Error'
+   ColumnName   = 'ymin','ymax','pTmin','pTmax','yav','pTav','x-section','stat','uncor','lhcb7_lc_slrc','lhcb7_lc_yidt','lhcb7_lc_prid','lhcb7_c_trac','brat_lcprkapi','lhcb7_lumi','ffrc_clc'
+   Percent      = 9*true
+&End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn   = 'ymin'
+   PlotDefValue    = 1.9,3.75,4.6
+   PlotVarColumn   = 'pTav'
+   PlotOptions(1)  = 'Experiment:LHCb #sqrt{s} = 7 TeV #Lambda_{c}^{*#pm}@ExtraLabel:pp #rightarrow #Lambda_{c}^{*#pm} @XTitle: p_{T} [GeV] @YTitle: d#sigma/dp_{T} [#mub/GeV] @Title:2.0 < y < 4.5@Ylog'
+&End
+* Start DATA
+*  ymin  ymax pTmin pTmax   yav  pTav         cs   stat  uncor   slrc   yidt   prid   trac   brat   lumi   ffrc
+    2.0   4.5   2.0   3.0  3.75  2.50   89.60000  19.87  22.81   0.40   3.00   5.00   9.00  26.00   3.50   8.40
+    2.0   4.5   3.0   4.0  3.75  3.50   49.80000  15.86  11.85   0.40   3.00   5.00   9.00  26.00   3.50   8.40
+    2.0   4.5   4.0   5.0  3.75  4.50   22.50000  13.78  11.71   0.40   3.00   5.00   9.00  26.00   3.50   8.40
+    2.0   4.5   5.0   6.0  3.75  5.50    8.50000  16.47  11.50   0.40   3.00   5.00   9.00  26.00   3.50   8.40
+    2.0   4.5   6.0   7.0  3.75  6.50    4.90000  18.37  11.56   0.40   3.00   5.00   9.00  26.00   3.50   8.40
+    2.0   4.5   7.0   8.0  3.75  7.50    2.40000  25.00  17.54   0.40   3.00   5.00   9.00  26.00   3.50   8.40

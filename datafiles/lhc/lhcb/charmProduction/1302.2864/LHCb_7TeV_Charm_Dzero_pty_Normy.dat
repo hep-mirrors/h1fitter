@@ -1,0 +1,70 @@
+*
+* The data are taken from LHCb-PAPER-2012-041
+* "Prompt charm production in pp collisions at sqrt(s)=7 TeV"
+* Nucl. Phys. B 871 (2013), 1
+* arXiv:1302.2864
+* (cross sections normalised to the middle y bin)
+*
+&Data 
+   Name         = 'LHCb 7TeV Dzero pT-y cross section normalised in y'    
+   IndexDataset = 401
+   Reaction     = 'HVQMNR pp QQbar'          
+   NInfo        = 5
+   CInfo        = 'LHCb_7tev_charm','norm_y','dzero','sqrt(S)'                   
+   DataInfo     =                0.,      0.,     0.,    7E+03
+   NData        = 30
+   NColumn      = 19
+   ColumnType   = 8*'Bin','Sigma',10*'Error'
+   ColumnName   = 'ymin','ymax','pTmin','pTmax','yav','pTav','yminREF','ymaxREF','x-section','stat','uncor','lhcb7_dz_pt1','lhcb7_dz_pt2','lhcb7_dz_pt3','lhcb7_dz_pt4','lhcb7_dz_pt5','lhcb7_dz_pt6','lhcb7_dz_pt7','lhcb7_dz_pt8'
+   Percent      = 10*true
+&End
+&PlotDesc
+   PlotN = 8
+   PlotDefColumn   = 'pTav'
+   PlotDefValue    = 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0
+   PlotVarColumn   = 'yav'
+   PlotOptions(1)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:0.0 < p_{T} < 1.0 [GeV]'
+   PlotOptions(2)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:1.0 < p_{T} < 2.0 [GeV]'
+   PlotOptions(3)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:2.0 < p_{T} < 3.0 [GeV]'
+   PlotOptions(4)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:3.0 < p_{T} < 4.0 [GeV]'
+   PlotOptions(5)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:4.0 < p_{T} < 5.0 [GeV]'
+   PlotOptions(6)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:5.0 < p_{T} < 6.0 [GeV]'
+   PlotOptions(7)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:6.0 < p_{T} < 7.0 [GeV]'
+   PlotOptions(8)  = 'Experiment:LHCb #sqrt{s} = 7 TeV D^{0}@ExtraLabel:pp #rightarrow D^{0} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:7.0 < p_{T} < 8.0 [GeV]'
+&End
+* Start DATA
+*  ymin  ymax pTmin pTmax   yav  pTav yminR ymaxR         cs   stat  uncor    pt1    pt2    pt3    pt4    pt5    pt6    pt7    pt8
+* 1st y bin *
+    2.0   2.5   0.0   1.0  2.25  0.50  3.00  3.50    1.24827   4.80   4.99   4.45   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+    2.0   2.5   1.0   2.0  2.25  1.50  3.00  3.50    1.13621   3.93   3.45   0.00   3.36   0.00   0.00   0.00   0.00   0.00   0.00
+    2.0   2.5   2.0   3.0  2.25  2.50  3.00  3.50    1.25511   3.70   1.69   0.00   0.00   3.18   0.00   0.00   0.00   0.00   0.00
+    2.0   2.5   3.0   4.0  2.25  3.50  3.00  3.50    1.33514   4.26   4.88   0.00   0.00   0.00   3.71   0.00   0.00   0.00   0.00
+    2.0   2.5   4.0   5.0  2.25  4.50  3.00  3.50    1.29596   5.27   5.16   0.00   0.00   0.00   0.00   5.05   0.00   0.00   0.00
+    2.0   2.5   5.0   6.0  2.25  5.50  3.00  3.50    1.50080   7.06   5.74   0.00   0.00   0.00   0.00   0.00   8.74   0.00   0.00
+    2.0   2.5   6.0   7.0  2.25  6.50  3.00  3.50    1.64548  10.37   6.28   0.00   0.00   0.00   0.00   0.00   0.00  12.76   0.00
+    2.0   2.5   7.0   8.0  2.25  7.50  3.00  3.50    1.87200  17.95   7.98   0.00   0.00   0.00   0.00   0.00   0.00   0.00  23.07
+* 2nd y bin *
+    2.5   3.0   0.0   1.0  2.75  0.50  3.00  3.50    1.06067   3.62   3.27   4.45   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+    2.5   3.0   1.0   2.0  2.75  1.50  3.00  3.50    1.13220   2.78   3.02   0.00   3.36   0.00   0.00   0.00   0.00   0.00   0.00
+    2.5   3.0   2.0   3.0  2.75  2.50  3.00  3.50    1.19845   2.56   2.13   0.00   0.00   3.18   0.00   0.00   0.00   0.00   0.00
+    2.5   3.0   3.0   4.0  2.75  3.50  3.00  3.50    1.11374   3.16   2.39   0.00   0.00   0.00   3.71   0.00   0.00   0.00   0.00
+    2.5   3.0   4.0   5.0  2.75  4.50  3.00  3.50    1.12187   4.16   5.08   0.00   0.00   0.00   0.00   5.05   0.00   0.00   0.00
+    2.5   3.0   5.0   6.0  2.75  5.50  3.00  3.50    1.42055   5.42   5.51   0.00   0.00   0.00   0.00   0.00   8.74   0.00   0.00
+    2.5   3.0   6.0   7.0  2.75  6.50  3.00  3.50    1.44147   8.82   6.31   0.00   0.00   0.00   0.00   0.00   0.00  12.76   0.00
+    2.5   3.0   7.0   8.0  2.75  7.50  3.00  3.50    1.92800  14.94   7.53   0.00   0.00   0.00   0.00   0.00   0.00   0.00  23.07
+* 4th y bin *
+    3.5   4.0   0.0   1.0  3.75  0.50  3.00  3.50    0.88372   5.21   1.28   4.45   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+    3.5   4.0   1.0   2.0  3.75  1.50  3.00  3.50    0.87028   4.01   1.84   0.00   3.36   0.00   0.00   0.00   0.00   0.00   0.00
+    3.5   4.0   2.0   3.0  3.75  2.50  3.00  3.50    0.85061   3.47   2.31   0.00   0.00   3.18   0.00   0.00   0.00   0.00   0.00
+    3.5   4.0   3.0   4.0  3.75  3.50  3.00  3.50    0.72364   4.42   5.36   0.00   0.00   0.00   3.71   0.00   0.00   0.00   0.00
+    3.5   4.0   4.0   5.0  3.75  4.50  3.00  3.50    0.68872   6.27   5.53   0.00   0.00   0.00   0.00   5.05   0.00   0.00   0.00
+    3.5   4.0   5.0   6.0  3.75  5.50  3.00  3.50    0.78331   8.81   6.08   0.00   0.00   0.00   0.00   0.00   8.74   0.00   0.00
+    3.5   4.0   6.0   7.0  3.75  6.50  3.00  3.50    0.77926  14.59   7.44   0.00   0.00   0.00   0.00   0.00   0.00  12.76   0.00
+    3.5   4.0   7.0   8.0  3.75  7.50  3.00  3.50    0.91200  30.70  11.71   0.00   0.00   0.00   0.00   0.00   0.00   0.00  23.07
+* 5th y bin *
+    4.0   4.5   0.0   1.0  4.25  0.50  3.00  3.50    0.63051   9.36   4.39   4.45   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+    4.0   4.5   1.0   2.0  4.25  1.50  3.00  3.50    0.63022   6.37   3.78   0.00   3.36   0.00   0.00   0.00   0.00   0.00   0.00
+    4.0   4.5   2.0   3.0  4.25  2.50  3.00  3.50    0.58221   6.42   5.49   0.00   0.00   3.18   0.00   0.00   0.00   0.00   0.00
+    4.0   4.5   3.0   4.0  4.25  3.50  3.00  3.50    0.49521   8.32   5.93   0.00   0.00   0.00   3.71   0.00   0.00   0.00   0.00
+    4.0   4.5   4.0   5.0  4.25  4.50  3.00  3.50    0.39624  15.29   7.17   0.00   0.00   0.00   0.00   5.05   0.00   0.00   0.00
+    4.0   4.5   5.0   6.0  4.25  5.50  3.00  3.50    0.51685  30.43  12.01   0.00   0.00   0.00   0.00   0.00   8.74   0.00   0.00

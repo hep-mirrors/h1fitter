@@ -1,0 +1,31 @@
+*
+* The data are taken from LHCb-PAPER-2012-041
+* "Prompt charm production in pp collisions at sqrt(s)=7 TeV"
+* Nucl. Phys. B 871 (2013), 1
+* arXiv: 1302.2864
+*
+&Data
+   Name         = 'LHCb 7TeV Lambdac pT-y cross section normalised in y'    
+   IndexDataset = 405
+   Reaction     = 'HVQMNR pp QQbar'          
+   NInfo        = 5
+   CInfo        = 'LHCb_7tev_charm','norm_y','lambdac','sqrt(S)'                   
+   DataInfo     =                0.,      0.,       0.,    7E+03
+   NData        = 3
+   NColumn      = 12
+   ColumnType   = 8*'Bin','Sigma',3*'Error'
+   ColumnName   = 'ymin','ymax','pTmin','pTmax','yav','pTav','yminREF','ymaxREF','x-section','stat','uncor','lhcb7_lc_pt1'
+   Percent      = 3*true
+&End
+&PlotDesc
+   PlotN = 1
+   PlotDefColumn   = 'pTav'
+   PlotDefValue    = 0.0, 9.0
+   PlotVarColumn   = 'yav'
+   PlotOptions(1)  = 'Experiment:LHCb #sqrt{s} = 7 TeV #Lambda_{c}^{#pm}@ExtraLabel:pp #rightarrow #Lambda_{c}^{#pm} @XTitle: y [GeV] @YTitle: #frac{d#sigma/dy}{d#sigma/dy_{0}} @Title:2.0 < p_{T} < 8.0 [GeV]'
+&End
+* Start DATA
+*  ymin  ymax pTmin pTmax   yav  pTav yminR ymaxR         cs   stat  uncor    pt1
+    2.0   2.5   2.0   8.0  2.25  5.00  3.00  3.50    0.34022  37.85  18.13  14.62
+    2.5   3.0   2.0   8.0  2.75  5.00  3.00  3.50    0.79332  23.25  13.19  14.62
+    3.5   4.0   2.0   8.0  3.75  5.00  3.00  3.50    0.70270  19.46   9.41  14.62
