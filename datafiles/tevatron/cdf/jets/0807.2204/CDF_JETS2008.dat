@@ -1,5 +1,5 @@
 !
-! === HERAFitter dataset ===
+! === xFitter dataset ===
 !
 ! Information:
 !
@@ -44,10 +44,10 @@
 !  it is correlated over Pt and uncorrelated across different rapidity regions
 ! Column 30 is the luminosity uncertainty
 !
-! Test of the data using HERAFitter: 78.77/72 (13p HERAPDF, RT FAST)
+! Test of the data using xFitter: 78.77/72 (13p HERAPDF, RT FAST)
 !
 ! Support: please use the following e-mail
-!  herafitter-help@desy.de
+!  xfitter-help@desy.de
 !
 !  November 2011
 !
