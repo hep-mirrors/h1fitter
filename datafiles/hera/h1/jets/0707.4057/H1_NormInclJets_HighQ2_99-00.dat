@@ -28,7 +28,8 @@
    
    IndexDataset = 77
 
-   TheoryInfoFile = 'theoryfiles/fnh5101_I753951.tab'
+!   TheoryInfoFile = 'theoryfiles/fnh5101_I753951.tab'
+   TheoryInfoFile = 'datafiles/hera/h1/jets/0707.4057/fnh5101_I753951.tab'
    TheoryType     = 'FastNLO'
 
    Percent   = True, True, True, True, True, True

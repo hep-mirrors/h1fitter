@@ -46,6 +46,31 @@
 	 CInfo 	  = 'e charge',	'reduced', 'e polarity'
 	 IndexDataset = 91
 &End
+&PlotDesc
+   PlotN = 19 
+   PlotDefColumn = 'Q2'
+   PlotVarColumn = 'x'
+   PlotDefValue = 8., 10. 11. 13., 14., 16., 18., 20., 23., 27., 29., 33., 38., 44., 50., 58., 66., 76., 87., 100.
+   PlotOptions(1)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 8.75  @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(2)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 10.25  @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(3)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 11.75  @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(4)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 13.25 @Ymin:0.05@Ymax:1.@Xlog@Ylog'
+   PlotOptions(5)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 15 @Ymin:0.05@Ymax:1.@Xlog@Ylog'
+   PlotOptions(6)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 17  @Ymin:0.05@Ymax:1.@Xlog@Ylog'
+   PlotOptions(7)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 19  @Ymin:0.05@Ymax:1.@Xlog@Ylog'
+   PlotOptions(8)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 21.5 @Ymin:0.01@Ymax:1.@Xlog@Ylog'
+   PlotOptions(9)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 24.5 @Ymin:0.01@Ymax:1.@Xlog@Ylog'
+   PlotOptions(10)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 28 @Ymin:0.01@Ymax:1.@Xlog@Ylog'
+   PlotOptions(11)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 32 @Ymin:0.005@Ymax:1.@Xlog@Ylog'
+   PlotOptions(12)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 37 @Ymin:0.005@Ymax:1.@Xlog@Ylog'
+   PlotOptions(13)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 43 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(14)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 49 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(15) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 57 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(16) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 65 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(17) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 75 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(18) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 86 @Ymin:0.001@Ymax:.5@Xlog@Ylog'
+   PlotOptions(19) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 120 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 99 @Ymin:0.001@Ymax:.1@Xlog@Ylog'
+&End
 0.070     8.75   0.555259  0.37824   1.54 10 -0.30 -0.10 0.30 1.50 1.00 3.00 0.00 1.00 0.00 0.00 4.76588
  0.070    10.25  0.650447   0.37381  1.59 10 -0.30 -0.10 0.80 1.50 1.00 3.00 0.00 1.00 0.00 0.00 4.86242
  0.100    10.25  0.455313   0.38707  1.18 10 -0.30 -0.20 0.50 0.50 1.00 3.00 0.00 1.00 0.00 0.00 4.43336
@@ -145,3 +170,5 @@
  0.750    75.00  0.444208   0.00992  12.50 10 0.90 3.30 3.00 0.00 0.00 3.00 0.00 1.00 0.00 0.00 7.20299
  0.750    86.00  0.509358   0.00961  13.94 10 0.60 2.90 2.60 0.00 0.00 3.00 0.00 1.00 0.00 0.00 6.56854
  0.750    99.00  0.586354   0.00815  16.07 10 0.40 2.60 2.00 0.00 0.00 3.00 0.00 1.00 0.00 0.00 5.94599
+
+ LocalWords:  nr

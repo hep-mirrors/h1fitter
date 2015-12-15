@@ -76,6 +76,17 @@
 
    Percent   = 2*False,21*True
 &End
+&PlotDesc
+   PlotN = 5
+   PlotDefColumn = 'EtaBinNumber'
+   PlotDefValue = 0, 1.5, 2.5, 3.5, 4.5, 5.5
+   PlotVarColumn = 'pt1'
+   PlotOptions(1) = 'Experiment:CDF RUNII@ExtraLabel:pp #rightarrow jets; #sqrt{s} = 1.96 TeV; R=0.7@Title: |y| < 0.1  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:50.@Xmax:600.@Xlog@Ylog'
+   PlotOptions(2) = 'Experiment:CDF RUNII@ExtraLabel:pp #rightarrow jets; #sqrt{s} = 1.96 TeV; R=0.7@Title: 0.1 < |y| < 0.7  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:50.@Xmax:600.@Xlog@Ylog'
+   PlotOptions(3) = 'Experiment:CDF RUNII@ExtraLabel:pp #rightarrow jets; #sqrt{s} = 1.96 TeV; R=0.7@Title: 0.7 < |y| < 1.1  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:50.@Xmax:600.@Xlog@Ylog'
+   PlotOptions(4) = 'Experiment:CDF RUNII@ExtraLabel:pp #rightarrow jets; #sqrt{s} = 1.96 TeV; R=0.7@Title: 1.1 < |y| < 1.6  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:50.@Xmax:600.@Xlog@Ylog'
+   PlotOptions(5) = 'Experiment:CDF RUNII@ExtraLabel:pp #rightarrow jets; #sqrt{s} = 1.96 TeV; R=0.7@Title: 1.6 < |y| < 2.1  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:50.@Xmax:600.@Xlog@Ylog'
+&End
 1   67   62.0   72.0   6.68   0.12   0.61   1.072   0.107   6.7   6.0   2.4   1.1   1.3   2.3   0.0   0.0   1.9   3.7   0.1   0.0   0.0   0.0   0.0   3.9   0.0   0.0   0.0   0.0   6.0
 1   77.5   72.0   83.0   2.95   0.06   0.28   1.054   0.086   7.3   6.6   2.3   1.3   1.8   2.0   0.0   0.0   1.8   3.6   0.2   0.0   0.0   0.0   0.0   3.9   0.0   0.0   0.0   0.0   6.0
 1   89.5   83.0   96.0   1.21   0.04   0.12   1.040   0.069   7.9   7.0   2.3   1.4   2.4   2.3   0.0   0.0   1.7   3.5   1.0   0.0   0.0   0.0   0.0   3.9   0.0   0.0   0.0   0.0   6.0

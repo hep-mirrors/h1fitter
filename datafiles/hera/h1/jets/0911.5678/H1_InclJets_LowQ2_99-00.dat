@@ -40,13 +40,13 @@
    PlotDefColumn = 'q2min'
    PlotDefValue = 4., 6., 8., 12., 17., 22., 32., 42.
    PlotVarColumn = 'pt'
-   PlotOptions(1) = 'Title:5  < q2 < 7  @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(2) = 'Title:7  < q2 < 10 @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(3) = 'Title:10 < q2 < 15 @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(4) = 'Title:15 < q2 < 20 @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(5) = 'Title:20 < q2 < 30 @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(6) = 'Title:30 < q2 < 40 @XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.01@Ymax:150.@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
-   PlotOptions(7) = 'Title:40 < q2 < 100@XTitle:pt@Xmin:5.0@Xmax:80.@Ymin:0.001@Ymax:15.0@YminR:-0.4@YmaxR:0.4@Xlog@Ylog'
+   PlotOptions(1) = 'Title:5  < q2 < 7  @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(2) = 'Title:7  < q2 < 10 @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(3) = 'Title:10 < q2 < 15 @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(4) = 'Title:15 < q2 < 20 @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(5) = 'Title:20 < q2 < 30 @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.0008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(6) = 'Title:30 < q2 < 40 @XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.0008@Ymax:150.@Xlog@Ylog'
+   PlotOptions(7) = 'Title:40 < q2 < 100@XTitle:P_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:5.0@Xmax:80.@Ymin:0.0008@Ymax:15.0@Xlog@Ylog'
 &End
 5.0 7.0     5.0  10.0  7.5  109.    10.0   0.0   0.0 0.0  0.0  0.0  0.0   0.87   3.28
 5.0 7.0     10.0 15.0  12.5 12.9    1.8   4.4   2.7  0.1  0.1  2.9  1.5   0.91   2.67

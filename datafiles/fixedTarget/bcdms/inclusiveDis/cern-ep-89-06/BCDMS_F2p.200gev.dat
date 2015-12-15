@@ -46,6 +46,28 @@
 	 CInfo 	  = 'e charge',	'reduced', 'e polarity'
 	 IndexDataset = 92
 &End
+&PlotDesc
+   PlotN = 16 
+   PlotDefColumn = 'Q2'
+   PlotVarColumn = 'x'
+   PlotDefValue = 16., 18., 20., 23., 27., 31., 36.,  42., 48., 56., 64., 74., 85., 98., 114., 136., 140.
+   PlotOptions(1)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 17  @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(2)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 19  @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(3)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 21.5 @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(4)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 24.5 @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(5)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 28 @Ymin:0.1@Ymax:1.@Xlog@Ylog'
+   PlotOptions(6)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 32 @Ymin:0.005@Ymax:1.@Xlog@Ylog'
+   PlotOptions(7)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 37 @Ymin:0.005@Ymax:1.@Xlog@Ylog'
+   PlotOptions(8)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 43 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(9)  = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 49 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(10) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 57 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(11) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 65 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(12) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 75 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(13) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 86 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(14) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 99 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(15) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 115 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+   PlotOptions(16) = 'Experiment:BCDMS muon DIS@ExtraLabel:#mu beam energy E = 200 GeV @XTitle: x @YTitle: F_{2}(x, Q^{2}) @Title:Q^{2} = 137 @Ymin:0.001@Ymax:1.@Xlog@Ylog'
+&End
 0.070    17.00 0.647274  0.39928  1.30 10 -0.30 -0.10 -0.40 1.50 0.50 3.00 0.00 0.00 0.00 0.00 4.45807
 0.070    19.00 0.723424  0.39989  1.32 10 -0.20 0.00 0.50 1.50 0.50 3.00 0.00 0.00 0.00 0.00 4.46375
 0.100    19.00 0.506397  0.39548  1.03 10 -0.30 -0.10 0.40 0.50 0.50 3.00 0.00 0.00 0.00 0.00 4.06133

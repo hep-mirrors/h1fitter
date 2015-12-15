@@ -37,12 +37,12 @@
    PlotDefColumn = 'q2min'
    PlotDefValue = 100., 130., 260., 600., 1100., 2100., 5100., 30000.
    PlotVarColumn = 'et'
-   PlotOptions(1) = 'Title:125  < q2 < 250  @XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.01@Ymax:10.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
-   PlotOptions(2) = 'Title:250  < q2 < 500  @XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.01@Ymax:10.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
-   PlotOptions(3) = 'Title:500  < q2 < 1000 @XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.01@Ymax:10.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
-   PlotOptions(4) = 'Title:1000 < q2 < 2000 @XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.001@Ymax:1.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
-   PlotOptions(5) = 'Title:2000 < q2 < 5000 @XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.001@Ymax:1.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
-   PlotOptions(6) = 'Title:5000 < q2 < 20000@XTitle:et@Xmin:8.0@Xmax:80.@Ymin:0.001@Ymax:1.@YminR:-0.3@YmaxR:0.3@Xlog@Ylog'
+   PlotOptions(1) = 'Title:125  < q2 < 250  @XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:10.@Xlog@Ylog'
+   PlotOptions(2) = 'Title:250  < q2 < 500  @XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:10.@Xlog@Ylog'
+   PlotOptions(3) = 'Title:500  < q2 < 1000 @XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:10.@Xlog@Ylog'
+   PlotOptions(4) = 'Title:1000 < q2 < 2000 @XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:10.@Xlog@Ylog'
+   PlotOptions(5) = 'Title:2000 < q2 < 5000 @XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:1.@Xlog@Ylog'
+   PlotOptions(6) = 'Title:5000 < q2 < 20000@XTitle:E_{T} (GeV)@YTitle:#sigma_{jet}@Xmin:8.0@Xmax:80.@Ymin:0.0008@Ymax:0.5@Xlog@Ylog'
 &End
 125.0  250.0   8.0  15.0  11.5  0.95  1.0000  5.050   0.057   0.07050  0.2925 2.5   1.16
 125.0  250.0   15.0 22.0  18.5  0.96  1.0000  1.385   0.028   0.03750  0.0625  2.5  1.39
