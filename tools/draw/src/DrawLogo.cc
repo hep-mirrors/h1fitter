@@ -43,9 +43,9 @@ TPad * DrawLogo(string pos)
 	  cout << "Warning, cannot find font: " << font << "; xFitter version cannot be drawn on logo "<<endl;
 	  opts.version = false;
 	}
-      //   else
-      //logo->DrawText(500, 600, ver.c_str(), 200, 0, 
-      //	       font, TImage::kShadeBelow);
+      else
+	   logo->DrawText(500, 600, ver.c_str(), 200, 0, 
+		     font, TImage::kShadeBelow);
     }
 
   float dx = 0.0768 * 1.5;
