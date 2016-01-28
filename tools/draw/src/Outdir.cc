@@ -20,7 +20,7 @@ map <string, Chi2scanData> chi2scanmap;
 vector <TGraphAsymmErrors*> allgraphs;
 
 //Constructor, load all the directory data
-Outdir::Outdir(string dir) : dirname(dir), MCreplica(false), median(opts.median), cl68(opts.cl68), cl90(opts.cl90), asym(opts.asym), bands3(false), profiled(opts.profile), reweighted(opts.reweight), scale68(opts.scale68), RotatedSet(0), rotated(false)
+Outdir::Outdir(string dir) : dirname(dir), MCreplica(false), median(opts.median), cl68(opts.cl68), cl90(opts.cl90), asym(opts.asym), bands3(false), profiled(opts.profile), reweighted(opts.reweight), GK(opts.GKweight), BAY(opts.BAYweight), scale68(opts.scale68), RotatedSet(0), rotated(false)
 {
   //parse dirs for flags and labels
   string pattern = "";
@@ -79,10 +79,18 @@ Outdir::Outdir(string dir) : dirname(dir), MCreplica(false), median(opts.median)
 	  profiled = true;
 	  dirname.erase(0, dirname.find(":")+1);
 	}
-      if (prefix == "reweight")
+      if (prefix == "reweight-GK")
 	{
 	  doprefix = true;
 	  reweighted = true;
+	  GK = true;
+	  dirname.erase(0, dirname.find(":")+1);
+	}
+     if (prefix == "reweight-BAY")
+	{
+	  doprefix = true;
+	  reweighted = true;
+	  BAY = true;
 	  dirname.erase(0, dirname.find(":")+1);
 	}
       if (prefix == "rotate") 

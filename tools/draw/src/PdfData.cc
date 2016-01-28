@@ -6,6 +6,9 @@
 #include "Par.h"
 
 #include <TMath.h>
+#include <TCanvas.h>
+#include <TStyle.h>
+#include <TH1.h>
 
 #include <fstream>
 #include <sstream>
@@ -374,14 +377,18 @@ PdfData::PdfData(string dirname, string label) : model(false), par(false)
   if (err == MC && outdirs[label].IsReweighted())
     {
       double n, chi2, w;
-      ifstream mcwfile((dirname + "/mcrew.txt").c_str());
+      ifstream mcwfile;
+      if (outdirs[label].IsBAY()) mcwfile.open((dirname + "/pdf_BAYweights.dat").c_str());
+      if (outdirs[label].IsGK()) mcwfile.open((dirname + "/pdf_GKweights.dat").c_str());
       string line;
       getline (mcwfile,line);
       getline (mcwfile, line);
-      while (mcwfile >> n >> chi2 >> w)
+      getline (mcwfile, line);
+      getline (mcwfile, line);
+     while (mcwfile >> n >> chi2 >> w) {
 	mcw.push_back(w);
-    }
-
+      }
+   }
   //Remake central PDF
   if (err == MC && (opts.dobands || outdirs[label].IsReweighted()))
     for (map<float, Pdf>::iterator pdfit = Central.begin(); pdfit != Central.end(); pdfit++) //Loop on q2 values
@@ -392,7 +399,7 @@ PdfData::PdfData(string dirname, string label) : model(false), par(false)
             {
               vector <double> xi;
               for (vector <Pdf>::iterator eit = Errors[q2].begin(); eit != Errors[q2].end(); eit++)
-                xi.push_back((*eit).GetTable(*pit)[ix]);
+		xi.push_back((*eit).GetTable(*pit)[ix]);
               double val;
 	      if (outdirs[label].IsReweighted())
                 val = mean(xi, mcw);
