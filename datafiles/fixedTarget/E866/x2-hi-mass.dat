@@ -1,0 +1,41 @@
+*
+* dSigma/dx2 cross section.
+*
+* Data from  arXiv:hep-ex/0103030
+*
+&DATA
+ Name = 'E866, 2011 data'
+ Ndata  = 15
+ NColumn   = 5
+ ColumnType = 'Flag', 2*'Bin','Sigma','Error'
+ ColumnName = 'binFlag', 'eta1','eta2','Sigma', 'stat'
+
+ NInfo    = 2 
+ DataInfo = 7000.,     20.
+ CInfo    = 'sqrt(S)','pte cut'
+ IndexDataset = 241
+ Reaction = 'NC pp'
+ TheoryType     = 'expression'
+ TermName = 'Rpp', 'Rpd'
+ TermType = 'reaction', 'reaction'
+ TermSource = 'NC_pp',  'NC_pn'
+ TermInfo = 'Ebeam=800;minv[4.5:9.0];minv[10.7:]', 'Ebeam=800;minv[4.5:9.0];minv[10.7:]'
+ TheorExpr= '(Rpp+Rpn)/2.0/Rpp'
+
+ PERCENT = F, 32*T
+&END
+1  0.015   0.03 	1.029    0.040
+1  0.03    0.045 	1.050    0.018
+1  0.045   0.06 	1.075    0.016
+1  0.06    0.075 	1.107    0.018
+1  0.075   0.09 	1.118    0.020
+1  0.09    0.105 	1.131    0.023
+1  0.105   0.12 	1.150    0.029
+1  0.12    0.135 	1.164    0.034
+1  0.135   0.15 	1.249    0.043
+1  0.15    0.175 	1.105    0.036
+1  0.175   0.2 		1.132    0.047
+1  0.2     0.225 	1.107    0.057
+1  0.225   0.25 	1.028    0.069
+1  0.25    0.3 		0.943    0.071
+1  0.3     0.35 	0.729    0.124
