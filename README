@@ -725,9 +725,9 @@ j) Options for the chi2 choice:
     pdf vector cor.dat, pdf shifts.dat, pdf rotate.dat (can be used to either 
     perform reweighting or profiling, for more details please see Manual) 
 
-  Then the xfitter-process has to be run in order to perform the reweighting:
+a) To get the results as LHAPDF files, the xfitter-process has to be run in order:
 
-  ./xfitter-process reweight <number_output_replicas> <pdf_weights> <pdf_dir_in> <pdf_dir_out>
+  bin/xfitter-process reweight <number_output_replicas> <pdf_weights> <pdf_dir_in> <pdf_dir_out>
 
   where <number_output_replicas> is the number of PDF sets that the replica 
     should contain after the reweighting,
@@ -735,6 +735,9 @@ j) Options for the chi2 choice:
   <pdf_dir_in>  is the directory of the input PDF set,
   <pdf_dir_out> is the directory of the output PDF set.
 
+b) To plot the results as comparions with the input data, the bin/xfitter-draw program can be run just as for the other fits, e.g. using the command:
+ 
+  bin/xfitter-draw reweight-BAY:output:"BAYreweighted" reweight-GK:output:"GKreweighted"
 
 
 5) DESCRIPTION OF DiffDIS PACKAGE
