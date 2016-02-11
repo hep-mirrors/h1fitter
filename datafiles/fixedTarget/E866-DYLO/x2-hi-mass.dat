@@ -16,10 +16,10 @@
  IndexDataset = 241
  Reaction = 'NC pp'
  TheoryType     = 'expression'
- TermName = 'App', 'Apn'
- TermType = 'applgrid', 'applgrid'
+ TermName = 'Rpp', 'Rpd'
+ TermType = 'reaction', 'reaction'
  TermSource = 'NC_pp',  'NC_pn'
- TermInfo = 'beams=pp', 'beams=pn'
+ TermInfo = 'Ebeam=800;minv[4.5:9.0];minv[10.7:]', 'Ebeam=800;minv[4.5:9.0];minv[10.7:]'
  TheorExpr= '(Rpp+Rpn)/2.0/Rpp'
 
  PERCENT = F, 32*T
