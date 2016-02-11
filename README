@@ -735,6 +735,17 @@ a) To get the results as LHAPDF files, the xfitter-process has to be run in orde
   <pdf_dir_in>  is the directory of the input PDF set,
   <pdf_dir_out> is the directory of the output PDF set.
 
+ two checks plots are autmatically printed out when running the reweighting:
+  ./weights.pdf --> weight distributions (used in the reweighting procedure - replicas with high 
+ weights are kept, low weight replicas are thrown out)
+
+ ./palpha.pdf (only for Bayesian weighting) --> distribution of the probability, that the uncertainties 
+ of the new data should be re-scaled by a factor of alpha. The rescaling factor alpha should 
+ therefore ideally be 1. It is essentially a measure of the compatibility of 
+ the new data with the old data (it should be around around 1, if it is larger than that, 
+ say around 1.7, then then the new data are incompatible with the ones included in the 
+ fit - 0.5 for example however suspiciously good).
+
 b) To plot the results as comparions with the input data, the bin/xfitter-draw program can be run just as for the other fits, e.g. using the command:
  
   bin/xfitter-draw reweight-BAY:output:"BAYreweighted" reweight-GK:output:"GKreweighted"
