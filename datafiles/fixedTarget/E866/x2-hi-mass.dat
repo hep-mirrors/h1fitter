@@ -18,12 +18,18 @@
  TheoryType     = 'expression'
  TermName = 'App', 'Apn'
  TermType = 'applgrid', 'applgrid'
- TermSource = 'NC_pp',  'NC_pn'
+ TermSource = 'datafiles/fixedTarget/E866/grid-40-6-20-6-Z0_x2_mhigh.root',  'datafiles/fixedTarget/E866/grid-40-6-20-6-Z0_x2_mhigh.root'
  TermInfo = 'beams=pp', 'beams=pn'
- TheorExpr= '(Rpp+Rpn)/2.0/Rpp'
+ TheorExpr= '(App+Apn)/2.0/App'
 
  PERCENT = F, 32*T
 &END
+&PlotDesc
+ PlotN = 1
+ PlotDefColumn = 'eta1'
+ PlotDefValue = 0., 5.
+ PlotOptions(1)  = 'Experiment:ATLAS@ExtraLabel:pp #rightarrow Z; #sqrt{s} = 7 TeV; #int L = 4.7 fb^{-1}@Title: 116 < M_{Z} < 150@XTitle: y @YTitle: d#sigma/dy [pb] '
+&End
 1  0.015   0.03 	1.029    0.040
 1  0.03    0.045 	1.050    0.018
 1  0.045   0.06 	1.075    0.016
