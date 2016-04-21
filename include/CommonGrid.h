@@ -31,6 +31,8 @@ struct tHyperBin {
   int ngb;
   appl::grid *g;
   FastNLOxFitter* f;
+  // default constructor
+  tHyperBin(): b(NULL), ngb(0), g(NULL), f(NULL) {}
 };
 
 class CommonGrid {
@@ -53,7 +55,7 @@ class CommonGrid {
   int checkBins(vector<int> &bin_flags, vector<vector<double> > &data_bins);
 
   //! Convolute the PDFs and return the cross section
-  std::vector<double> vconvolute(const int iorder, const double mur, const double muf);
+  std::vector< std::vector<double> > vconvolute(const int iorder, const double mur, const double muf);
 
   //! Set custom CKM matrix for APPLgrid
   /*!

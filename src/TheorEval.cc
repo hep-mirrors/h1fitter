@@ -495,7 +495,10 @@ TheorEval::getGridValues()
   for(itm = _mapGridToken.begin(); itm != _mapGridToken.end(); itm++){
     CommonGrid* g = itm->first;
     vector<double> xs;
-    xs = g->vconvolute(_iOrd, _xmur, _xmuf);
+    std::vector< std::vector<double> > result = g->vconvolute(_iOrd, _xmur, _xmuf);
+    for(int i = 0; i < result.size(); i++)
+      for(int j = 0; j < result[i].size(); j++)
+        xs.push_back(result[i][j]);
 
     (itm->second)->resize(xs.size());
     *(itm->second) = valarray<double>(xs.data(), xs.size());
