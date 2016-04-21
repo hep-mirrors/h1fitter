@@ -497,6 +497,7 @@ TheorEval::getGridValues()
     vector<double> xs;
     xs = g->vconvolute(_iOrd, _xmur, _xmuf);
 
+    (itm->second)->resize(xs.size());
     *(itm->second) = valarray<double>(xs.data(), xs.size());
     /*
     for (int i = 0; i<xs.size(); i++){
