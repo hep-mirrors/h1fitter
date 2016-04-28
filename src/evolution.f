@@ -6,10 +6,13 @@
 * but needed when one store all pdfs.
 *
      
-      implicit double precision (a-h,o-z)
+c      implicit double precision (a-h,o-z)
+      implicit none
 #include "steering.inc"
 #include "pdfparam.inc"
 #include "thresholds.inc"
+#include "alphas.inc"
+#include "couplings.inc"
 c      common/thresholds/q0,qc,qb
 
       double precision func0,func1,func24,func22
@@ -35,9 +38,37 @@ c      common/thresholds/q0,qc,qb
       integer iq0, iqfrmq
       double precision eps
 cjt test
+      integer nfin
+      double precision q2c,q2b
       
       data nfin/0/
       data q2c/3.D0/, q2b/25.D0/, q2b/200.D0/            !thresh and mu20
+
+*     ---------------------------------------------------------
+*     declaration related to alphas
+*     for RT code, transfer alpha S
+*     ---------------------------------------------------------
+      double precision alphaszero
+      double precision hf_get_alphas
+
+*     ---------------------------------------------------------
+*     Subroutine of the external evolution codes
+*     ---------------------------------------------------------
+      external LHAPDFsubr
+      external APFELsubr
+      external APFELsubrPhoton
+      external QEDEVOLsubr
+
+      double precision epsi
+
+*     ---------------------------------------------------------
+*     Save scale in a common to avoid APFEL to evolve if the
+*     scale does not change.
+*     ---------------------------------------------------------
+      double precision q2p
+      common / PrevoiusQ / q2p
+
+      integer NextraSets
        
 cjt test 
 cv======
@@ -112,9 +143,9 @@ C--       -6  -5  -4   -3   -2   -1   0   1   2   3   4   5   6
 *
       if (mod(hfscheme,10).eq.6) then
          call SetxFitterParametersMELA(parubar,pardbar,
-     1                                    paruval,pardval,
-     2                                    parglue,
-     3                                    fstrange,fcharm)
+     1                                 paruval,pardval,
+     2                                 parglue,
+     3                                 fstrange,fcharm)
       endif
 
 c      call grpars(nx,xmi,xma,nq,qmi,qma,nord)
@@ -127,14 +158,42 @@ c      call setcbt(nfin,iqc,iqb,999) !thesholds in the vfns
 
       iq0  = iqfrmq(q0)         !starting scale
 
-      if (IPDFSET.eq.5) return  ! for external pdf evolution not needed!
+*
+*     Initialize alphas
+*
+      if (itheory.eq.0.or.itheory.eq.11) then
+         call setalf(dble(alphas),Mz*Mz)
+      else
+         call SetAlphaQCDRef(dble(alphas),dble(Mz))
+      endif
+      alphaSzero = hf_get_alphas(1D0)
+      call RT_SetAlphaS(alphaSzero)
 
+      NextraSets = 0
+      if (ExtraPdfs) then
+         NextraSets = 1
+      endif
+
+C ---- LHAPDF ----
+      if(IPDFSET.eq.5) then
+         call PDFEXT(LHAPDFsubr,IPDFSET,NextraSets,dble(0.001),epsi)
+         return
 C ---- APFEL ----
-      if (IPDFSET.eq.7) return
-
+      elseif (IPDFSET.eq.7) then
+         q2p = starting_scale
+         call SetPDFSet("external")
+         if(itheory.eq.35)then
+            call PDFEXT(APFELsubrPhoton,IPDFSET,1,dble(0.001),epsi)
+         else
+            call PDFEXT(APFELsubr,      IPDFSET,0,dble(0.001),epsi)
+         endif
+         return
 C ---- QEDEVOL ----
-      if (IPDFSET.eq.8) return
-
+      elseif (IPDFSET.eq.8) then
+         call qedevol_main
+         call PDFEXT(QEDEVOLsubr,IPDFSET,1,dble(0.001),epsi)
+         return
+      endif
 
 cv ===
       if (PDF_DECOMPOSITION.eq.'LHAPDF')  then
